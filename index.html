@@ -9,10 +9,13 @@
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="DhanaSeed Capital Solutions">
   <meta name="copyright" content="© 2026 DhanaSeed Capital Solutions. All rights reserved.">
-  <meta name="theme-color" content="#06152a">
+  <meta name="theme-color" content="#07111f">
   <meta name="format-detection" content="telephone=yes">
+
+  <!-- Canonical public URL for the GitHub Pages site. -->
   <link rel="canonical" href="https://pravinvdcs-lang.github.io/dhanaseed/">
 
+  <!-- Open Graph: works for social sharing and provides useful link previews. -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DhanaSeed Capital Solutions">
   <meta property="og:title" content="DhanaSeed | The Gateway to Global Markets">
@@ -24,159 +27,577 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="DhanaSeed Capital Solutions — The Gateway to Global Markets">
 
-  <meta name="twitter:card" content="summary_large_image">
+  <!-- Twitter/X uses these same share signals when available. -->
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="DhanaSeed | The Gateway to Global Markets">
   <meta name="twitter:description" content="Technology-led global capital markets and WealthTech designed to make global investing simpler, more transparent and intelligent.">
   <meta name="twitter:image" content="https://pravinvdcs-lang.github.io/dhanaseed/og-image.png">
   <meta name="twitter:image:alt" content="DhanaSeed Capital Solutions — The Gateway to Global Markets">
 
-  <!-- Organization structured data for Google Search and other parsers. -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "DhanaSeed Capital Solutions",
-    "url": "https://pravinvdcs-lang.github.io/dhanaseed/",
-    "description": "DhanaSeed Capital Solutions is a technology-led global capital-markets and WealthTech platform designed to make global investing simpler, more transparent and intelligent.",
-    "email": "pravinv.dcs@gmail.com",
-    "telephone": "+91 99701 84606",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "202, 3rd Floor, Moon Meadows, Opposite Sun Residency, Kasavanahalli",
-      "addressLocality": "Bengaluru",
-      "postalCode": "560035",
-      "addressCountry": "IN"
-    }
-  }
-  </script>
+  <!--
+    WhatsApp uses Open Graph metadata for link previews.
+    Add an og:image and twitter:image here later if a branded social-preview
+    image is created. No external image is required for GitHub Pages.
+  -->
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
 
     :root{
-      --navy:#06152a;
-      --navy2:#0a203b;
-      --navy3:#0e2a4a;
-      --gold:#d5a74f;
-      --gold2:#f0c66d;
-      --cream:#f5f1e8;
-      --ink:#0a2340;
-      --muted:#65748a;
-      --line:#dfe3e8;
+      --navy:#07111f;
+      --navy2:#0d1b2d;
+      --gold:#c9a45c;
+      --cream:#f7f4ed;
+      --text:#172033;
+      --muted:#687386;
+      --line:#e5e8ee;
       --white:#fff;
-      --focus:#f3c967;
-      --shadow:0 18px 50px rgba(4,18,36,.12);
+      --focus:#f1ca72;
     }
+
     *{box-sizing:border-box}
-    html{scroll-behavior:smooth;scroll-padding-top:82px}
-    body{margin:0;font-family:"DM Sans",sans-serif;color:var(--ink);background:#fff;line-height:1.55}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{
+      margin:0;
+      font-family:"DM Sans",sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.5;
+    }
     body.menu-open{overflow:hidden}
-    h1,h2,h3{margin:0;font-family:"Playfair Display",Georgia,serif;letter-spacing:-.035em}
+    h1,h2,h3{
+      font-family:Manrope,sans-serif;
+      margin:0;
+      letter-spacing:-.04em;
+    }
     p{line-height:1.7}
-    a{transition:all .22s ease}
-    :focus-visible{outline:3px solid var(--focus);outline-offset:4px;border-radius:4px}
-    .wrap{width:min(1180px,92%);margin:auto}
-    .skip-link{position:fixed;left:12px;top:12px;z-index:100;transform:translateY(-150%);padding:10px 14px;background:#fff;color:var(--navy);border-radius:8px;font-weight:700;text-decoration:none;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+    a{transition:color .2s ease,background-color .2s ease,border-color .2s ease,opacity .2s ease}
+    :focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:4px;
+      border-radius:4px;
+    }
+    .skip-link{
+      position:fixed;
+      left:12px;
+      top:12px;
+      z-index:100;
+      transform:translateY(-150%);
+      padding:10px 14px;
+      background:#fff;
+      color:var(--navy);
+      border-radius:8px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 6px 20px rgba(0,0,0,.2);
+    }
     .skip-link:focus{transform:translateY(0)}
 
-    header{position:fixed;top:0;z-index:50;width:100%;background:rgba(4,17,38,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.10)}
-    nav{min-height:66px;display:flex;align-items:center;justify-content:space-between;gap:28px}
-    .brand{display:flex;align-items:center;gap:11px;color:#fff;text-decoration:none;min-width:210px}
-    .mark{width:38px;height:38px;border:2px solid var(--gold);border-radius:7px;display:grid;place-items:center;color:var(--gold2);font:22px Georgia,serif;box-shadow:inset 0 0 0 2px rgba(213,167,79,.12)}
-    .brand-copy strong{display:block;font:800 20px Manrope,sans-serif;letter-spacing:-.03em}
-    .brand-copy small{display:block;color:#e0c27f;font-size:11px;letter-spacing:.02em;margin-top:-1px}
-    .links{display:flex;align-items:center;gap:34px}
-    .links a{color:#dce4ee;text-decoration:none;font-size:13px;font-weight:500;position:relative}
-    .links a:not(.navbtn)::after{content:"⌄";font-size:11px;margin-left:6px;color:#caa25b}
+    .wrap{width:min(1180px,92%);margin:auto}
+
+    /* Header / navigation */
+    header{
+      position:fixed;
+      top:0;
+      z-index:50;
+      width:100%;
+      background:rgba(7,17,31,.92);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.09);
+    }
+    nav{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      font-weight:800;
+      font-family:Manrope,sans-serif;
+      font-size:19px;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .mark{
+      height:38px;
+      width:38px;
+      border:1px solid rgba(201,164,92,.65);
+      border-radius:11px;
+      display:grid;
+      place-items:center;
+      color:var(--gold);
+      font-family:Georgia,serif;
+      font-size:20px;
+      flex:none;
+    }
+    .links{
+      display:flex;
+      align-items:center;
+      gap:28px;
+    }
+    .links a{
+      color:#cbd3df;
+      text-decoration:none;
+      font-size:14px;
+    }
     .links a:hover{color:#fff}
-    .navbtn{background:#fff;color:var(--navy)!important;padding:11px 23px;border-radius:24px;font-weight:700!important;box-shadow:0 8px 25px rgba(0,0,0,.16)}
-    .navbtn:hover{transform:translateY(-1px);background:#f4f4f4}
-    .menu-toggle{display:none;width:44px;height:44px;padding:8px;border:0;background:transparent;color:#fff;cursor:pointer}
-    .menu-toggle span{display:block;width:20px;height:2px;margin:5px auto;background:currentColor;border-radius:2px;transition:transform .2s,opacity .2s}
+    .navbtn{
+      color:#07111f!important;
+      background:#fff;
+      padding:11px 16px;
+      border-radius:9px;
+      font-weight:700;
+    }
+    .navbtn:hover{background:#f2f2f2}
+
+    .menu-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      padding:9px;
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:9px;
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+    }
+    .menu-toggle span{
+      display:block;
+      width:22px;
+      height:2px;
+      margin:5px auto;
+      background:currentColor;
+      border-radius:2px;
+      transition:transform .2s ease,opacity .2s ease;
+    }
     .menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
     .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
     .menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-    .mobile-menu{display:none;border-top:1px solid rgba(255,255,255,.1);padding:8px 0 18px}
+
+    .mobile-menu{
+      display:none;
+      border-top:1px solid rgba(255,255,255,.09);
+      padding:10px 0 18px;
+    }
+    .mobile-menu a{
+      display:block;
+      color:#d8dee8;
+      text-decoration:none;
+      padding:13px 4%;
+      font-size:15px;
+    }
+    .mobile-menu a:hover{background:rgba(255,255,255,.05);color:#fff}
+    .mobile-menu .mobile-navbtn{
+      margin:7px 4% 0;
+      padding:12px 16px;
+      border-radius:9px;
+      background:#fff;
+      color:var(--navy);
+      font-weight:700;
+    }
     .mobile-menu.is-open{display:block}
-    .mobile-menu a{display:block;color:#dce4ee;text-decoration:none;padding:13px 4%;font-size:15px}
-    .mobile-menu .mobile-navbtn{margin:6px 4% 0;background:#fff;color:var(--navy);border-radius:22px;text-align:center;font-weight:700}
 
-    .hero{position:relative;overflow:hidden;color:#fff;min-height:570px;padding:104px 0 38px;background:radial-gradient(circle at 75% 36%,rgba(34,88,139,.32),transparent 31%),radial-gradient(circle at 93% 12%,rgba(213,167,79,.12),transparent 24%),linear-gradient(135deg,#06152a 0%,#061a31 58%,#082340 100%)}
-    .hero::after{content:"";position:absolute;inset:auto 0 0;height:1px;background:rgba(213,167,79,.35)}
-    .hero-grid{display:grid;grid-template-columns:.94fr 1.06fr;align-items:center;gap:20px;min-height:430px}
-    .eyebrow{font:700 11px Manrope,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:17px}
-    .hero h1{font-size:clamp(46px,5.15vw,68px);line-height:.98;max-width:600px}
-    .hero h1 span{color:#e7b95f}
-    .hero p{color:#e4ebf3;font-size:15.5px;max-width:510px;margin:24px 0 27px}
+    /* Hero */
+    .hero{
+      min-height:760px;
+      padding:155px 0 90px;
+      color:#fff;
+      background:
+        radial-gradient(circle at 78% 35%,rgba(201,164,92,.18),transparent 26%),
+        linear-gradient(135deg,#06101d,#0d1c30 65%,#081321);
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      align-items:center;
+      gap:60px;
+    }
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#d8b979;
+      font-weight:700;
+      margin-bottom:22px;
+    }
+    .hero h1{
+      font-size:clamp(48px,6.5vw,78px);
+      line-height:1.02;
+    }
+    .hero h1 span{color:#d9bb7d}
+    .hero p{
+      color:#aeb9c9;
+      font-size:18px;
+      max-width:650px;
+      margin:27px 0 32px;
+    }
     .buttons{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700;font-size:13px}
-    .primary{background:#fff;color:var(--navy);box-shadow:0 8px 25px rgba(0,0,0,.12)}
-    .primary:hover{background:#f3f3f3;transform:translateY(-1px)}
-    .secondary{border:1px solid rgba(255,255,255,.65);color:#fff;background:transparent}
-    .secondary:hover{background:rgba(255,255,255,.08);border-color:#fff}
+    .btn{
+      padding:13px 19px;
+      border-radius:9px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      display:inline-block;
+    }
+    .primary{background:#fff;color:#07111f}
+    .primary:hover{background:#eee}
+    .secondary{border:1px solid rgba(255,255,255,.2);color:#fff}
+    .secondary:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
 
-    .globe-stage{height:420px;position:relative;display:grid;place-items:center;isolation:isolate}
-    .globe{width:330px;height:330px;border-radius:50%;position:relative;background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.23),transparent 5%),radial-gradient(circle at 43% 40%,#163c62 0%,#0b2a49 40%,#06182d 72%,#020d1a 100%);box-shadow:inset -28px -20px 60px rgba(0,0,0,.48),inset 12px 8px 35px rgba(113,171,219,.22),0 0 0 1px rgba(213,167,79,.35),0 0 70px rgba(56,123,180,.18)}
-    .globe::before{content:"";position:absolute;inset:18px;border-radius:50%;background:repeating-linear-gradient(80deg,transparent 0 27px,rgba(101,163,207,.15) 28px,transparent 29px 55px),repeating-linear-gradient(170deg,transparent 0 35px,rgba(101,163,207,.12) 36px,transparent 37px 70px);opacity:.8;transform:rotate(-9deg)}
-    .globe::after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 73% 22%,rgba(246,198,109,.65),transparent 3%),radial-gradient(circle at 64% 57%,rgba(246,198,109,.48),transparent 2%),radial-gradient(circle at 39% 70%,rgba(246,198,109,.55),transparent 2%);filter:blur(1px)}
-    .globe-ring{position:absolute;border:1px solid rgba(213,167,79,.52);border-radius:50%;transform:rotate(-20deg)}
-    .ring1{width:475px;height:135px}.ring2{width:445px;height:245px;transform:rotate(22deg)}.ring3{width:265px;height:470px;transform:rotate(-8deg)}
-    .globe-logo{position:absolute;text-align:center;z-index:3;text-shadow:0 4px 18px rgba(0,0,0,.55)}
-    .globe-logo .d{font:58px Georgia,serif;color:#efc66c;border:2px solid #efc66c;border-radius:7px;width:68px;height:68px;display:grid;place-items:center;margin:auto}
-    .globe-logo strong{display:block;font:700 25px Playfair Display,serif;margin-top:9px}
-    .globe-logo small{display:block;color:#efc66c;font-size:12px;margin-top:1px}
-    .route{position:absolute;color:#fff;font:14px Georgia,serif;white-space:nowrap}.route::after{content:"";display:inline-block;width:5px;height:5px;background:#e6b65e;border-radius:50%;margin-left:8px;vertical-align:middle;box-shadow:0 0 12px #e6b65e}.r1{left:4%;top:27%}.r2{right:0;top:20%}.r3{right:1%;bottom:25%}
+    .orb{
+      height:470px;
+      position:relative;
+      display:grid;
+      place-items:center;
+      isolation:isolate;
+    }
+    .orbital{
+      position:absolute;
+      border:1px solid rgba(201,164,92,.35);
+      border-radius:50%;
+      transform:rotate(-25deg);
+    }
+    .o1{width:420px;height:420px}
+    .o2{width:500px;height:210px}
+    .o3{width:280px;height:500px}
+    .core{text-align:center;z-index:2}
+    .core .symbol{font:90px Georgia,serif;color:#d9bb7d}
+    .core strong{display:block;font-size:24px}
+    .core small{color:#aeb9c9}
 
-    .ticker{background:#08203a;color:#dbe4ee;border-top:1px solid rgba(213,167,79,.25);border-bottom:1px solid rgba(255,255,255,.08)}
-    .ticker-grid{display:grid;grid-template-columns:repeat(3,1fr);padding:19px 0}.ticker-item{display:flex;align-items:center;gap:13px;padding:0 26px;border-right:1px solid rgba(255,255,255,.15)}.ticker-item:first-child{padding-left:0}.ticker-item:last-child{border:0}.ticker-icon{width:34px;height:34px;border:1px solid rgba(213,167,79,.65);border-radius:50%;display:grid;place-items:center;color:var(--gold2);font-size:17px}.ticker b{display:block;color:#fff;font:700 13px Manrope,sans-serif}.ticker span{font-size:11px;color:#aebdce}
+    /* Content */
+    .ticker{
+      background:#0b1728;
+      color:#b8c2d0;
+      border-top:1px solid #203049;
+      border-bottom:1px solid #203049;
+    }
+    .ticker .wrap{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      padding:25px 0;
+    }
+    .ticker b{
+      color:#fff;
+      display:block;
+      font-family:Manrope,sans-serif;
+      font-size:17px;
+    }
+    .ticker span{font-size:12px}
 
-    section{padding:64px 0}.light{background:var(--cream)}
-    .section-head{max-width:640px}.section-head .eyebrow{color:#b4873d}.section-head h2{font-size:38px;line-height:1.08}.section-head p{color:var(--muted);font-size:15px;margin:15px 0 0}
-    .intro-grid{display:grid;grid-template-columns:.9fr 1.7fr;gap:48px;align-items:center}
-    .intro-grid .section-head{max-width:470px}
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:30px}
-    .card{background:rgba(255,255,255,.62);border:1px solid #dddcd6;border-radius:9px;padding:22px;min-height:155px;transition:transform .22s,box-shadow .22s,border-color .22s}.card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:#cdbd9c}.card .num{font:700 10px Manrope,sans-serif;letter-spacing:1.4px;color:#b18743}.card h3{font-size:19px;line-height:1.12;margin:12px 0 8px}.card p{font-size:12.5px;color:#56657a;margin:0}
+    section{padding:105px 0}
+    .intro{max-width:760px}
+    .intro .eyebrow{color:#9b7838}
+    .intro h2{font-size:45px;line-height:1.08}
+    .intro p{color:var(--muted);font-size:17px}
 
-    .solutions{background:linear-gradient(115deg,#06162b,#071e36 62%,#06162b);color:#fff}.solutions .section-head p{color:#b9c6d5}.solutions .section-head .eyebrow{color:var(--gold2)}
-    .solutions-layout{display:grid;grid-template-columns:.88fr 1.08fr .84fr;gap:30px;align-items:center}
-    .solution-copy h2{font-size:42px;line-height:1.03}.solution-copy p{color:#b9c6d5;max-width:470px;font-size:15px}.gold-btn{display:inline-flex;margin-top:8px;background:linear-gradient(135deg,#e2b55d,#c9943f);color:#122035;padding:12px 18px;border-radius:7px;text-decoration:none;font-size:13px;font-weight:800}
-    .dashboard{border:1px solid #285176;border-radius:9px;padding:18px;background:linear-gradient(145deg,#0d2948,#08182b);box-shadow:0 20px 50px rgba(0,0,0,.18)}.dashboard-title{font:700 12px Manrope,sans-serif;color:#f4f7fb;margin-bottom:20px}.bar{display:grid;grid-template-columns:145px 45px 1fr;gap:12px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:11px}.bar:last-of-type{border:0}.bar span{color:#dce5ef}.bar b{color:#fff;text-align:right}.track{height:6px;background:#173b5d;border-radius:9px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,#b9883c,#efc36b);border-radius:9px}.dashboard-foot{display:flex;justify-content:space-between;color:#8198af;font-size:10px;margin-top:14px}
-    .benefits{display:grid;gap:18px;align-self:stretch;align-content:center}.benefit{display:grid;grid-template-columns:43px 1fr;gap:13px;align-items:start}.benefit-icon{width:43px;height:43px;border-radius:50%;display:grid;place-items:center;background:#173a5d;border:1px solid #31587d;color:var(--gold2);font-size:18px}.benefit strong{display:block;color:#fff;font:700 13px Manrope,sans-serif}.benefit p{margin:3px 0 0;color:#9eb0c4;font-size:11px;line-height:1.5}
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:45px;
+    }
+    .card{
+      padding:31px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+    }
+    .card .num{
+      color:#a17d3d;
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:1px;
+    }
+    .card h3{font-size:21px;margin:16px 0 9px}
+    .card p{color:var(--muted);font-size:14px;margin:0}
 
-    .approach{background:#fff}.approach-head{display:grid;grid-template-columns:.72fr 1.9fr;gap:38px;align-items:center}.approach-head .section-head h2{font-size:39px}.steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:0}.step{padding:0 25px;border-left:1px solid #d8dde4}.step:first-child{padding-left:0;border-left:0}.step .number{width:27px;height:27px;border-radius:50%;display:grid;place-items:center;background:#c99a49;color:#fff;font:700 11px Manrope,sans-serif}.step h3{font-size:18px;margin:11px 0 5px}.step p{font-size:12px;color:var(--muted);margin:0;max-width:190px}
+    .dark{background:var(--navy);color:#fff}
+    .dark .intro p{color:#aeb9c9}
+    .dark .card{background:#0e1b2d;border-color:#223149}
+    .dark .card p{color:#aeb9c9}
 
-    .about{background:var(--cream);padding:58px 0}.about .section-head h2{font-size:41px}.about p{max-width:760px}
-    .cta{position:relative;overflow:hidden;padding:30px 0;background:linear-gradient(105deg,#071a31 0%,#0a2844 48%,#071a31 100%);color:#fff}.cta::before{content:"";position:absolute;inset:auto -5% -55px;height:145px;background:linear-gradient(160deg,transparent 28%,rgba(17,48,78,.95) 29% 42%,transparent 43%),linear-gradient(8deg,transparent 35%,rgba(21,59,91,.95) 36% 53%,transparent 54%),linear-gradient(172deg,transparent 43%,rgba(10,37,65,.98) 44% 67%,transparent 68%);opacity:.9}.cta::after{content:"";position:absolute;width:38%;height:3px;right:17%;bottom:28px;background:linear-gradient(90deg,transparent,#e4b85e,transparent);transform:rotate(-11deg);box-shadow:0 0 18px rgba(228,184,94,.5)}.cta-box{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 1fr auto;align-items:center;gap:30px}.cta h2{font-size:31px;color:#fff}.cta p{font-size:12px;margin:3px 0 0;color:#c5d0dc}.cta .btn{background:#fff;color:var(--navy);border-radius:7px;padding:11px 22px}.cta h2{font-size:31px}.cta p{font-size:12px;margin:3px 0 0;color:#556277}.cta .btn{background:var(--navy);color:#fff;border-radius:6px;padding:11px 22px}
+    .product{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+    .panel{
+      background:linear-gradient(145deg,#111f33,#08121f);
+      border:1px solid #26364c;
+      border-radius:24px;
+      padding:38px;
+      color:#fff;
+    }
+    .metric{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:18px 0;
+      border-bottom:1px solid #26364c;
+    }
+    .metric:last-child{border:0}
+    .metric span{color:#9eabba}
+    .metric b{color:#e2c581}
+    .mini{font-size:12px;color:#7f8b9b;margin-top:18px}
 
-    .disclaimer{padding:24px 0;background:#eef1f5;border-top:1px solid #dfe3e9}.disclaimer h2{font:700 15px Manrope,sans-serif;margin:0 0 7px}.disclaimer p{color:#5e6979;font-size:11px;line-height:1.65;margin:0;max-width:1080px}
-    footer{background:#031126;color:#9eacbe;padding:34px 0 20px}.foot-grid{display:grid;grid-template-columns:1.55fr .75fr .9fr 1.1fr;gap:38px;padding-bottom:28px;border-bottom:1px solid #1a2d45}.foot-brand{display:flex;align-items:center;gap:10px;color:#fff}.foot-brand .mark{width:35px;height:35px}.foot-brand strong{font:700 18px Manrope,sans-serif}.foot-brand small{display:block;color:#d9b05e;font-size:10px}.foot p{font-size:11px;line-height:1.65;margin:12px 0 0}.foot h3{font:700 12px Manrope,sans-serif;color:#fff;margin:0 0 11px}.foot-links{display:grid;gap:7px}.foot a{color:#aebdce;text-decoration:none;font-size:11px}.foot a:hover{color:#fff}.address{display:inline-block;margin-top:9px;max-width:360px}.socials{display:flex;gap:12px}.socials a{width:28px;height:28px;border:1px solid #33465e;border-radius:5px;display:grid;place-items:center;color:#d5dde7;font-size:11px}.copyright{display:flex;justify-content:space-between;gap:30px;padding-top:20px;font-size:10px}.ownership{max-width:780px;color:#748397}.confidential{color:#8493a7;text-align:right}
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:0;
+      margin-top:48px;
+    }
+    .step{padding:22px;border-left:1px solid #d9dde4}
+    .step:first-child{border-left:2px solid var(--gold)}
+    .step b{color:#9b7838}
+    .step h3{margin:10px 0 5px;font-size:19px}
+    .step p{font-size:14px;color:var(--muted);margin:0}
 
-    @media(max-width:980px){.links{display:none}.menu-toggle{display:block}.hero{padding-top:118px}.hero-grid{grid-template-columns:1fr}.globe-stage{height:390px}.ticker-grid{grid-template-columns:1fr;gap:14px}.ticker-item{border-right:0;padding:0}.intro-grid,.solutions-layout,.approach-head{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.solutions-layout{gap:34px}.benefits{grid-template-columns:repeat(3,1fr);align-items:start}.steps{grid-template-columns:1fr 1fr;gap:30px;margin-top:25px}.step,.step:first-child{padding:0 0 0 20px;border-left:1px solid #d8dde4}.step:nth-child(odd){border-left:0;padding-left:0}.cta-box{grid-template-columns:1fr}.foot-grid{grid-template-columns:1.4fr 1fr 1fr}.foot-grid>:last-child{grid-column:1/-1}}
-    @media(max-width:620px){.wrap{width:92%}.brand{min-width:0}.brand-copy strong{font-size:18px}.hero{padding-bottom:30px}.hero h1{font-size:47px}.hero p{font-size:14px}.globe-stage{height:320px}.globe{width:245px;height:245px}.ring1{width:340px;height:100px}.ring2{width:330px;height:180px}.ring3{width:200px;height:350px}.globe-logo .d{width:50px;height:50px;font-size:42px}.globe-logo strong{font-size:18px}.globe-logo small{font-size:9px}.route{font-size:11px}.r1{left:0}.r2{right:0}.r3{right:-2%;bottom:17%}section{padding:66px 0}.section-head h2,.solution-copy h2,.about .section-head h2{font-size:34px}.cards{margin-top:26px}.card{padding:21px}.steps{grid-template-columns:1fr;gap:23px;margin-top:25px}.benefits{grid-template-columns:1fr}.step,.step:first-child,.step:nth-child(odd){border-left:0;border-top:1px solid #d8dde4;padding:20px 0 0}.step:first-child{border-top:2px solid var(--gold)}.foot-grid{grid-template-columns:1fr}.foot-grid>:last-child{grid-column:auto}.copyright{display:block}.confidential{text-align:left;margin-top:10px}.bar{grid-template-columns:105px 42px 1fr}}
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+    .cta{padding:90px 0;background:var(--cream)}
+    .cta-box{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:35px;
+    }
+    .cta h2{font-size:42px}
+    .cta p{color:var(--muted);max-width:650px}
+    .cta .primary{background:var(--navy);color:#fff}
+    .cta .primary:hover{background:#12243a}
+
+    /* Legal / contact */
+    .disclaimer{
+      padding:30px 0;
+      background:#eef1f5;
+      border-top:1px solid #dfe3e9;
+      border-bottom:1px solid #dfe3e9;
+    }
+    .disclaimer h2{
+      font-family:Manrope,sans-serif;
+      font-size:17px;
+      letter-spacing:-.02em;
+      margin-bottom:8px;
+    }
+    .disclaimer p{
+      color:#5e6979;
+      font-size:12px;
+      line-height:1.7;
+      margin:0;
+      max-width:1050px;
+    }
+
+    footer{
+      background:#050c15;
+      color:#8491a2;
+      padding:52px 0 28px;
+      font-size:13px;
+    }
+    .foot-grid{
+      display:grid;
+      grid-template-columns:1.4fr .8fr .8fr;
+      gap:45px;
+      padding-bottom:35px;
+      border-bottom:1px solid #1b2838;
+    }
+    .foot strong{
+      color:#fff;
+      font-family:Manrope,sans-serif;
+      font-size:15px;
+    }
+    .foot p{margin:10px 0 0;line-height:1.7}
+    .foot a{
+      color:#cbd3df;
+      text-decoration:none;
+    }
+    .foot a:hover{color:#fff}
+    .foot h3{
+      color:#fff;
+      font-size:14px;
+      margin:0 0 12px;
+    }
+    .foot-links{
+      display:grid;
+      gap:8px;
+    }
+    .address{
+      display:inline-block;
+      margin-top:10px;
+      max-width:430px;
+    }
+    .copyright{
+      display:flex;
+      justify-content:space-between;
+      gap:25px;
+      padding-top:24px;
+      font-size:12px;
+    }
+    .ownership{
+      color:#657285;
+      max-width:760px;
+    }
+
+    /* Responsive */
+    @media(max-width:900px){
+      .links{display:none}
+      .menu-toggle{display:block}
+      .hero{padding-top:125px}
+      .hero-grid,.product{grid-template-columns:1fr}
+      .hero-grid{gap:25px}
+      .orb{height:360px}
+      .o1{width:300px;height:300px}
+      .o2{width:350px;height:160px}
+      .o3{width:210px;height:350px}
+      .cards{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .steps .step{border-left:0;border-top:1px solid #d9dde4}
+      .steps .step:first-child{border-left:0;border-top:2px solid var(--gold)}
+      .cta-box{display:block}
+      .cta .btn{margin-top:15px}
+      .foot-grid{grid-template-columns:1fr 1fr}
+      .foot-grid > :first-child{grid-column:1 / -1}
+      .copyright{display:block}
+      .ownership{margin-bottom:10px}
+    }
+
+    @media(max-width:600px){
+      .wrap{width:min(92%,1180px)}
+      nav{min-height:68px}
+      .brand{font-size:17px}
+      .mark{width:36px;height:36px}
+      .hero{min-height:auto;padding:120px 0 70px}
+      .hero h1{font-size:clamp(43px,13vw,62px)}
+      .hero p{font-size:16px}
+      .orb{height:300px}
+      .o1{width:250px;height:250px}
+      .o2{width:290px;height:135px}
+      .o3{width:180px;height:300px}
+      .core .symbol{font-size:70px}
+      .core strong{font-size:20px}
+      .ticker .wrap{grid-template-columns:1fr;gap:16px}
+      section{padding:75px 0}
+      .intro h2{font-size:36px}
+      .panel{padding:27px}
+      .metric{font-size:14px}
+      .cta{padding:70px 0}
+      .cta h2{font-size:35px}
+      .foot-grid{grid-template-columns:1fr}
+      .foot-grid > :first-child{grid-column:auto}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{
+        transition-duration:.01ms!important;
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+      }
+    }
+  
+/* Integrated visual system from the alternate DhanaSeed concepts */
+.globe-stage{height:470px;position:relative;display:grid;place-items:center;isolation:isolate}
+.globe{width:350px;height:350px;border-radius:50%;position:relative;background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.23),transparent 5%),radial-gradient(circle at 43% 40%,#163c62 0%,#0b2a49 40%,#06182d 72%,#020d1a 100%);box-shadow:inset -28px -20px 60px rgba(0,0,0,.48),inset 12px 8px 35px rgba(113,171,219,.22),0 0 0 1px rgba(213,167,79,.35),0 0 70px rgba(56,123,180,.18)}
+.globe:before{content:"";position:absolute;inset:18px;border-radius:50%;background:repeating-linear-gradient(80deg,transparent 0 27px,rgba(101,163,207,.15) 28px,transparent 29px 55px),repeating-linear-gradient(170deg,transparent 0 35px,rgba(101,163,207,.12) 36px,transparent 37px 70px);opacity:.8;transform:rotate(-9deg)}
+.globe:after{content:"";position:absolute;inset:0;border-radius:50%;background:radial-gradient(circle at 73% 22%,rgba(246,198,109,.65),transparent 3%),radial-gradient(circle at 64% 57%,rgba(246,198,109,.48),transparent 2%),radial-gradient(circle at 39% 70%,rgba(246,198,109,.55),transparent 2%);filter:blur(1px)}
+.globe-ring{position:absolute;border:1px solid rgba(213,167,79,.52);border-radius:50%;transform:rotate(-20deg)}
+.ring1{width:500px;height:145px}.ring2{width:470px;height:270px;transform:rotate(22deg)}.ring3{width:280px;height:510px;transform:rotate(-8deg)}
+.globe-logo{position:absolute;text-align:center;z-index:3;text-shadow:0 4px 18px rgba(0,0,0,.55)}
+.globe-logo .d{font:58px Georgia,serif;color:#efc66c;border:2px solid #efc66c;border-radius:7px;width:68px;height:68px;display:grid;place-items:center;margin:auto}.globe-logo strong{display:block;font:700 25px Playfair Display,serif;margin-top:9px}.globe-logo small{display:block;color:#efc66c;font-size:12px;margin-top:1px}
+.route{position:absolute;color:#fff;font:14px Georgia,serif;white-space:nowrap}.route:after{content:"";display:inline-block;width:5px;height:5px;background:#e6b65e;border-radius:50%;margin-left:8px;vertical-align:middle;box-shadow:0 0 12px #e6b65e}.r1{left:4%;top:27%}.r2{right:0;top:20%}.r3{right:1%;bottom:25%}
+@media(max-width:900px){.globe-stage{height:390px}}
+@media(max-width:620px){.globe-stage{height:320px}.globe{width:245px;height:245px}.ring1{width:340px;height:100px}.ring2{width:330px;height:180px}.ring3{width:200px;height:350px}.globe-logo .d{width:50px;height:50px;font-size:42px}.globe-logo strong{font-size:18px}.globe-logo small{font-size:9px}.route{font-size:11px}.r1{left:0}.r2{right:0}.r3{right:-2%;bottom:17%}}
+
+/* WhatsApp floating contact button */
+.whatsapp-float{position:fixed;right:24px;bottom:24px;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#25D366;color:#fff;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.22);z-index:1200;transition:transform .2s ease,box-shadow .2s ease}
+.whatsapp-float:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 34px rgba(0,0,0,.28)}
+.whatsapp-float:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.whatsapp-float svg{width:30px;height:30px;fill:currentColor}
+.whatsapp-tooltip{position:absolute;right:70px;white-space:nowrap;background:#07111f;color:#fff;padding:9px 12px;border-radius:8px;font-size:13px;opacity:0;pointer-events:none;transform:translateX(5px);transition:.2s ease}
+.whatsapp-float:hover .whatsapp-tooltip,.whatsapp-float:focus-visible .whatsapp-tooltip{opacity:1;transform:translateX(0)}
+@media(max-width:600px){.whatsapp-float{right:16px;bottom:16px;width:54px;height:54px}.whatsapp-float svg{width:28px;height:28px}.whatsapp-tooltip{display:none}}
+
+/* ===== DhanaSeed 2.0 enhancements ===== */
+.section-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--gold);margin-bottom:12px}
+.section-note{color:var(--muted);max-width:760px}
+.globe-map{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:stretch;margin-top:44px}
+.map-visual{min-height:430px;border-radius:28px;background:radial-gradient(circle at 50% 45%,rgba(201,164,92,.2),transparent 35%),linear-gradient(145deg,#09182a,#10253d);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.map-visual:before{content:"";position:absolute;inset:11%;border:1px dashed rgba(201,164,92,.25);border-radius:50%;box-shadow:0 0 0 42px rgba(255,255,255,.015),0 0 0 84px rgba(255,255,255,.012)}
+.map-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:170px;height:170px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff4d5 0 3%,#c9a45c 4% 8%,#29455f 30%,#0b1726 72%);box-shadow:0 0 60px rgba(201,164,92,.22),inset -25px -18px 40px rgba(0,0,0,.45)}
+.map-line{position:absolute;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform-origin:left center;opacity:.75;animation:pulseLine 3s infinite ease-in-out}.line-a{width:260px;left:27%;top:40%;transform:rotate(14deg)}.line-b{width:250px;left:53%;top:54%;transform:rotate(-18deg);animation-delay:.8s}.line-c{width:220px;left:39%;top:63%;transform:rotate(-47deg);animation-delay:1.5s}
+.map-dot{position:absolute;width:10px;height:10px;background:#f4d58e;border-radius:50%;box-shadow:0 0 18px rgba(201,164,92,.8);animation:dotPulse 2s infinite}.dot-india{left:47%;top:56%}.dot-usa{left:27%;top:42%}.dot-eu{left:39%;top:34%}.dot-asia{left:70%;top:43%}.map-tag{position:absolute;font-size:12px;color:#fff;background:rgba(7,17,31,.72);border:1px solid rgba(255,255,255,.12);padding:7px 10px;border-radius:999px;backdrop-filter:blur(8px)}.tag-india{left:42%;top:67%}.tag-global{right:7%;top:27%}.tag-usa{left:8%;top:34%}
+.corridors{display:grid;gap:14px}.corridor{border:1px solid var(--line);border-radius:18px;padding:20px 22px;background:var(--white);transition:.25s;cursor:pointer}.corridor:hover,.corridor.active{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 14px 35px rgba(7,17,31,.08)}.corridor b{display:block;font-size:17px}.corridor span{display:block;color:var(--muted);font-size:14px;margin-top:6px}.corridor-detail{margin-top:18px;padding:18px;border-radius:16px;background:#f8f5ee;color:var(--text);font-size:14px;line-height:1.65}
+.intelligence{margin-top:64px;padding:34px;border-radius:26px;background:#f6f3ec;border:1px solid #e9e4d8}.intel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}.intel-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.intel-icon{font-size:24px}.intel-card h3{margin:12px 0 7px}.intel-card p{font-size:13px;color:var(--muted);margin:0}
+.portfolio-demo{margin-top:34px;background:linear-gradient(135deg,#081423,#10283f);border-radius:26px;padding:28px;color:#fff;box-shadow:0 20px 55px rgba(7,17,31,.18)}.portfolio-head{display:flex;justify-content:space-between;align-items:end;gap:20px}.portfolio-value{font:800 34px Manrope,sans-serif}.portfolio-sub{font-size:12px;color:#9eafc1}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.tab{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);color:#dce5ef;border-radius:999px;padding:9px 13px;cursor:pointer}.tab.active{background:var(--gold);color:#07111f;border-color:var(--gold);font-weight:800}.demo-content{display:grid;grid-template-columns:1fr 1fr;gap:18px}.demo-box{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);border-radius:18px;padding:20px}.bar{height:9px;border-radius:99px;background:#243a51;overflow:hidden;margin:9px 0 14px}.bar i{display:block;height:100%;background:var(--gold);border-radius:inherit}.demo-row{display:flex;justify-content:space-between;gap:12px;margin:9px 0;font-size:13px;color:#dce5ef}.demo-disclaimer{font-size:11px;color:#93a6b9;margin-top:18px}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}.product-card{border:1px solid var(--line);border-radius:20px;padding:22px;background:#fff;min-height:185px;transition:.25s}.product-card:hover{transform:translateY(-4px);box-shadow:0 16px 35px rgba(7,17,31,.08);border-color:#d8c18f}.product-card .pill{font-size:10px;letter-spacing:.12em;color:var(--gold);font-weight:800}.product-card h3{margin:12px 0 8px}.product-card p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
+.roadmap{margin-top:50px;position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.roadmap:before{content:"";position:absolute;left:4%;right:4%;top:20px;height:1px;background:rgba(201,164,92,.5)}.phase{position:relative;padding-top:50px}.phase-dot{position:absolute;top:12px;left:0;width:17px;height:17px;border-radius:50%;background:var(--gold);border:4px solid #0d1b2d;box-shadow:0 0 0 1px var(--gold)}.phase span{font-size:11px;color:var(--gold);font-weight:800;letter-spacing:.12em}.phase h3{margin:8px 0}.phase p{font-size:12px;color:#aab6c4;line-height:1.5}
+.academy{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:30px}.academy-card{padding:24px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(255,255,255,.04)}.academy-card h3{margin:10px 0}.academy-card p{color:#aab6c4;font-size:13px}.academy-card a{color:#f2d99e;text-decoration:none;font-weight:700;font-size:13px}
+.waitlist{position:fixed;inset:0;background:rgba(2,8,15,.72);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px;z-index:2000}.waitlist.show{display:flex}.wait-card{width:min(560px,100%);background:#fff;border-radius:24px;padding:30px;box-shadow:0 30px 90px rgba(0,0,0,.3);position:relative}.wait-close{position:absolute;right:16px;top:14px;border:0;background:transparent;font-size:26px;cursor:pointer}.wait-form{display:grid;gap:12px;margin-top:20px}.wait-form input,.wait-form select{padding:13px 14px;border:1px solid var(--line);border-radius:12px;font:inherit}.wait-success{display:none;padding:14px;border-radius:12px;background:#eef8f1;margin-top:14px}.wait-success.show{display:block}
+@keyframes pulseLine{0%,100%{opacity:.35}50%{opacity:1}}@keyframes dotPulse{0%,100%{transform:scale(.9);opacity:.75}50%{transform:scale(1.25);opacity:1}}
+@media(max-width:1000px){.products{grid-template-columns:repeat(2,1fr)}.intel-grid{grid-template-columns:repeat(2,1fr)}.roadmap{grid-template-columns:repeat(3,1fr)}.roadmap:before{display:none}.phase{padding-top:25px}.phase-dot{top:0}}
+@media(max-width:800px){.globe-map,.demo-content{grid-template-columns:1fr}.map-visual{min-height:350px}.academy{grid-template-columns:1fr}.portfolio-head{align-items:start;flex-direction:column}.roadmap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.products,.intel-grid{grid-template-columns:1fr}.map-visual{min-height:300px}.map-core{width:125px;height:125px}.intelligence,.portfolio-demo{padding:20px}.roadmap{grid-template-columns:1fr}}
+
   </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"DhanaSeed Capital Solutions",
+    "url":"https://pravinvdcs-lang.github.io/dhanaseed/",
+    "description":"DhanaSeed Capital Solutions is a technology-led global capital-markets and WealthTech platform designed to make global investing simpler, more transparent and intelligent.",
+    "email":"pravinv.dcs@gmail.com",
+    "telephone":"+91 99701 84606",
+    "address":{"@type":"PostalAddress","streetAddress":"202, 3rd Floor, Moon Meadows, Opposite Sun Residency, Kasavanahalli","addressLocality":"Bengaluru","postalCode":"560035","addressCountry":"IN"}
+  }
+  </script>
 </head>
+
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <header>
     <div class="wrap">
       <nav aria-label="Primary navigation">
-        <a class="brand" href="#main-content" aria-label="DhanaSeed home">
+        <a class="brand" href="#" aria-label="DhanaSeed home">
           <span class="mark" aria-hidden="true">D</span>
-          <span class="brand-copy"><strong>DhanaSeed</strong><small>Capital Solutions</small></span>
+          <span>DhanaSeed</span>
         </a>
-        <div class="links">
+
+        <div class="links" id="desktop-navigation">
           <a href="#platform">Platform</a>
           <a href="#solutions">Solutions</a>
           <a href="#approach">Approach</a>
           <a href="#about">About</a>
           <a class="navbtn" href="#contact">Contact</a>
         </div>
-        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-navigation" aria-expanded="false"><span></span><span></span><span></span></button>
+
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="mobile-navigation"
+          aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
       </nav>
+
       <div class="mobile-menu" id="mobile-navigation" aria-label="Mobile navigation">
-        <a href="#platform">Platform</a><a href="#solutions">Solutions</a><a href="#approach">Approach</a><a href="#about">About</a><a class="mobile-navbtn" href="#contact">Contact DhanaSeed</a>
+        <a href="#platform">Platform</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a class="mobile-navbtn" href="#contact">Contact DhanaSeed</a>
       </div>
     </div>
   </header>
@@ -185,76 +606,363 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
         <div>
-          <div class="eyebrow">Global Capital Markets &amp; WealthTech</div>
-          <h1 id="hero-title">The Gateway to <span>Global Markets</span></h1>
-          <p>DhanaSeed Capital Solutions — technology-led global capital markets and WealthTech, empowering investors, institutions and businesses to access global opportunities.</p>
-          <div class="buttons"><a class="btn primary" href="#platform">Explore Platform →</a><a class="btn secondary" href="#solutions">Our Solutions</a></div>
+          <div class="eyebrow">Global Capital • WealthTech • Intelligence</div>
+          <h1 id="hero-title">The <span>Gateway</span><br>to Global Markets.</h1>
+          <p>DhanaSeed Capital Solutions is building a technology-led global capital-markets and WealthTech platform designed to make global investing simple, transparent and intelligent.</p>
+          <div class="buttons">
+            <a class="btn primary" href="#platform">Explore the Platform →</a>
+            <a class="btn secondary" href="#contact">Partner with DhanaSeed</a>
+            <button class="btn secondary" type="button" data-open-waitlist>Join Early Access</button>
+          </div>
         </div>
+
         <div class="globe-stage" aria-hidden="true">
-          <div class="route r1">India → Global</div><div class="route r2">Global → India</div><div class="route r3">Global → Global</div>
-          <div class="globe-ring ring1"></div><div class="globe-ring ring2"></div><div class="globe-ring ring3"></div>
-          <div class="globe"><div class="globe-logo"><div class="d">D</div><strong>DhanaSeed</strong><small>Capital Solutions</small></div></div>
+            <div class="route r1">India → Global</div><div class="route r2">Global → India</div><div class="route r3">Global → Global</div>
+            <div class="globe-ring ring1"></div><div class="globe-ring ring2"></div><div class="globe-ring ring3"></div>
+            <div class="globe"><div class="globe-logo"><div class="d">D</div><strong>DhanaSeed</strong><small>Capital Solutions</small></div></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <div class="ticker" aria-label="DhanaSeed capabilities">
-      <div class="wrap ticker-grid">
-        <div class="ticker-item"><div class="ticker-icon">◎</div><div><b>Global Markets Access</b><span>Equities · Bonds · ETFs · Commodities · Forex</span></div></div>
-        <div class="ticker-item"><div class="ticker-icon">↗</div><div><b>WealthTech Solutions</b><span>Smart Investing · Portfolio Analytics · Digital Advisory</span></div></div>
-        <div class="ticker-item"><div class="ticker-icon">◇</div><div><b>Trusted &amp; Compliant</b><span>Security · Transparency · Long-term Partnership</span></div></div>
+    <div class="ticker" aria-label="DhanaSeed market connectivity">
+      <div class="wrap">
+        <div><b>India → Global</b><span>Global market connectivity</span></div>
+        <div><b>Global → India</b><span>Cross-border opportunity</span></div>
+        <div><b>Global → Global</b><span>Technology-enabled access</span></div>
       </div>
     </div>
 
-    <section id="platform" class="light" aria-labelledby="platform-title">
+    <section id="platform" aria-labelledby="platform-title">
       <div class="wrap">
-        <div class="intro-grid">
-          <div class="section-head"><div class="eyebrow">What We Do</div><h2 id="platform-title">Technology. Expertise. Global Access.</h2></div>
-          <div class="section-head"><p>We combine deep market expertise with technology to deliver seamless access to global capital markets and innovative wealth management solutions — built for a changing world.</p></div>
+        <div class="intro">
+          <div class="eyebrow">The Platform</div>
+          <h2 id="platform-title">One intelligent layer for a more connected financial world.</h2>
+          <p>DhanaSeed brings market access, portfolio visibility and financial intelligence together to help users navigate global financial decisions with greater clarity.</p>
         </div>
+
         <div class="cards">
-          <article class="card"><span class="num">01. GLOBAL MARKETS</span><h3>Invest Beyond Borders</h3><p>Access international markets with confidence and clarity.</p></article>
-          <article class="card"><span class="num">02. WEALTHTECH</span><h3>Smarter Wealth Decisions</h3><p>Data-driven insights and personalized investment solutions.</p></article>
-          <article class="card"><span class="num">03. INSTITUTIONS &amp; BUSINESSES</span><h3>Capital for Growth</h3><p>Tailored solutions for institutions, corporates and high-net-worth clients.</p></article>
+          <article class="card">
+            <span class="num">01 / ACCESS</span>
+            <h3>Global Market Access</h3>
+            <p>Designed to connect investors with permitted opportunities across global markets through a streamlined digital experience.</p>
+          </article>
+          <article class="card">
+            <span class="num">02 / INTELLIGENCE</span>
+            <h3>Portfolio Intelligence</h3>
+            <p>Unified portfolio visibility and actionable insights designed to make complex investment information easier to understand.</p>
+          </article>
+          <article class="card">
+            <span class="num">03 / INSIGHT</span>
+            <h3>Tax &amp; Currency Intelligence</h3>
+            <p>Bring tax and currency considerations into the decision-making framework for cross-border investing.</p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="solutions" class="solutions" aria-labelledby="solutions-title">
-      <div class="wrap solutions-layout">
-        <div class="solution-copy"><div class="eyebrow">Our Platform &amp; Solutions</div><h2 id="solutions-title">Built for Investors. Designed for the Future.</h2><p>Our integrated platform brings together global markets, advanced analytics and WealthTech to help you invest, manage and grow — across borders.</p><a class="gold-btn" href="#contact">Discover Our Solutions →</a></div>
-        <div class="dashboard" aria-label="Illustrative global portfolio overview"><div class="dashboard-title">Global Portfolio Overview <span style="float:right;color:#8fa6bc;font-size:9px;font-weight:500">ILLUSTRATIVE</span></div><div class="bar"><span>Equities</span><b>42.5%</b><div class="track"><div class="fill" style="width:88%"></div></div></div><div class="bar"><span>Bonds</span><b>28.3%</b><div class="track"><div class="fill" style="width:66%"></div></div></div><div class="bar"><span>ETFs</span><b>18.7%</b><div class="track"><div class="fill" style="width:47%"></div></div></div><div class="bar"><span>Commodities &amp; Forex</span><b>10.5%</b><div class="track"><div class="fill" style="width:30%"></div></div></div><div class="dashboard-foot"><span>Diversified · Global · Optimized</span><span>Illustrative only</span></div></div>
-        <div class="benefits"><div class="benefit"><div class="benefit-icon">↗</div><div><strong>Real-time Market Insights</strong><p>Make informed decisions with live data and analytics.</p></div></div><div class="benefit"><div class="benefit-icon">◇</div><div><strong>Secure &amp; Compliant</strong><p>Your assets and data are protected with industry best practices.</p></div></div><div class="benefit"><div class="benefit-icon">□</div><div><strong>Anytime, Anywhere</strong><p>Access your portfolio from any device, globally.</p></div></div></div>
-      </div>
-    </section>
-
-    <section id="approach" class="approach" aria-labelledby="approach-title">
+    <section class="dark" id="solutions" aria-labelledby="solutions-title">
       <div class="wrap">
-        <div class="approach-head"><div class="section-head"><div class="eyebrow">How It Works</div><h2 id="approach-title">A Simple Path to Global Investing</h2><p>From onboarding to portfolio growth, our intended experience is designed to make global investing clear, connected and easier to navigate.</p></div><div class="steps" aria-label="DhanaSeed approach"><div class="step"><div class="number">1</div><h3>Open Your Account</h3><p>Complete a simple, secure onboarding process.</p></div><div class="step"><div class="number">2</div><h3>Choose Your Strategy</h3><p>Pick from curated or custom investment solutions.</p></div><div class="step"><div class="number">3</div><h3>Invest Globally</h3><p>Access global markets with our advanced platform.</p></div><div class="step"><div class="number">4</div><h3>Grow Your Wealth</h3><p>Track, manage and achieve your long-term goals.</p></div></div></div>
+        <div class="intro">
+          <div class="eyebrow">Solutions</div>
+          <h2 id="solutions-title">Built for the new generation of global finance.</h2>
+          <p>Our vision is to bridge technology, financial expertise and market connectivity across investors, businesses and strategic partners.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <span class="num">FOR INVESTORS</span>
+            <h3>Invest Smarter</h3>
+            <p>Discover a clearer way to evaluate and manage permitted global investment opportunities.</p>
+          </article>
+          <article class="card">
+            <span class="num">FOR BUSINESSES</span>
+            <h3>Think Beyond Capital</h3>
+            <p>Use financial intelligence and capital-oriented thinking to support planning, growth and strategic decisions.</p>
+          </article>
+          <article class="card">
+            <span class="num">FOR PARTNERS</span>
+            <h3>Build Together</h3>
+            <p>Connect complementary capabilities across finance, technology and professional services.</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section id="about" class="about" aria-labelledby="about-title"><div class="wrap"><div class="section-head"><div class="eyebrow">About DhanaSeed</div><h2 id="about-title">India → Global. Global → India. Global → Global.</h2><p>DhanaSeed Capital Solutions is envisioned as a technology-led global capital-markets and WealthTech platform focused on simplifying access, information and intelligence across increasingly connected markets.</p></div></div></section>
+    <section id="approach" aria-labelledby="approach-title">
+      <div class="wrap">
+        <div class="product">
+          <div class="intro">
+            <div class="eyebrow">Our Philosophy</div>
+            <h2 id="approach-title">From data to decisions.</h2>
+            <p>Financial information becomes more powerful when it is connected, contextualized and made actionable. DhanaSeed is designed around that principle.</p>
+          </div>
 
-    <section class="cta" id="contact" aria-labelledby="contact-title"><div class="wrap cta-box"><div><div class="eyebrow">Your Global Financial Partner</div><h2 id="contact-title">Let’s Build Your<br>Global Investment Journey</h2><p>Let's build your global investment journey together. Get in touch with our team today.</p></div><div aria-hidden="true"></div><a class="btn" href="mailto:pravinv.dcs@gmail.com">Contact Us →</a></div></section>
+          <div class="panel" aria-label="Illustrative platform capabilities">
+            <div class="metric"><span>Market Access</span><b>Connected</b></div>
+            <div class="metric"><span>Portfolio View</span><b>Unified</b></div>
+            <div class="metric"><span>Tax Insight</span><b>Integrated</b></div>
+            <div class="metric"><span>Currency View</span><b>Contextual</b></div>
+            <div class="mini">Illustrative platform vision — not a representation of live account or investment data.</div>
+          </div>
+        </div>
 
-    <aside class="disclaimer" aria-labelledby="disclaimer-title"><div class="wrap"><h2 id="disclaimer-title">Important information</h2><p>This website is for general informational purposes only and does not constitute investment advice, a recommendation, an offer to buy or sell securities, or a solicitation of investment. References to global markets, opportunities, access, portfolio intelligence, tax or currency considerations describe the intended platform vision and are not guarantees of availability, returns or outcomes. Any investment activity is subject to applicable laws, regulations, eligibility requirements, jurisdictional restrictions, and the terms of the relevant product or service. Prospective users should obtain appropriate independent legal, tax and financial advice before making investment decisions.</p></div></aside>
+        <div class="steps" aria-label="DhanaSeed approach">
+          <div class="step"><b>01</b><h3>Connect</h3><p>Bring markets, data and opportunities together.</p></div>
+          <div class="step"><b>02</b><h3>Understand</h3><p>Make financial complexity easier to interpret.</p></div>
+          <div class="step"><b>03</b><h3>Evaluate</h3><p>Compare opportunities with context and clarity.</p></div>
+          <div class="step"><b>04</b><h3>Act</h3><p>Turn better information into informed decisions.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="dark" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="intro">
+          <div class="eyebrow">About DhanaSeed</div>
+          <h2 id="about-title">India → Global. Global → India. Global → Global.</h2>
+          <p>DhanaSeed Capital Solutions is envisioned as a technology-led global capital-markets and WealthTech platform focused on simplifying access, information and intelligence across increasingly connected markets.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact" aria-labelledby="contact-title">
+      <div class="wrap cta-box">
+        <div>
+          <h2 id="contact-title">Let's build the future of global finance.</h2>
+          <p>Interested in the platform, strategic partnerships or capital-market opportunities? Start a conversation with DhanaSeed.</p>
+        </div>
+        <a class="btn primary" href="mailto:pravinv.dcs@gmail.com">Contact DhanaSeed →</a>
+      </div>
+    </section>
+
+
+    <section id="global-network" aria-labelledby="network-title">
+      <div class="wrap">
+        <div class="intro">
+          <div class="eyebrow">Global Network</div>
+          <h2 id="network-title">One platform. Three global corridors.</h2>
+          <p>Designed around the long-term DhanaSeed model: India → Global, Global → India and Global → Global, with eligibility and regulatory requirements determining what can be offered in each market.</p>
+        </div>
+        <div class="globe-map">
+          <div class="map-visual" aria-hidden="true">
+            <div class="map-core"></div><div class="map-line line-a"></div><div class="map-line line-b"></div><div class="map-line line-c"></div>
+            <i class="map-dot dot-india"></i><i class="map-dot dot-usa"></i><i class="map-dot dot-eu"></i><i class="map-dot dot-asia"></i>
+            <span class="map-tag tag-india">India</span><span class="map-tag tag-usa">USA</span><span class="map-tag tag-global">Global markets</span>
+          </div>
+          <div class="corridors">
+            <div class="corridor active" data-corridor="india-global"><b>🇮🇳 India → Global</b><span>For Indian residents seeking permitted overseas investment opportunities.</span></div>
+            <div class="corridor" data-corridor="global-india"><b>🌎 Global → India</b><span>For NRIs, OCIs and eligible foreign investors seeking India access.</span></div>
+            <div class="corridor" data-corridor="global-global"><b>🌎 Global → Global</b><span>The long-term multi-market opportunity, subject to jurisdiction-specific frameworks.</span></div>
+            <div class="corridor-detail" id="corridor-detail">Global market discovery, international securities, currency visibility, overseas investment information and portfolio intelligence — where permitted and eligible.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="portfolio-title">
+      <div class="wrap">
+        <div class="intro">
+          <div class="eyebrow">Flagship Experience</div>
+          <h2 id="portfolio-title">One investor. One portfolio. Multiple markets.</h2>
+          <p>A preview of the intended DhanaSeed intelligence layer — bringing holdings, country exposure, currency, risk and tax information into one coherent experience.</p>
+        </div>
+        <div class="portfolio-demo">
+          <div class="portfolio-head"><div><div class="portfolio-sub">MY GLOBAL WEALTH · ILLUSTRATIVE</div><div class="portfolio-value">₹35.00 lakh</div></div><div class="portfolio-sub">Portfolio Intelligence · Available</div></div>
+          <div class="tabs" role="tablist"><button class="tab active" data-tab="allocation">Allocation</button><button class="tab" data-tab="currency">Currency</button><button class="tab" data-tab="intelligence">Intelligence</button><button class="tab" data-tab="tax">Tax</button></div>
+          <div class="demo-content" id="demo-content"></div>
+          <div class="demo-disclaimer">Illustrative platform vision — not live account, market or investment data.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="intelligence" class="dark" aria-labelledby="intelligence-title">
+      <div class="wrap">
+        <div class="intro"><div class="eyebrow">Intelligence Layer</div><h2 id="intelligence-title">The information behind better financial decisions.</h2><p>Portfolio, tax and currency intelligence are intended to sit alongside market access — not as disconnected tools.</p></div>
+        <div class="intelligence" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)">
+          <div class="intel-grid">
+            <article class="intel-card"><div class="intel-icon">◈</div><h3>Portfolio</h3><p>Unified holdings, performance, concentration, diversification and reporting.</p></article>
+            <article class="intel-card"><div class="intel-icon">⌁</div><h3>Currency</h3><p>Multi-currency valuation and home-currency return context.</p></article>
+            <article class="intel-card"><div class="intel-icon">▣</div><h3>Tax</h3><p>Transaction, cost-basis and tax-information workflows across relevant assets.</p></article>
+            <article class="intel-card"><div class="intel-icon">◇</div><h3>Compliance</h3><p>Rules based on residence, investor category, market, product and eligibility.</p></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" aria-labelledby="products-title">
+      <div class="wrap">
+        <div class="intro"><div class="eyebrow">DhanaSeed Ecosystem</div><h2 id="products-title">A platform family built to grow with the investor.</h2><p>The roadmap starts focused and expands toward a broader global capital-markets and wealth technology platform.</p></div>
+        <div class="products">
+          <article class="product-card"><span class="pill">CORE</span><h3>DhanaSeed Invest</h3><p>Core investing experience for Indian markets and the foundation of the platform.</p></article>
+          <article class="product-card"><span class="pill">INDIA → GLOBAL</span><h3>DhanaSeed Global</h3><p>Global market discovery and permitted international investing for Indian residents.</p></article>
+          <article class="product-card"><span class="pill">GLOBAL → INDIA</span><h3>DhanaSeed India</h3><p>India access for NRIs, OCIs and eligible international investors.</p></article>
+          <article class="product-card"><span class="pill">GLOBAL → GLOBAL</span><h3>DhanaSeed World</h3><p>Long-term architecture for selected international corridors.</p></article>
+          <article class="product-card"><span class="pill">PRO</span><h3>DhanaSeed Pro</h3><p>Advanced charts, screeners, alerts, analytics, paper trading and APIs.</p></article>
+          <article class="product-card"><span class="pill">WEALTH</span><h3>DhanaSeed Wealth</h3><p>Consolidated global wealth, allocation, risk, income and family portfolio intelligence.</p></article>
+          <article class="product-card"><span class="pill">INFRASTRUCTURE</span><h3>DhanaSeed API</h3><p>Potential market-data, portfolio, order, analytics and developer infrastructure.</p></article>
+          <article class="product-card"><span class="pill">INTELLIGENCE</span><h3>Global Tax Centre</h3><p>A future layer for organizing tax information across residence, markets, assets and currencies.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" id="roadmap" aria-labelledby="roadmap-title">
+      <div class="wrap"><div class="intro"><div class="eyebrow">Strategic Roadmap</div><h2 id="roadmap-title">Focus → Prove → Raise → Expand.</h2><p>The strategic sequence keeps the initial build focused while preparing the architecture for a global platform.</p></div>
+        <div class="roadmap">
+          <div class="phase"><i class="phase-dot"></i><span>PHASE 01</span><h3>India</h3><p>DhanaSeed Invest + Tax Intelligence</p></div>
+          <div class="phase"><i class="phase-dot"></i><span>PHASE 02</span><h3>India → Global</h3><p>DhanaSeed Global</p></div>
+          <div class="phase"><i class="phase-dot"></i><span>PHASE 03</span><h3>Global → India</h3><p>DhanaSeed India</p></div>
+          <div class="phase"><i class="phase-dot"></i><span>PHASE 04</span><h3>Global → Global</h3><p>DhanaSeed World</p></div>
+          <div class="phase"><i class="phase-dot"></i><span>PHASE 05</span><h3>Global Wealth</h3><p>DhanaSeed Wealth</p></div>
+          <div class="phase"><i class="phase-dot"></i><span>PHASE 06</span><h3>Infrastructure</h3><p>DhanaSeed API</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" id="academy" aria-labelledby="academy-title">
+      <div class="wrap"><div class="intro"><div class="eyebrow">DhanaSeed Academy</div><h2 id="academy-title">Understand the markets before you navigate them.</h2><p>Future educational content can make global investing, taxation, currency risk and portfolio management easier to understand.</p></div>
+        <div class="academy">
+          <article class="academy-card"><span class="section-label">01 · GLOBAL INVESTING</span><h3>From India to Global Markets</h3><p>Learn the concepts behind international diversification, market access and currency impact.</p><a href="#contact">Explore insights →</a></article>
+          <article class="academy-card"><span class="section-label">02 · NRI / OCI</span><h3>India from Anywhere</h3><p>Educational guides around India investing, onboarding and documentation considerations.</p><a href="#contact">Explore insights →</a></article>
+          <article class="academy-card"><span class="section-label">03 · TAX & RISK</span><h3>Make Complexity Understandable</h3><p>Build foundational knowledge around tax information, risk, portfolio construction and currency.</p><a href="#contact">Explore insights →</a></article>
+        </div>
+      </div>
+    </section>
+
+    <aside class="disclaimer" aria-labelledby="disclaimer-title">
+      <div class="wrap">
+        <h2 id="disclaimer-title">Important information</h2>
+        <p>
+          This website is for general informational purposes only and does not constitute investment advice, a recommendation, an offer to buy or sell securities, or a solicitation of investment. References to global markets, opportunities, access, portfolio intelligence, tax or currency considerations describe the intended platform vision and are not guarantees of availability, returns or outcomes. Any investment activity is subject to applicable laws, regulations, eligibility requirements, jurisdictional restrictions, and the terms of the relevant product or service. Prospective users should obtain appropriate independent legal, tax and financial advice before making investment decisions.
+        </p>
+      </div>
+    </aside>
   </main>
 
   <footer>
     <div class="wrap foot">
       <div class="foot-grid">
-        <div><div class="foot-brand"><span class="mark">D</span><div><strong>DhanaSeed</strong><small>Capital Solutions</small></div></div><p>The Gateway to Global Markets</p><p><a href="tel:+919970184606">+91 99701 84606</a><br><a href="mailto:pravinv.dcs@gmail.com">pravinv.dcs@gmail.com</a><br><a class="address" href="https://www.google.com/maps/search/?api=1&query=202%2C%203rd%20Floor%2C%20Moon%20Meadows%2C%20Opposite%20Sun%20Residency%2C%20Kasavanahalli%2C%20Bengaluru%20560035" target="_blank" rel="noopener noreferrer">202, 3rd Floor, Moon Meadows, Opposite Sun Residency,<br>Kasavanahalli, Bengaluru - 560035</a></p></div>
-        <div><h3>Explore</h3><div class="foot-links"><a href="#platform">Platform</a><a href="#solutions">Solutions</a><a href="#approach">Approach</a><a href="#about">About</a><a href="#contact">Contact</a></div></div>
-        <div><h3>Connect</h3><div class="foot-links"><a href="mailto:pravinv.dcs@gmail.com">Email</a><a href="tel:+919970184606">Phone</a><a href="https://www.google.com/maps/search/?api=1&query=202%2C%203rd%20Floor%2C%20Moon%20Meadows%2C%20Opposite%20Sun%20Residency%2C%20Kasavanahalli%2C%20Bengaluru%20560035" target="_blank" rel="noopener noreferrer">Directions</a></div></div>
-        <div><h3>Start a Conversation</h3><div class="foot-links"><a href="mailto:pravinv.dcs@gmail.com">pravinv.dcs@gmail.com</a><a href="tel:+919970184606">+91 99701 84606</a><a href="https://wa.me/919970184606" target="_blank" rel="noopener noreferrer">WhatsApp</a></div></div>
+        <div>
+          <strong>DhanaSeed Capital Solutions</strong>
+          <p>India → Global | Global → India | Global → Global</p>
+          <p>
+            <a href="tel:+919970184606" aria-label="Call DhanaSeed at plus 91 99701 84606">+91 99701 84606</a><br>
+            <a href="mailto:pravinv.dcs@gmail.com">pravinv.dcs@gmail.com</a>
+          </p>
+          <a
+            class="address"
+            href="https://www.google.com/maps/search/?api=1&query=202%2C%203rd%20Floor%2C%20Moon%20Meadows%2C%20Opposite%20Sun%20Residency%2C%20Kasavanahalli%2C%20Bengaluru%20560035"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open DhanaSeed address in Google Maps">
+            202, 3rd Floor, Moon Meadows, Opposite Sun Residency,<br>
+            Kasavanahalli, Bengaluru - 560035
+          </a>
+        </div>
+
+        <div>
+          <h3>Explore</h3>
+          <div class="foot-links">
+            <a href="#platform">Platform</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#approach">Approach</a>
+            <a href="#about">About</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Connect</h3>
+          <div class="foot-links">
+            <a href="#contact">Contact DhanaSeed</a>
+            <a href="mailto:pravinv.dcs@gmail.com">Email</a>
+            <a href="tel:+919970184606">Phone</a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=202%2C%203rd%20Floor%2C%20Moon%20Meadows%2C%20Opposite%20Sun%20Residency%2C%20Kasavanahalli%2C%20Bengaluru%20560035"
+              target="_blank"
+              rel="noopener noreferrer">
+              Directions
+            </a>
+          </div>
+        </div>
       </div>
-      <div class="copyright"><div class="ownership">© 2026 DhanaSeed Capital Solutions. All rights reserved. DhanaSeed and related names, branding, content, designs and original materials on this website are the property of DhanaSeed Capital Solutions unless otherwise stated. Unauthorized reproduction or commercial use is not permitted.</div><div class="confidential">Informational website • No confidential information should be submitted through this website.</div></div>
+
+      <div class="copyright">
+        <div class="ownership">
+          © 2026 DhanaSeed Capital Solutions. All rights reserved. DhanaSeed and related names, branding, content, designs and original materials on this website are the property of DhanaSeed Capital Solutions unless otherwise stated. Unauthorized reproduction or commercial use is not permitted.
+        </div>
+        <div>Informational website • No confidential information should be submitted through this website.</div>
+      </div>
     </div>
   </footer>
 
   <script>
-    (()=>{const t=document.querySelector('.menu-toggle'),m=document.getElementById('mobile-navigation');if(!t||!m)return;const close=()=>{t.setAttribute('aria-expanded','false');t.setAttribute('aria-label','Open navigation menu');m.classList.remove('is-open');document.body.classList.remove('menu-open')};t.addEventListener('click',()=>{const open=t.getAttribute('aria-expanded')==='true';t.setAttribute('aria-expanded',String(!open));t.setAttribute('aria-label',open?'Open navigation menu':'Close navigation menu');m.classList.toggle('is-open',!open);document.body.classList.toggle('menu-open',!open)});m.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});window.addEventListener('resize',()=>{if(innerWidth>980)close()})})();
+    (() => {
+      const toggle = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('mobile-navigation');
+
+      if (!toggle || !menu) return;
+
+      const closeMenu = () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation menu');
+        menu.classList.remove('is-open');
+        document.body.classList.remove('menu-open');
+      };
+
+      toggle.addEventListener('click', () => {
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+        menu.classList.toggle('is-open', !isOpen);
+        document.body.classList.toggle('menu-open', !isOpen);
+      });
+
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeMenu();
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) closeMenu();
+      });
+    })();
   </script>
+
+<a class="whatsapp-float" href="https://wa.me/919970184606?text=Hello%20DhanaSeed%20Capital%20Solutions%2C%20I%27d%20like%20to%20know%20more%20about%20your%20global%20finance%20platform." target="_blank" rel="noopener noreferrer" aria-label="Chat with DhanaSeed on WhatsApp">
+  <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.2c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.98 2.63 1.11 2.81c.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.55.57.65.21 1.24.18 1.71.11.52-.08 1.6-.66 1.82-1.29.23-.63.23-1.17.16-1.29-.07-.11-.25-.18-.52-.32zM16.02 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.39 1.63 6.24L3.1 28.8l6.72-1.71a12.75 12.75 0 0 0 6.2 1.6h.01c7.06 0 12.79-5.73 12.79-12.79S23.08 3.2 16.02 3.2zm0 23.35h-.01c-2.03 0-4.02-.55-5.75-1.58l-.41-.24-3.99 1.02 1.07-3.89-.27-.4a10.57 10.57 0 1 1 9.36 5.09z"/></svg>
+</a>
+
+  <div class="waitlist" id="waitlist" role="dialog" aria-modal="true" aria-labelledby="wait-title">
+    <div class="wait-card"><button class="wait-close" type="button" data-close-waitlist aria-label="Close">×</button><div class="eyebrow">Early Access</div><h2 id="wait-title">Be part of the DhanaSeed journey.</h2><p>Tell us what you are interested in and we'll use it to understand early demand.</p>
+      <form class="wait-form" id="wait-form"><input name="name" placeholder="Your name" required><input name="email" type="email" placeholder="Email address" required><select name="interest" required><option value="">I am interested in…</option><option>India investing</option><option>Global investing</option><option>India from abroad</option><option>Global wealth</option><option>Partnerships</option><option>API / technology</option></select><button class="btn primary" type="submit">Request Early Access →</button></form><div class="wait-success" id="wait-success">Thank you. Your interest has been recorded for this session. Connect with DhanaSeed on WhatsApp or email to continue the conversation.</div>
+    </div>
+  </div>
+
+
+<script>
+(function(){
+  const details={
+    'india-global':'Global market discovery, international securities, currency visibility, overseas investment information and portfolio intelligence — where permitted and eligible.',
+    'global-india':'Digital onboarding, KYC, Indian market access, portfolio visibility, tax documents and related funding/repatriation information for eligible customer categories.',
+    'global-global':'A long-term multi-market architecture involving customer eligibility, regulatory rules, market partners, custody, tax, FX and reporting — market by market.'
+  };
+  document.querySelectorAll('.corridor').forEach(el=>el.addEventListener('click',()=>{document.querySelectorAll('.corridor').forEach(x=>x.classList.remove('active'));el.classList.add('active');document.getElementById('corridor-detail').textContent=details[el.dataset.corridor]||'';}));
+  const demo={
+    allocation:`<div class="demo-box"><b>Country Allocation</b><div class="demo-row"><span>🇮🇳 India</span><strong>65%</strong></div><div class="bar"><i style="width:65%"></i></div><div class="demo-row"><span>🇺🇸 USA</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>🌎 Others</span><strong>7%</strong></div><div class="bar"><i style="width:7%"></i></div></div><div class="demo-box"><b>Asset Mix</b><div class="demo-row"><span>Equity</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>ETF</span><strong>12%</strong></div><div class="bar"><i style="width:12%"></i></div><div class="demo-row"><span>Debt + Cash</span><strong>20%</strong></div><div class="bar"><i style="width:20%"></i></div></div>`,
+    currency:`<div class="demo-box"><b>Currency Exposure</b><div class="demo-row"><span>INR</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>USD</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>Others</span><strong>4%</strong></div><div class="bar"><i style="width:4%"></i></div></div><div class="demo-box"><b>Currency-adjusted return</b><div class="demo-row"><span>Security return</span><strong>+12%</strong></div><div class="demo-row"><span>Currency impact</span><strong>−2%</strong></div><div class="demo-row"><span>Home-currency return</span><strong>+10%</strong></div></div>`,
+    intelligence:`<div class="demo-box"><b>Portfolio Intelligence</b><div class="demo-row"><span>Portfolio risk</span><strong>Moderate</strong></div><div class="demo-row"><span>Top concentration</span><strong>18%</strong></div><div class="demo-row"><span>Realised gains</span><strong>₹X</strong></div><div class="demo-row"><span>Unrealised gains</span><strong>₹X</strong></div></div><div class="demo-box"><b>Income & diversification</b><div class="demo-row"><span>Dividend income</span><strong>₹X</strong></div><div class="demo-row"><span>Country diversification</span><strong>Available</strong></div><div class="demo-row"><span>Sector exposure</span><strong>Available</strong></div></div>`,
+    tax:`<div class="demo-box"><b>Tax Information</b><div class="demo-row"><span>Capital gains</span><strong>Available</strong></div><div class="demo-row"><span>Dividend information</span><strong>Available</strong></div><div class="demo-row"><span>Withholding information</span><strong>Available</strong></div><div class="demo-row"><span>Transaction summaries</span><strong>Available</strong></div></div><div class="demo-box"><b>Intelligence pipeline</b><div class="demo-row"><span>Transactions</span><strong>→ Ledger</strong></div><div class="demo-row"><span>Cost basis</span><strong>→ Classification</strong></div><div class="demo-row"><span>Currency</span><strong>→ Reports</strong></div></div>`
+  };
+  const content=document.getElementById('demo-content');
+  function renderTab(name){content.innerHTML=demo[name];document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));}
+  document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>renderTab(b.dataset.tab)));renderTab('allocation');
+  const modal=document.getElementById('waitlist');const open=()=>modal.classList.add('show');const close=()=>modal.classList.remove('show');document.querySelectorAll('[data-open-waitlist]').forEach(b=>b.addEventListener('click',open));document.querySelector('[data-close-waitlist]').addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
+  document.getElementById('wait-form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('wait-success').classList.add('show');e.target.querySelector('button').textContent='Interest received ✓';e.target.querySelector('button').disabled=true;});
+})();
+</script>
 </body>
 </html>
