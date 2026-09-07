@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>DhanaSeed | The Gateway to Global Markets</title>
+<meta name="description" content="DhanaSeed Capital Solutions — technology-led global capital markets and WealthTech.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+:root{--navy:#07111f;--navy2:#0d1b2d;--gold:#c9a45c;--cream:#f7f4ed;--text:#172033;--muted:#687386;--line:#e5e8ee;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"DM Sans",sans-serif;color:var(--text);background:#fff}h1,h2,h3{font-family:Manrope,sans-serif;margin:0;letter-spacing:-.04em}p{line-height:1.7}.wrap{width:min(1180px,92%);margin:auto}
+header{position:fixed;top:0;z-index:50;width:100%;background:rgba(7,17,31,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.09)}
+nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:800;font-family:Manrope;font-size:19px}.mark{height:38px;width:38px;border:1px solid rgba(201,164,92,.65);border-radius:11px;display:grid;place-items:center;color:var(--gold);font-family:Georgia;font-size:20px}.links{display:flex;gap:28px}.links a{color:#cbd3df;text-decoration:none;font-size:14px}.links a:hover{color:#fff}.navbtn{color:#07111f!important;background:#fff;padding:11px 16px;border-radius:9px;font-weight:700}
+.hero{min-height:760px;padding:155px 0 90px;color:#fff;background:radial-gradient(circle at 78% 35%,rgba(201,164,92,.18),transparent 26%),linear-gradient(135deg,#06101d,#0d1c30 65%,#081321);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:60px}.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#d8b979;font-weight:700;margin-bottom:22px}.hero h1{font-size:clamp(48px,6.5vw,78px);line-height:1.02}.hero h1 span{color:#d9bb7d}.hero p{color:#aeb9c9;font-size:18px;max-width:650px;margin:27px 0 32px}.buttons{display:flex;gap:12px;flex-wrap:wrap}.btn{padding:13px 19px;border-radius:9px;text-decoration:none;font-weight:700;font-size:14px;display:inline-block}.primary{background:#fff;color:#07111f}.secondary{border:1px solid rgba(255,255,255,.2);color:#fff}.orb{height:470px;position:relative;display:grid;place-items:center}.orbital{position:absolute;border:1px solid rgba(201,164,92,.35);border-radius:50%;transform:rotate(-25deg)}.o1{width:420px;height:420px}.o2{width:500px;height:210px}.o3{width:280px;height:500px}.core{text-align:center;z-index:2}.core .symbol{font:90px Georgia;color:#d9bb7d}.core strong{display:block;font-size:24px}.core small{color:#aeb9c9}
+.ticker{background:#0b1728;color:#b8c2d0;border-top:1px solid #203049;border-bottom:1px solid #203049}.ticker .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:25px 0}.ticker b{color:#fff;display:block;font-family:Manrope;font-size:17px}.ticker span{font-size:12px}
+section{padding:105px 0}.intro{max-width:760px}.intro .eyebrow{color:#9b7838}.intro h2{font-size:45px;line-height:1.08}.intro p{color:var(--muted);font-size:17px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}.card{padding:31px;border:1px solid var(--line);border-radius:18px;background:#fff}.card .num{color:#a17d3d;font-weight:800;font-size:12px;letter-spacing:1px}.card h3{font-size:21px;margin:16px 0 9px}.card p{color:var(--muted);font-size:14px;margin:0}
+.dark{background:var(--navy);color:#fff}.dark .intro p{color:#aeb9c9}.dark .card{background:#0e1b2d;border-color:#223149}.dark .card p{color:#aeb9c9}
+.product{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.panel{background:linear-gradient(145deg,#111f33,#08121f);border:1px solid #26364c;border-radius:24px;padding:38px;color:#fff}.metric{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid #26364c}.metric:last-child{border:0}.metric span{color:#9eabba}.metric b{color:#e2c581}.mini{font-size:12px;color:#7f8b9b;margin-top:18px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px}.step{padding:22px;border-left:1px solid #d9dde4}.step:first-child{border-left:2px solid var(--gold)}.step b{color:#9b7838}.step h3{margin:10px 0 5px;font-size:19px}.step p{font-size:14px;color:var(--muted);margin:0}
+.cta{padding:90px 0;background:var(--cream)}.cta-box{display:flex;justify-content:space-between;align-items:center;gap:35px}.cta h2{font-size:42px}.cta p{color:var(--muted);max-width:650px}.cta .primary{background:var(--navy);color:#fff}
+footer{background:#050c15;color:#8491a2;padding:48px 0;font-size:13px}.foot{display:flex;justify-content:space-between;gap:30px}.foot strong{color:#fff;font-family:Manrope}
+@media(max-width:800px){.links{display:none}.hero{padding-top:125px}.hero-grid,.product{grid-template-columns:1fr}.orb{height:360px}.o1{width:300px;height:300px}.o2{width:350px;height:160px}.o3{width:210px;height:350px}.cards,.steps{grid-template-columns:1fr}.steps .step{border-left:0;border-top:1px solid #d9dde4}.ticker .wrap{grid-template-columns:1fr}.cta-box,.foot{display:block}.cta .btn{margin-top:15px}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><nav>
+<a class="brand" href="#"><span class="mark">D</span>DhanaSeed</a>
+<div class="links"><a href="#platform">Platform</a><a href="#solutions">Solutions</a><a href="#approach">Approach</a><a href="#about">About</a><a class="navbtn" href="#contact">Contact</a></div>
+</nav></div></header>
+
+<section class="hero">
+<div class="wrap hero-grid"><div>
+<div class="eyebrow">Global Capital • WealthTech • Intelligence</div>
+<h1>The <span>Gateway</span><br>to Global Markets.</h1>
+<p>DhanaSeed Capital Solutions is building a technology-led global capital-markets and WealthTech platform designed to make global investing simple, transparent and intelligent.</p>
+<div class="buttons"><a class="btn primary" href="#platform">Explore the Platform →</a><a class="btn secondary" href="#contact">Partner with DhanaSeed</a></div>
+</div>
+<div class="orb"><div class="orbital o1"></div><div class="orbital o2"></div><div class="orbital o3"></div><div class="core"><div class="symbol">D</div><strong>India ↔ Global</strong><small>Capital • Markets • Intelligence</small></div></div></div>
+</section>
+
+<div class="ticker"><div class="wrap"><div><b>India → Global</b><span>Global market connectivity</span></div><div><b>Global → India</b><span>Cross-border opportunity</span></div><div><b>Global → Global</b><span>Technology-enabled access</span></div></div></div>
+
+<section id="platform"><div class="wrap">
+<div class="intro"><div class="eyebrow">The Platform</div><h2>One intelligent layer for a more connected financial world.</h2><p>DhanaSeed brings market access, portfolio visibility and financial intelligence together to help users navigate global financial decisions with greater clarity.</p></div>
+<div class="cards">
+<div class="card"><span class="num">01 / ACCESS</span><h3>Global Market Access</h3><p>Designed to connect investors with permitted opportunities across global markets through a streamlined digital experience.</p></div>
+<div class="card"><span class="num">02 / INTELLIGENCE</span><h3>Portfolio Intelligence</h3><p>Unified portfolio visibility and actionable insights designed to make complex investment information easier to understand.</p></div>
+<div class="card"><span class="num">03 / INSIGHT</span><h3>Tax & Currency Intelligence</h3><p>Bring tax and currency considerations into the decision-making framework for cross-border investing.</p></div>
+</div></div></section>
+
+<section class="dark" id="solutions"><div class="wrap">
+<div class="intro"><div class="eyebrow">Solutions</div><h2>Built for the new generation of global finance.</h2><p>Our vision is to bridge technology, financial expertise and market connectivity across investors, businesses and strategic partners.</p></div>
+<div class="cards">
+<div class="card"><span class="num">FOR INVESTORS</span><h3>Invest Smarter</h3><p>Discover a clearer way to evaluate and manage permitted global investment opportunities.</p></div>
+<div class="card"><span class="num">FOR BUSINESSES</span><h3>Think Beyond Capital</h3><p>Use financial intelligence and capital-oriented thinking to support planning, growth and strategic decisions.</p></div>
+<div class="card"><span class="num">FOR PARTNERS</span><h3>Build Together</h3><p>Connect complementary capabilities across finance, technology and professional services.</p></div>
+</div></div></section>
+
+<section id="approach"><div class="wrap">
+<div class="product"><div class="intro"><div class="eyebrow">Our Philosophy</div><h2>From data to decisions.</h2><p>Financial information becomes more powerful when it is connected, contextualized and made actionable. DhanaSeed is designed around that principle.</p></div>
+<div class="panel"><div class="metric"><span>Market Access</span><b>Connected</b></div><div class="metric"><span>Portfolio View</span><b>Unified</b></div><div class="metric"><span>Tax Insight</span><b>Integrated</b></div><div class="metric"><span>Currency View</span><b>Contextual</b></div><div class="mini">Illustrative platform vision — not a representation of live account or investment data.</div></div></div>
+<div class="steps"><div class="step"><b>01</b><h3>Connect</h3><p>Bring markets, data and opportunities together.</p></div><div class="step"><b>02</b><h3>Understand</h3><p>Make financial complexity easier to interpret.</p></div><div class="step"><b>03</b><h3>Evaluate</h3><p>Compare opportunities with context and clarity.</p></div><div class="step"><b>04</b><h3>Act</h3><p>Turn better information into informed decisions.</p></div></div>
+</div></section>
+
+<section id="about" class="dark"><div class="wrap"><div class="intro"><div class="eyebrow">About DhanaSeed</div><h2>India → Global. Global → India. Global → Global.</h2><p>DhanaSeed Capital Solutions is envisioned as a technology-led global capital-markets and WealthTech platform focused on simplifying access, information and intelligence across increasingly connected markets.</p></div></div></section>
+
+<section class="cta" id="contact"><div class="wrap cta-box"><div><h2>Let's build the future of global finance.</h2><p>Interested in the platform, strategic partnerships or capital-market opportunities? Start a conversation with DhanaSeed.</p></div><a class="btn primary" href="mailto:pravinvdcs@gmail.com">Contact DhanaSeed →</a></div></section>
+
+<footer><div class="wrap foot"><div><strong>DhanaSeed Capital Solutions</strong><br>India → Global | Global → India | Global → Global<br><br><a href="tel:+919970184606" style="color:#cbd3df;text-decoration:none;">+91 99701 84606</a><br><a href="mailto:pravinvdcs@gmail.com" style="color:#cbd3df;text-decoration:none;">pravinvdcs@gmail.com</a><br><span style="display:inline-block;margin-top:8px;max-width:430px;">202, 3rd Floor, Moon Meadows, Opposite Sun Residency, Kasavanahalli, Bengaluru - 560035</span></div><div>© 2026 DhanaSeed Capital Solutions. All rights reserved.</div></div></footer>
+</body>
+</html>
