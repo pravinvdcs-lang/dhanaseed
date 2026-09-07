@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pravinvdcs-lang.github.io/dhanaseed/sitemap.xml
