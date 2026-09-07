@@ -1,73 +1,782 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DhanaSeed | The Gateway to Global Markets</title>
-<meta name="description" content="DhanaSeed Capital Solutions — technology-led global capital markets and WealthTech.">
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
-:root{--navy:#07111f;--navy2:#0d1b2d;--gold:#c9a45c;--cream:#f7f4ed;--text:#172033;--muted:#687386;--line:#e5e8ee;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:"DM Sans",sans-serif;color:var(--text);background:#fff}h1,h2,h3{font-family:Manrope,sans-serif;margin:0;letter-spacing:-.04em}p{line-height:1.7}.wrap{width:min(1180px,92%);margin:auto}
-header{position:fixed;top:0;z-index:50;width:100%;background:rgba(7,17,31,.88);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.09)}
-nav{height:76px;display:flex;align-items:center;justify-content:space-between}.brand{display:flex;align-items:center;gap:12px;color:#fff;font-weight:800;font-family:Manrope;font-size:19px}.mark{height:38px;width:38px;border:1px solid rgba(201,164,92,.65);border-radius:11px;display:grid;place-items:center;color:var(--gold);font-family:Georgia;font-size:20px}.links{display:flex;gap:28px}.links a{color:#cbd3df;text-decoration:none;font-size:14px}.links a:hover{color:#fff}.navbtn{color:#07111f!important;background:#fff;padding:11px 16px;border-radius:9px;font-weight:700}
-.hero{min-height:760px;padding:155px 0 90px;color:#fff;background:radial-gradient(circle at 78% 35%,rgba(201,164,92,.18),transparent 26%),linear-gradient(135deg,#06101d,#0d1c30 65%,#081321);overflow:hidden}
-.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:60px}.eyebrow{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#d8b979;font-weight:700;margin-bottom:22px}.hero h1{font-size:clamp(48px,6.5vw,78px);line-height:1.02}.hero h1 span{color:#d9bb7d}.hero p{color:#aeb9c9;font-size:18px;max-width:650px;margin:27px 0 32px}.buttons{display:flex;gap:12px;flex-wrap:wrap}.btn{padding:13px 19px;border-radius:9px;text-decoration:none;font-weight:700;font-size:14px;display:inline-block}.primary{background:#fff;color:#07111f}.secondary{border:1px solid rgba(255,255,255,.2);color:#fff}.orb{height:470px;position:relative;display:grid;place-items:center}.orbital{position:absolute;border:1px solid rgba(201,164,92,.35);border-radius:50%;transform:rotate(-25deg)}.o1{width:420px;height:420px}.o2{width:500px;height:210px}.o3{width:280px;height:500px}.core{text-align:center;z-index:2}.core .symbol{font:90px Georgia;color:#d9bb7d}.core strong{display:block;font-size:24px}.core small{color:#aeb9c9}
-.ticker{background:#0b1728;color:#b8c2d0;border-top:1px solid #203049;border-bottom:1px solid #203049}.ticker .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:25px 0}.ticker b{color:#fff;display:block;font-family:Manrope;font-size:17px}.ticker span{font-size:12px}
-section{padding:105px 0}.intro{max-width:760px}.intro .eyebrow{color:#9b7838}.intro h2{font-size:45px;line-height:1.08}.intro p{color:var(--muted);font-size:17px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:45px}.card{padding:31px;border:1px solid var(--line);border-radius:18px;background:#fff}.card .num{color:#a17d3d;font-weight:800;font-size:12px;letter-spacing:1px}.card h3{font-size:21px;margin:16px 0 9px}.card p{color:var(--muted);font-size:14px;margin:0}
-.dark{background:var(--navy);color:#fff}.dark .intro p{color:#aeb9c9}.dark .card{background:#0e1b2d;border-color:#223149}.dark .card p{color:#aeb9c9}
-.product{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.panel{background:linear-gradient(145deg,#111f33,#08121f);border:1px solid #26364c;border-radius:24px;padding:38px;color:#fff}.metric{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid #26364c}.metric:last-child{border:0}.metric span{color:#9eabba}.metric b{color:#e2c581}.mini{font-size:12px;color:#7f8b9b;margin-top:18px}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px}.step{padding:22px;border-left:1px solid #d9dde4}.step:first-child{border-left:2px solid var(--gold)}.step b{color:#9b7838}.step h3{margin:10px 0 5px;font-size:19px}.step p{font-size:14px;color:var(--muted);margin:0}
-.cta{padding:90px 0;background:var(--cream)}.cta-box{display:flex;justify-content:space-between;align-items:center;gap:35px}.cta h2{font-size:42px}.cta p{color:var(--muted);max-width:650px}.cta .primary{background:var(--navy);color:#fff}
-footer{background:#050c15;color:#8491a2;padding:48px 0;font-size:13px}.foot{display:flex;justify-content:space-between;gap:30px}.foot strong{color:#fff;font-family:Manrope}
-@media(max-width:800px){.links{display:none}.hero{padding-top:125px}.hero-grid,.product{grid-template-columns:1fr}.orb{height:360px}.o1{width:300px;height:300px}.o2{width:350px;height:160px}.o3{width:210px;height:350px}.cards,.steps{grid-template-columns:1fr}.steps .step{border-left:0;border-top:1px solid #d9dde4}.ticker .wrap{grid-template-columns:1fr}.cta-box,.foot{display:block}.cta .btn{margin-top:15px}}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>DhanaSeed Capital Solutions | Global Markets & WealthTech</title>
+  <meta name="description" content="DhanaSeed Capital Solutions is a technology-led global capital-markets and WealthTech platform designed to make global investing simpler, more transparent and intelligent.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="DhanaSeed Capital Solutions">
+  <meta name="copyright" content="© 2026 DhanaSeed Capital Solutions. All rights reserved.">
+  <meta name="theme-color" content="#07111f">
+  <meta name="format-detection" content="telephone=yes">
+
+  <!-- Replace this placeholder with the final public URL before launch. -->
+  <link rel="canonical" href="https://YOUR-DHANASEED-DOMAIN.example/">
+
+  <!-- Open Graph: works for social sharing and provides useful link previews. -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="DhanaSeed Capital Solutions">
+  <meta property="og:title" content="DhanaSeed | The Gateway to Global Markets">
+  <meta property="og:description" content="Technology-led global capital markets and WealthTech designed to make global investing simpler, more transparent and intelligent.">
+  <meta property="og:url" content="https://YOUR-DHANASEED-DOMAIN.example/">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter/X uses these same share signals when available. -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DhanaSeed | The Gateway to Global Markets">
+  <meta name="twitter:description" content="Technology-led global capital markets and WealthTech designed to make global investing simpler, more transparent and intelligent.">
+
+  <!--
+    WhatsApp uses Open Graph metadata for link previews.
+    Add an og:image and twitter:image here later if a branded social-preview
+    image is created. No external image is required for GitHub Pages.
+  -->
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap');
+
+    :root{
+      --navy:#07111f;
+      --navy2:#0d1b2d;
+      --gold:#c9a45c;
+      --cream:#f7f4ed;
+      --text:#172033;
+      --muted:#687386;
+      --line:#e5e8ee;
+      --white:#fff;
+      --focus:#f1ca72;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:88px}
+    body{
+      margin:0;
+      font-family:"DM Sans",sans-serif;
+      color:var(--text);
+      background:#fff;
+      line-height:1.5;
+    }
+    body.menu-open{overflow:hidden}
+    h1,h2,h3{
+      font-family:Manrope,sans-serif;
+      margin:0;
+      letter-spacing:-.04em;
+    }
+    p{line-height:1.7}
+    a{transition:color .2s ease,background-color .2s ease,border-color .2s ease,opacity .2s ease}
+    :focus-visible{
+      outline:3px solid var(--focus);
+      outline-offset:4px;
+      border-radius:4px;
+    }
+    .skip-link{
+      position:fixed;
+      left:12px;
+      top:12px;
+      z-index:100;
+      transform:translateY(-150%);
+      padding:10px 14px;
+      background:#fff;
+      color:var(--navy);
+      border-radius:8px;
+      font-weight:700;
+      text-decoration:none;
+      box-shadow:0 6px 20px rgba(0,0,0,.2);
+    }
+    .skip-link:focus{transform:translateY(0)}
+
+    .wrap{width:min(1180px,92%);margin:auto}
+
+    /* Header / navigation */
+    header{
+      position:fixed;
+      top:0;
+      z-index:50;
+      width:100%;
+      background:rgba(7,17,31,.92);
+      backdrop-filter:blur(16px);
+      -webkit-backdrop-filter:blur(16px);
+      border-bottom:1px solid rgba(255,255,255,.09);
+    }
+    nav{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#fff;
+      font-weight:800;
+      font-family:Manrope,sans-serif;
+      font-size:19px;
+      text-decoration:none;
+      white-space:nowrap;
+    }
+    .mark{
+      height:38px;
+      width:38px;
+      border:1px solid rgba(201,164,92,.65);
+      border-radius:11px;
+      display:grid;
+      place-items:center;
+      color:var(--gold);
+      font-family:Georgia,serif;
+      font-size:20px;
+      flex:none;
+    }
+    .links{
+      display:flex;
+      align-items:center;
+      gap:28px;
+    }
+    .links a{
+      color:#cbd3df;
+      text-decoration:none;
+      font-size:14px;
+    }
+    .links a:hover{color:#fff}
+    .navbtn{
+      color:#07111f!important;
+      background:#fff;
+      padding:11px 16px;
+      border-radius:9px;
+      font-weight:700;
+    }
+    .navbtn:hover{background:#f2f2f2}
+
+    .menu-toggle{
+      display:none;
+      width:44px;
+      height:44px;
+      padding:9px;
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:9px;
+      background:transparent;
+      color:#fff;
+      cursor:pointer;
+    }
+    .menu-toggle span{
+      display:block;
+      width:22px;
+      height:2px;
+      margin:5px auto;
+      background:currentColor;
+      border-radius:2px;
+      transition:transform .2s ease,opacity .2s ease;
+    }
+    .menu-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .menu-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+    .menu-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+    .mobile-menu{
+      display:none;
+      border-top:1px solid rgba(255,255,255,.09);
+      padding:10px 0 18px;
+    }
+    .mobile-menu a{
+      display:block;
+      color:#d8dee8;
+      text-decoration:none;
+      padding:13px 4%;
+      font-size:15px;
+    }
+    .mobile-menu a:hover{background:rgba(255,255,255,.05);color:#fff}
+    .mobile-menu .mobile-navbtn{
+      margin:7px 4% 0;
+      padding:12px 16px;
+      border-radius:9px;
+      background:#fff;
+      color:var(--navy);
+      font-weight:700;
+    }
+    .mobile-menu.is-open{display:block}
+
+    /* Hero */
+    .hero{
+      min-height:760px;
+      padding:155px 0 90px;
+      color:#fff;
+      background:
+        radial-gradient(circle at 78% 35%,rgba(201,164,92,.18),transparent 26%),
+        linear-gradient(135deg,#06101d,#0d1c30 65%,#081321);
+      overflow:hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      align-items:center;
+      gap:60px;
+    }
+    .eyebrow{
+      font-size:12px;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      color:#d8b979;
+      font-weight:700;
+      margin-bottom:22px;
+    }
+    .hero h1{
+      font-size:clamp(48px,6.5vw,78px);
+      line-height:1.02;
+    }
+    .hero h1 span{color:#d9bb7d}
+    .hero p{
+      color:#aeb9c9;
+      font-size:18px;
+      max-width:650px;
+      margin:27px 0 32px;
+    }
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      padding:13px 19px;
+      border-radius:9px;
+      text-decoration:none;
+      font-weight:700;
+      font-size:14px;
+      display:inline-block;
+    }
+    .primary{background:#fff;color:#07111f}
+    .primary:hover{background:#eee}
+    .secondary{border:1px solid rgba(255,255,255,.2);color:#fff}
+    .secondary:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
+
+    .orb{
+      height:470px;
+      position:relative;
+      display:grid;
+      place-items:center;
+      isolation:isolate;
+    }
+    .orbital{
+      position:absolute;
+      border:1px solid rgba(201,164,92,.35);
+      border-radius:50%;
+      transform:rotate(-25deg);
+    }
+    .o1{width:420px;height:420px}
+    .o2{width:500px;height:210px}
+    .o3{width:280px;height:500px}
+    .core{text-align:center;z-index:2}
+    .core .symbol{font:90px Georgia,serif;color:#d9bb7d}
+    .core strong{display:block;font-size:24px}
+    .core small{color:#aeb9c9}
+
+    /* Content */
+    .ticker{
+      background:#0b1728;
+      color:#b8c2d0;
+      border-top:1px solid #203049;
+      border-bottom:1px solid #203049;
+    }
+    .ticker .wrap{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:20px;
+      padding:25px 0;
+    }
+    .ticker b{
+      color:#fff;
+      display:block;
+      font-family:Manrope,sans-serif;
+      font-size:17px;
+    }
+    .ticker span{font-size:12px}
+
+    section{padding:105px 0}
+    .intro{max-width:760px}
+    .intro .eyebrow{color:#9b7838}
+    .intro h2{font-size:45px;line-height:1.08}
+    .intro p{color:var(--muted);font-size:17px}
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:45px;
+    }
+    .card{
+      padding:31px;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:#fff;
+    }
+    .card .num{
+      color:#a17d3d;
+      font-weight:800;
+      font-size:12px;
+      letter-spacing:1px;
+    }
+    .card h3{font-size:21px;margin:16px 0 9px}
+    .card p{color:var(--muted);font-size:14px;margin:0}
+
+    .dark{background:var(--navy);color:#fff}
+    .dark .intro p{color:#aeb9c9}
+    .dark .card{background:#0e1b2d;border-color:#223149}
+    .dark .card p{color:#aeb9c9}
+
+    .product{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:60px;
+      align-items:center;
+    }
+    .panel{
+      background:linear-gradient(145deg,#111f33,#08121f);
+      border:1px solid #26364c;
+      border-radius:24px;
+      padding:38px;
+      color:#fff;
+    }
+    .metric{
+      display:flex;
+      justify-content:space-between;
+      gap:20px;
+      padding:18px 0;
+      border-bottom:1px solid #26364c;
+    }
+    .metric:last-child{border:0}
+    .metric span{color:#9eabba}
+    .metric b{color:#e2c581}
+    .mini{font-size:12px;color:#7f8b9b;margin-top:18px}
+
+    .steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:0;
+      margin-top:48px;
+    }
+    .step{padding:22px;border-left:1px solid #d9dde4}
+    .step:first-child{border-left:2px solid var(--gold)}
+    .step b{color:#9b7838}
+    .step h3{margin:10px 0 5px;font-size:19px}
+    .step p{font-size:14px;color:var(--muted);margin:0}
+
+    .cta{padding:90px 0;background:var(--cream)}
+    .cta-box{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:35px;
+    }
+    .cta h2{font-size:42px}
+    .cta p{color:var(--muted);max-width:650px}
+    .cta .primary{background:var(--navy);color:#fff}
+    .cta .primary:hover{background:#12243a}
+
+    /* Legal / contact */
+    .disclaimer{
+      padding:30px 0;
+      background:#eef1f5;
+      border-top:1px solid #dfe3e9;
+      border-bottom:1px solid #dfe3e9;
+    }
+    .disclaimer h2{
+      font-family:Manrope,sans-serif;
+      font-size:17px;
+      letter-spacing:-.02em;
+      margin-bottom:8px;
+    }
+    .disclaimer p{
+      color:#5e6979;
+      font-size:12px;
+      line-height:1.7;
+      margin:0;
+      max-width:1050px;
+    }
+
+    footer{
+      background:#050c15;
+      color:#8491a2;
+      padding:52px 0 28px;
+      font-size:13px;
+    }
+    .foot-grid{
+      display:grid;
+      grid-template-columns:1.4fr .8fr .8fr;
+      gap:45px;
+      padding-bottom:35px;
+      border-bottom:1px solid #1b2838;
+    }
+    .foot strong{
+      color:#fff;
+      font-family:Manrope,sans-serif;
+      font-size:15px;
+    }
+    .foot p{margin:10px 0 0;line-height:1.7}
+    .foot a{
+      color:#cbd3df;
+      text-decoration:none;
+    }
+    .foot a:hover{color:#fff}
+    .foot h3{
+      color:#fff;
+      font-size:14px;
+      margin:0 0 12px;
+    }
+    .foot-links{
+      display:grid;
+      gap:8px;
+    }
+    .address{
+      display:inline-block;
+      margin-top:10px;
+      max-width:430px;
+    }
+    .copyright{
+      display:flex;
+      justify-content:space-between;
+      gap:25px;
+      padding-top:24px;
+      font-size:12px;
+    }
+    .ownership{
+      color:#657285;
+      max-width:760px;
+    }
+
+    /* Responsive */
+    @media(max-width:900px){
+      .links{display:none}
+      .menu-toggle{display:block}
+      .hero{padding-top:125px}
+      .hero-grid,.product{grid-template-columns:1fr}
+      .hero-grid{gap:25px}
+      .orb{height:360px}
+      .o1{width:300px;height:300px}
+      .o2{width:350px;height:160px}
+      .o3{width:210px;height:350px}
+      .cards{grid-template-columns:1fr}
+      .steps{grid-template-columns:1fr}
+      .steps .step{border-left:0;border-top:1px solid #d9dde4}
+      .steps .step:first-child{border-left:0;border-top:2px solid var(--gold)}
+      .cta-box{display:block}
+      .cta .btn{margin-top:15px}
+      .foot-grid{grid-template-columns:1fr 1fr}
+      .foot-grid > :first-child{grid-column:1 / -1}
+      .copyright{display:block}
+      .ownership{margin-bottom:10px}
+    }
+
+    @media(max-width:600px){
+      .wrap{width:min(92%,1180px)}
+      nav{min-height:68px}
+      .brand{font-size:17px}
+      .mark{width:36px;height:36px}
+      .hero{min-height:auto;padding:120px 0 70px}
+      .hero h1{font-size:clamp(43px,13vw,62px)}
+      .hero p{font-size:16px}
+      .orb{height:300px}
+      .o1{width:250px;height:250px}
+      .o2{width:290px;height:135px}
+      .o3{width:180px;height:300px}
+      .core .symbol{font-size:70px}
+      .core strong{font-size:20px}
+      .ticker .wrap{grid-template-columns:1fr;gap:16px}
+      section{padding:75px 0}
+      .intro h2{font-size:36px}
+      .panel{padding:27px}
+      .metric{font-size:14px}
+      .cta{padding:70px 0}
+      .cta h2{font-size:35px}
+      .foot-grid{grid-template-columns:1fr}
+      .foot-grid > :first-child{grid-column:auto}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      html{scroll-behavior:auto}
+      *,*::before,*::after{
+        transition-duration:.01ms!important;
+        animation-duration:.01ms!important;
+        animation-iteration-count:1!important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header><div class="wrap"><nav>
-<a class="brand" href="#"><span class="mark">D</span>DhanaSeed</a>
-<div class="links"><a href="#platform">Platform</a><a href="#solutions">Solutions</a><a href="#approach">Approach</a><a href="#about">About</a><a class="navbtn" href="#contact">Contact</a></div>
-</nav></div></header>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<section class="hero">
-<div class="wrap hero-grid"><div>
-<div class="eyebrow">Global Capital • WealthTech • Intelligence</div>
-<h1>The <span>Gateway</span><br>to Global Markets.</h1>
-<p>DhanaSeed Capital Solutions is building a technology-led global capital-markets and WealthTech platform designed to make global investing simple, transparent and intelligent.</p>
-<div class="buttons"><a class="btn primary" href="#platform">Explore the Platform →</a><a class="btn secondary" href="#contact">Partner with DhanaSeed</a></div>
-</div>
-<div class="orb"><div class="orbital o1"></div><div class="orbital o2"></div><div class="orbital o3"></div><div class="core"><div class="symbol">D</div><strong>India ↔ Global</strong><small>Capital • Markets • Intelligence</small></div></div></div>
-</section>
+  <header>
+    <div class="wrap">
+      <nav aria-label="Primary navigation">
+        <a class="brand" href="#" aria-label="DhanaSeed home">
+          <span class="mark" aria-hidden="true">D</span>
+          <span>DhanaSeed</span>
+        </a>
 
-<div class="ticker"><div class="wrap"><div><b>India → Global</b><span>Global market connectivity</span></div><div><b>Global → India</b><span>Cross-border opportunity</span></div><div><b>Global → Global</b><span>Technology-enabled access</span></div></div></div>
+        <div class="links" id="desktop-navigation">
+          <a href="#platform">Platform</a>
+          <a href="#solutions">Solutions</a>
+          <a href="#approach">Approach</a>
+          <a href="#about">About</a>
+          <a class="navbtn" href="#contact">Contact</a>
+        </div>
 
-<section id="platform"><div class="wrap">
-<div class="intro"><div class="eyebrow">The Platform</div><h2>One intelligent layer for a more connected financial world.</h2><p>DhanaSeed brings market access, portfolio visibility and financial intelligence together to help users navigate global financial decisions with greater clarity.</p></div>
-<div class="cards">
-<div class="card"><span class="num">01 / ACCESS</span><h3>Global Market Access</h3><p>Designed to connect investors with permitted opportunities across global markets through a streamlined digital experience.</p></div>
-<div class="card"><span class="num">02 / INTELLIGENCE</span><h3>Portfolio Intelligence</h3><p>Unified portfolio visibility and actionable insights designed to make complex investment information easier to understand.</p></div>
-<div class="card"><span class="num">03 / INSIGHT</span><h3>Tax & Currency Intelligence</h3><p>Bring tax and currency considerations into the decision-making framework for cross-border investing.</p></div>
-</div></div></section>
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation menu"
+          aria-controls="mobile-navigation"
+          aria-expanded="false">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+      </nav>
 
-<section class="dark" id="solutions"><div class="wrap">
-<div class="intro"><div class="eyebrow">Solutions</div><h2>Built for the new generation of global finance.</h2><p>Our vision is to bridge technology, financial expertise and market connectivity across investors, businesses and strategic partners.</p></div>
-<div class="cards">
-<div class="card"><span class="num">FOR INVESTORS</span><h3>Invest Smarter</h3><p>Discover a clearer way to evaluate and manage permitted global investment opportunities.</p></div>
-<div class="card"><span class="num">FOR BUSINESSES</span><h3>Think Beyond Capital</h3><p>Use financial intelligence and capital-oriented thinking to support planning, growth and strategic decisions.</p></div>
-<div class="card"><span class="num">FOR PARTNERS</span><h3>Build Together</h3><p>Connect complementary capabilities across finance, technology and professional services.</p></div>
-</div></div></section>
+      <div class="mobile-menu" id="mobile-navigation" aria-label="Mobile navigation">
+        <a href="#platform">Platform</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#approach">Approach</a>
+        <a href="#about">About</a>
+        <a class="mobile-navbtn" href="#contact">Contact DhanaSeed</a>
+      </div>
+    </div>
+  </header>
 
-<section id="approach"><div class="wrap">
-<div class="product"><div class="intro"><div class="eyebrow">Our Philosophy</div><h2>From data to decisions.</h2><p>Financial information becomes more powerful when it is connected, contextualized and made actionable. DhanaSeed is designed around that principle.</p></div>
-<div class="panel"><div class="metric"><span>Market Access</span><b>Connected</b></div><div class="metric"><span>Portfolio View</span><b>Unified</b></div><div class="metric"><span>Tax Insight</span><b>Integrated</b></div><div class="metric"><span>Currency View</span><b>Contextual</b></div><div class="mini">Illustrative platform vision — not a representation of live account or investment data.</div></div></div>
-<div class="steps"><div class="step"><b>01</b><h3>Connect</h3><p>Bring markets, data and opportunities together.</p></div><div class="step"><b>02</b><h3>Understand</h3><p>Make financial complexity easier to interpret.</p></div><div class="step"><b>03</b><h3>Evaluate</h3><p>Compare opportunities with context and clarity.</p></div><div class="step"><b>04</b><h3>Act</h3><p>Turn better information into informed decisions.</p></div></div>
-</div></section>
+  <main id="main-content">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="eyebrow">Global Capital • WealthTech • Intelligence</div>
+          <h1 id="hero-title">The <span>Gateway</span><br>to Global Markets.</h1>
+          <p>DhanaSeed Capital Solutions is building a technology-led global capital-markets and WealthTech platform designed to make global investing simple, transparent and intelligent.</p>
+          <div class="buttons">
+            <a class="btn primary" href="#platform">Explore the Platform →</a>
+            <a class="btn secondary" href="#contact">Partner with DhanaSeed</a>
+          </div>
+        </div>
 
-<section id="about" class="dark"><div class="wrap"><div class="intro"><div class="eyebrow">About DhanaSeed</div><h2>India → Global. Global → India. Global → Global.</h2><p>DhanaSeed Capital Solutions is envisioned as a technology-led global capital-markets and WealthTech platform focused on simplifying access, information and intelligence across increasingly connected markets.</p></div></div></section>
+        <div class="orb" aria-hidden="true">
+          <div class="orbital o1"></div>
+          <div class="orbital o2"></div>
+          <div class="orbital o3"></div>
+          <div class="core">
+            <div class="symbol">D</div>
+            <strong>India ↔ Global</strong>
+            <small>Capital • Markets • Intelligence</small>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<section class="cta" id="contact"><div class="wrap cta-box"><div><h2>Let's build the future of global finance.</h2><p>Interested in the platform, strategic partnerships or capital-market opportunities? Start a conversation with DhanaSeed.</p></div><a class="btn primary" href="mailto:pravinv.dcs@gmail.com">Contact DhanaSeed →</a></div></section>
+    <div class="ticker" aria-label="DhanaSeed market connectivity">
+      <div class="wrap">
+        <div><b>India → Global</b><span>Global market connectivity</span></div>
+        <div><b>Global → India</b><span>Cross-border opportunity</span></div>
+        <div><b>Global → Global</b><span>Technology-enabled access</span></div>
+      </div>
+    </div>
 
-<footer><div class="wrap foot"><div><strong>DhanaSeed Capital Solutions</strong><br>India → Global | Global → India | Global → Global<br><br><a href="tel:+919970184606" style="color:#cbd3df;text-decoration:none;">+91 99701 84606</a><br><a href="mailto:pravinv.dcs@gmail.com" style="color:#cbd3df;text-decoration:none;">pravinv.dcs@gmail.com</a><br><span style="display:inline-block;margin-top:8px;max-width:430px;">202, 3rd Floor, Moon Meadows, Opposite Sun Residency, Kasavanahalli, Bengaluru - 560035</span></div><div>© 2026 DhanaSeed Capital Solutions. All rights reserved.</div></div></footer>
+    <section id="platform" aria-labelledby="platform-title">
+      <div class="wrap">
+        <div class="intro">
+          <div class="eyebrow">The Platform</div>
+          <h2 id="platform-title">One intelligent layer for a more connected financial world.</h2>
+          <p>DhanaSeed brings market access, portfolio visibility and financial intelligence together to help users navigate global financial decisions with greater clarity.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <span class="num">01 / ACCESS</span>
+            <h3>Global Market Access</h3>
+            <p>Designed to connect investors with permitted opportunities across global markets through a streamlined digital experience.</p>
+          </article>
+          <article class="card">
+            <span class="num">02 / INTELLIGENCE</span>
+            <h3>Portfolio Intelligence</h3>
+            <p>Unified portfolio visibility and actionable insights designed to make complex investment information easier to understand.</p>
+          </article>
+          <article class="card">
+            <span class="num">03 / INSIGHT</span>
+            <h3>Tax &amp; Currency Intelligence</h3>
+            <p>Bring tax and currency considerations into the decision-making framework for cross-border investing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="dark" id="solutions" aria-labelledby="solutions-title">
+      <div class="wrap">
+        <div class="intro">
+          <div class="eyebrow">Solutions</div>
+          <h2 id="solutions-title">Built for the new generation of global finance.</h2>
+          <p>Our vision is to bridge technology, financial expertise and market connectivity across investors, businesses and strategic partners.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <span class="num">FOR INVESTORS</span>
+            <h3>Invest Smarter</h3>
+            <p>Discover a clearer way to evaluate and manage permitted global investment opportunities.</p>
+          </article>
+          <article class="card">
+            <span class="num">FOR BUSINESSES</span>
+            <h3>Think Beyond Capital</h3>
+            <p>Use financial intelligence and capital-oriented thinking to support planning, growth and strategic decisions.</p>
+          </article>
+          <article class="card">
+            <span class="num">FOR PARTNERS</span>
+            <h3>Build Together</h3>
+            <p>Connect complementary capabilities across finance, technology and professional services.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="approach" aria-labelledby="approach-title">
+      <div class="wrap">
+        <div class="product">
+          <div class="intro">
+            <div class="eyebrow">Our Philosophy</div>
+            <h2 id="approach-title">From data to decisions.</h2>
+            <p>Financial information becomes more powerful when it is connected, contextualized and made actionable. DhanaSeed is designed around that principle.</p>
+          </div>
+
+          <div class="panel" aria-label="Illustrative platform capabilities">
+            <div class="metric"><span>Market Access</span><b>Connected</b></div>
+            <div class="metric"><span>Portfolio View</span><b>Unified</b></div>
+            <div class="metric"><span>Tax Insight</span><b>Integrated</b></div>
+            <div class="metric"><span>Currency View</span><b>Contextual</b></div>
+            <div class="mini">Illustrative platform vision — not a representation of live account or investment data.</div>
+          </div>
+        </div>
+
+        <div class="steps" aria-label="DhanaSeed approach">
+          <div class="step"><b>01</b><h3>Connect</h3><p>Bring markets, data and opportunities together.</p></div>
+          <div class="step"><b>02</b><h3>Understand</h3><p>Make financial complexity easier to interpret.</p></div>
+          <div class="step"><b>03</b><h3>Evaluate</h3><p>Compare opportunities with context and clarity.</p></div>
+          <div class="step"><b>04</b><h3>Act</h3><p>Turn better information into informed decisions.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="dark" aria-labelledby="about-title">
+      <div class="wrap">
+        <div class="intro">
+          <div class="eyebrow">About DhanaSeed</div>
+          <h2 id="about-title">India → Global. Global → India. Global → Global.</h2>
+          <p>DhanaSeed Capital Solutions is envisioned as a technology-led global capital-markets and WealthTech platform focused on simplifying access, information and intelligence across increasingly connected markets.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contact" aria-labelledby="contact-title">
+      <div class="wrap cta-box">
+        <div>
+          <h2 id="contact-title">Let's build the future of global finance.</h2>
+          <p>Interested in the platform, strategic partnerships or capital-market opportunities? Start a conversation with DhanaSeed.</p>
+        </div>
+        <a class="btn primary" href="mailto:pravinv.dcs@gmail.com">Contact DhanaSeed →</a>
+      </div>
+    </section>
+
+    <aside class="disclaimer" aria-labelledby="disclaimer-title">
+      <div class="wrap">
+        <h2 id="disclaimer-title">Important information</h2>
+        <p>
+          This website is for general informational purposes only and does not constitute investment advice, a recommendation, an offer to buy or sell securities, or a solicitation of investment. References to global markets, opportunities, access, portfolio intelligence, tax or currency considerations describe the intended platform vision and are not guarantees of availability, returns or outcomes. Any investment activity is subject to applicable laws, regulations, eligibility requirements, jurisdictional restrictions, and the terms of the relevant product or service. Prospective users should obtain appropriate independent legal, tax and financial advice before making investment decisions.
+        </p>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div class="foot-grid">
+        <div>
+          <strong>DhanaSeed Capital Solutions</strong>
+          <p>India → Global | Global → India | Global → Global</p>
+          <p>
+            <a href="tel:+919970184606" aria-label="Call DhanaSeed at plus 91 99701 84606">+91 99701 84606</a><br>
+            <a href="mailto:pravinv.dcs@gmail.com">pravinv.dcs@gmail.com</a>
+          </p>
+          <a
+            class="address"
+            href="https://www.google.com/maps/search/?api=1&query=202%2C%203rd%20Floor%2C%20Moon%20Meadows%2C%20Opposite%20Sun%20Residency%2C%20Kasavanahalli%2C%20Bengaluru%20560035"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open DhanaSeed address in Google Maps">
+            202, 3rd Floor, Moon Meadows, Opposite Sun Residency,<br>
+            Kasavanahalli, Bengaluru - 560035
+          </a>
+        </div>
+
+        <div>
+          <h3>Explore</h3>
+          <div class="foot-links">
+            <a href="#platform">Platform</a>
+            <a href="#solutions">Solutions</a>
+            <a href="#approach">Approach</a>
+            <a href="#about">About</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Connect</h3>
+          <div class="foot-links">
+            <a href="#contact">Contact DhanaSeed</a>
+            <a href="mailto:pravinv.dcs@gmail.com">Email</a>
+            <a href="tel:+919970184606">Phone</a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=202%2C%203rd%20Floor%2C%20Moon%20Meadows%2C%20Opposite%20Sun%20Residency%2C%20Kasavanahalli%2C%20Bengaluru%20560035"
+              target="_blank"
+              rel="noopener noreferrer">
+              Directions
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        <div class="ownership">
+          © 2026 DhanaSeed Capital Solutions. All rights reserved. DhanaSeed and related names, branding, content, designs and original materials on this website are the property of DhanaSeed Capital Solutions unless otherwise stated. Unauthorized reproduction or commercial use is not permitted.
+        </div>
+        <div>Informational website • No confidential information should be submitted through this website.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const toggle = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('mobile-navigation');
+
+      if (!toggle || !menu) return;
+
+      const closeMenu = () => {
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open navigation menu');
+        menu.classList.remove('is-open');
+        document.body.classList.remove('menu-open');
+      };
+
+      toggle.addEventListener('click', () => {
+        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!isOpen));
+        toggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+        menu.classList.toggle('is-open', !isOpen);
+        document.body.classList.toggle('menu-open', !isOpen);
+      });
+
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('keydown', event => {
+        if (event.key === 'Escape') closeMenu();
+      });
+
+      window.addEventListener('resize', () => {
+        if (window.innerWidth > 900) closeMenu();
+      });
+    })();
+  </script>
 </body>
 </html>
