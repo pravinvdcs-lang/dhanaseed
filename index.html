@@ -95,6 +95,26 @@
 
     .wrap{width:min(1180px,92%);margin:auto}
 
+
+    /* Visual interaction layer */
+    #scroll-progress{position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,#c9a45c,#f1ca72,#10b981);z-index:2000;box-shadow:0 0 14px rgba(201,164,92,.45);transition:width .08s linear}
+    .hero{position:relative}.hero:before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--mx,78%) var(--my,38%),rgba(241,202,114,.12),transparent 22%)}
+    .hero-grid>div{position:relative;z-index:1}.hero-journey{margin-top:26px;max-width:620px}.journey-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7f8da1;margin-bottom:10px}
+    .journey-buttons{display:flex;gap:8px;flex-wrap:wrap}.journey-btn{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.045);color:#d9e0e9;border-radius:999px;padding:9px 13px;font:600 12px "DM Sans",sans-serif;cursor:pointer;transition:.2s}
+    .journey-btn:hover,.journey-btn.active{border-color:rgba(201,164,92,.7);background:rgba(201,164,92,.12);color:#fff;transform:translateY(-1px)}
+    .journey-result{margin-top:11px;min-height:40px;padding:10px 13px;border-left:2px solid var(--gold);background:rgba(255,255,255,.04);border-radius:0 10px 10px 0;color:#aeb9c9;font-size:12px;line-height:1.55}
+    .globe-stage{transition:transform .18s ease-out}.globe{animation:globeFloat 7s ease-in-out infinite}.globe-ring{animation:ringDrift 9s linear infinite}
+    .ring2{animation-duration:13s;animation-direction:reverse}.ring3{animation-duration:16s}
+    @keyframes globeFloat{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-9px) rotate(1deg)}}
+    @keyframes ringDrift{from{transform:rotate(-20deg)}to{transform:rotate(340deg)}}
+    .ring2{animation-name:ringDrift2}.ring3{animation-name:ringDrift3}@keyframes ringDrift2{from{transform:rotate(22deg)}to{transform:rotate(-338deg)}}@keyframes ringDrift3{from{transform:rotate(-8deg)}to{transform:rotate(352deg)}}
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.is-visible{opacity:1;transform:none}
+    .tilt{transform-style:preserve-3d;will-change:transform}.market-card{position:relative;overflow:hidden}.market-card:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:translateX(-100%);transition:transform .45s ease}.market-card:hover:after{transform:translateX(100%)}
+    .interactive-hint{display:inline-flex;align-items:center;gap:7px;margin-top:12px;color:#8795a8;font-size:11px}.interactive-hint i{width:6px;height:6px;border-radius:50%;background:var(--gold);box-shadow:0 0 8px rgba(201,164,92,.65)}
+    @media (max-width:700px){.hero-journey{margin-top:20px}.journey-btn{padding:10px 12px}.hero:before{display:none}}
+    @keyframes routeFlow{to{stroke-dashoffset:-36px}}@keyframes nodeGlow{0%,100%{r:6;opacity:.72}50%{r:10;opacity:1}}@keyframes routePing{0%{r:8;opacity:0}18%{opacity:.8}100%{r:44;opacity:0}}@keyframes mapAura{0%,100%{opacity:.45;transform:scale(.96)}50%{opacity:.85;transform:scale(1.03)}}
+@media (prefers-reduced-motion:reduce){.globe,.globe-ring{animation:none!important}.reveal{opacity:1;transform:none;transition:none}.hero:before{transition:none}}
+
     /* Header / navigation */
     header{
       position:fixed;
@@ -615,13 +635,7 @@
     .whatsapp-float:hover .whatsapp-tooltip,.whatsapp-float:focus-visible .whatsapp-tooltip{opacity:1;transform:translateX(0)}
 
     .section-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--gold);margin-bottom:12px}
-    .globe-map{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:stretch;margin-top:44px}
-    .map-visual{min-height:430px;border-radius:28px;background:radial-gradient(circle at 50% 45%,rgba(201,164,92,.2),transparent 35%),linear-gradient(145deg,#09182a,#10253d);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
-    .map-visual:before{content:"";position:absolute;inset:11%;border:1px dashed rgba(201,164,92,.25);border-radius:50%;box-shadow:0 0 0 42px rgba(255,255,255,.015),0 0 0 84px rgba(255,255,255,.012)}
-    .map-core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:170px;height:170px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff4d5 0 3%,#c9a45c 4% 8%,#29455f 30%,#0b1726 72%);box-shadow:0 0 60px rgba(201,164,92,.22),inset -25px -18px 40px rgba(0,0,0,.45)}
-    .map-line{position:absolute;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform-origin:left center;opacity:.75;animation:pulseLine 3s infinite ease-in-out}.line-a{width:260px;left:27%;top:40%;transform:rotate(14deg)}.line-b{width:250px;left:53%;top:54%;transform:rotate(-18deg);animation-delay:.8s}.line-c{width:220px;left:39%;top:63%;transform:rotate(-47deg);animation-delay:1.5s}
-    .map-dot{position:absolute;width:10px;height:10px;background:#f4d58e;border-radius:50%;box-shadow:0 0 18px rgba(201,164,92,.8);animation:dotPulse 2s infinite}.dot-india{left:47%;top:56%}.dot-usa{left:27%;top:42%}.dot-eu{left:39%;top:34%}.dot-asia{left:70%;top:43%}.map-tag{position:absolute;font-size:12px;color:#fff;background:rgba(7,17,31,.72);border:1px solid rgba(255,255,255,.12);padding:7px 10px;border-radius:999px;backdrop-filter:blur(8px)}.tag-india{left:42%;top:67%}.tag-global{right:7%;top:27%}.tag-usa{left:8%;top:34%}
-    .corridors{display:grid;gap:14px}.corridor{border:1px solid var(--line);border-radius:18px;padding:20px 22px;background:var(--white);transition:.25s;cursor:pointer}.corridor:hover,.corridor.active{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 14px 35px rgba(7,17,31,.08)}.corridor b{display:block;font-size:17px}.corridor span{display:block;color:var(--muted);font-size:14px;margin-top:6px}.corridor-detail{margin-top:18px;padding:18px;border-radius:16px;background:#f8f5ee;color:var(--text);font-size:14px;line-height:1.65}
+    .globe-map{display:grid;grid-template-columns:1.12fr .88fr;gap:32px;align-items:stretch;margin-top:44px}.map-visual{min-height:430px;border-radius:28px;background:radial-gradient(circle at 50% 50%,rgba(201,164,92,.12),transparent 36%),linear-gradient(145deg,#071321,#10263d);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1)}.map-visual:before{content:"";position:absolute;inset:0;background:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;mask-image:linear-gradient(to bottom,transparent,#000 18%,#000 82%,transparent)}.map-topbar{position:absolute;z-index:4;left:22px;right:22px;top:18px;display:flex;justify-content:space-between;gap:12px;align-items:center;color:#9eafc1;font-size:10px;letter-spacing:.16em}.map-topbar b{font-size:11px;letter-spacing:0;color:#f1dca7;font-weight:700}.world-svg{position:absolute;inset:44px 18px 34px;width:calc(100% - 36px);height:calc(100% - 78px)}.graticule path{fill:none;stroke:rgba(255,255,255,.07);stroke-width:1;stroke-dasharray:3 8}.continents path{fill:#1b344a;stroke:#3d5870;stroke-width:1.2;opacity:.92;filter:drop-shadow(0 8px 10px rgba(0,0,0,.15))}.map-aura{animation:mapAura 5s ease-in-out infinite}.route{fill:none;stroke:url(#routeGold);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:9 9;animation:routeFlow 3.2s linear infinite}.route-gi{animation-delay:.9s}.route-gg{animation-delay:1.7s}.node circle{fill:#f4d58e;stroke:#071321;stroke-width:3;filter:url(#softGlow);animation:nodeGlow 2s ease-in-out infinite}.node text{fill:#fff;paint-order:stroke;stroke:#071321;stroke-width:4px;stroke-linejoin:round;text-anchor:middle;font:700 10px Manrope,sans-serif;letter-spacing:.08em}.node-eu circle{animation-delay:.4s}.node-asia circle{animation-delay:.8s}.node-global circle{animation-delay:1.2s}.route-ping{fill:none;stroke:#f4d58e;stroke-width:1.5;opacity:0;animation:routePing 3s ease-out infinite}.ping-2{animation-delay:1.4s}.map-footer{position:absolute;left:22px;right:22px;bottom:14px;display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap;color:#8094a8;font-size:10px}.map-footer i{display:inline-block;width:7px;height:7px;border-radius:50%;background:#f4d58e;margin-right:5px;box-shadow:0 0 8px rgba(244,213,142,.6)}.map-footer span:last-child{font-style:italic}.corridors{display:grid;gap:14px}.corridor{border:1px solid var(--line);border-radius:18px;padding:20px 22px;background:var(--white);transition:.25s;cursor:pointer}.corridor:hover,.corridor.active{transform:translateY(-2px);border-color:var(--gold);box-shadow:0 14px 35px rgba(7,17,31,.08)}.corridor b{display:block;font-size:17px}.corridor span{display:block;color:var(--muted);font-size:14px;margin-top:6px}.corridor-detail{margin-top:18px;padding:18px;border-radius:16px;background:#f8f5ee;color:var(--text);font-size:14px;line-height:1.65}
     .intelligence{margin-top:64px;padding:34px;border-radius:26px;background:#f6f3ec;border:1px solid #e9e4d8}.intel-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}.intel-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:22px}.intel-icon{font-size:24px}.intel-card h3{margin:12px 0 7px}.intel-card p{font-size:13px;color:var(--muted);margin:0}
     .portfolio-demo{margin-top:34px;background:linear-gradient(135deg,#081423,#10283f);border-radius:26px;padding:28px;color:#fff;box-shadow:0 20px 55px rgba(7,17,31,.18)}.portfolio-head{display:flex;justify-content:space-between;align-items:end;gap:20px}.portfolio-value{font:800 34px Manrope,sans-serif}.portfolio-sub{font-size:12px;color:#9eafc1}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.tab{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);color:#dce5ef;border-radius:999px;padding:9px 13px;cursor:pointer}.tab.active{background:var(--gold);color:#07111f;border-color:var(--gold);font-weight:800}.demo-content{display:grid;grid-template-columns:1fr 1fr;gap:18px}.demo-box{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);border-radius:18px;padding:20px}.bar{height:9px;border-radius:99px;background:#243a51;overflow:hidden;margin:9px 0 14px}.bar i{display:block;height:100%;background:var(--gold);border-radius:inherit}.demo-row{display:flex;justify-content:space-between;gap:12px;margin:9px 0;font-size:13px;color:#dce5ef}.demo-disclaimer{font-size:11px;color:#93a6b9;margin-top:18px}
     .products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}.product-card{border:1px solid var(--line);border-radius:20px;padding:22px;background:#fff;min-height:185px;transition:.25s}.product-card:hover{transform:translateY(-4px);box-shadow:0 16px 35px rgba(7,17,31,.08);border-color:#d8c18f}.product-card .pill{font-size:10px;letter-spacing:.12em;color:var(--gold);font-weight:800}.product-card h3{margin:12px 0 8px}.product-card p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
@@ -825,7 +839,61 @@
         gap: 12px;
       }
     }
-  </style>
+  .animated-world{transition:transform .35s ease}.animated-world.route-india-global .route-ig,.animated-world.route-global-india .route-gi,.animated-world.route-global-global .route-gg{stroke-width:4;filter:url(#softGlow)}@media (max-width:900px){.globe-map{grid-template-columns:1fr}.map-visual{min-height:390px}}@media (max-width:620px){.map-topbar{font-size:9px}.map-topbar b{display:none}.map-footer{font-size:9px}.world-svg{inset:48px 8px 38px;width:calc(100% - 16px);height:calc(100% - 86px)}}
+
+/* Premium fintech visual layer */
+:root{--pf-gold:#d8b56a;--pf-ink:#07111f;--pf-blue:#6ea8ff;--pf-mint:#47d7ae}
+body{background:radial-gradient(circle at 78% 8%,rgba(67,112,190,.12),transparent 28%),#050b14}
+.hero{background:radial-gradient(circle at var(--mx,78%) var(--my,38%),rgba(80,130,220,.16),transparent 25%),linear-gradient(180deg,rgba(9,20,36,.72),rgba(5,11,20,0))}
+.hero h1{letter-spacing:-.045em;text-shadow:0 8px 35px rgba(0,0,0,.3)}
+.hero h1 span{background:linear-gradient(100deg,#fff 10%,var(--pf-gold) 48%,#fff 88%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero-grid{position:relative}
+.hero-grid:after{content:"";position:absolute;inset:-10% -8%;pointer-events:none;background:linear-gradient(90deg,transparent 0 49.7%,rgba(255,255,255,.035) 50%,transparent 50.3%),linear-gradient(transparent 0 49.7%,rgba(255,255,255,.025) 50%,transparent 50.3%);background-size:72px 72px;mask-image:radial-gradient(circle at 70% 42%,#000,transparent 60%);opacity:.45}
+.globe-stage{filter:drop-shadow(0 25px 65px rgba(0,0,0,.38))}
+.globe{box-shadow:inset -35px -25px 75px rgba(0,0,0,.55),inset 8px 10px 30px rgba(255,255,255,.08),0 0 70px rgba(70,130,220,.18);border:1px solid rgba(255,255,255,.13)}
+.globe:before{background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.15),transparent 20%),repeating-linear-gradient(0deg,transparent 0 21px,rgba(120,170,240,.08) 22px 23px),repeating-linear-gradient(90deg,transparent 0 27px,rgba(120,170,240,.06) 28px 29px)!important}
+section:not(.hero){position:relative}
+section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);pointer-events:none}
+.card,.solution-card,.intel-card,.market-card,.corridor,.portfolio-demo,.roadmap-card,.faq-item,.contact-card{background:linear-gradient(145deg,rgba(18,31,50,.82),rgba(8,16,28,.78));border-color:rgba(255,255,255,.09);box-shadow:0 18px 55px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.035)}
+.card:hover,.solution-card:hover,.intel-card:hover,.market-card:hover,.corridor:hover{border-color:rgba(216,181,106,.3);box-shadow:0 22px 65px rgba(0,0,0,.25),0 0 0 1px rgba(216,181,106,.06),inset 0 1px 0 rgba(255,255,255,.06)}
+.market-card{position:relative;overflow:hidden}
+.market-card:after{content:"";position:absolute;inset:auto -20% 0;height:45%;background:linear-gradient(180deg,transparent,rgba(70,130,220,.08));pointer-events:none}
+.eyebrow{letter-spacing:.18em}
+.btn.primary{box-shadow:0 10px 30px rgba(216,181,106,.18),inset 0 1px 0 rgba(255,255,255,.28)}
+.journey-btn{backdrop-filter:blur(14px);background:rgba(12,25,42,.62)!important;border-color:rgba(255,255,255,.09)!important}
+.journey-btn.active{box-shadow:0 10px 30px rgba(216,181,106,.13),inset 0 0 0 1px rgba(216,181,106,.2)}
+.portfolio-demo{position:relative;overflow:hidden}
+.portfolio-demo:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 86% 12%,rgba(71,215,174,.09),transparent 24%),linear-gradient(110deg,transparent 0 72%,rgba(110,168,255,.035) 72% 72.2%,transparent 72.2%);pointer-events:none}
+.portfolio-value{font-variant-numeric:tabular-nums;letter-spacing:-.035em}
+.tabs{background:rgba(3,9,17,.48);border:1px solid rgba(255,255,255,.06);padding:5px;border-radius:14px}
+.tab{transition:all .22s ease}
+.tab.active{box-shadow:inset 0 0 0 1px rgba(216,181,106,.2),0 6px 18px rgba(0,0,0,.18)}
+.globe-map{background:linear-gradient(145deg,rgba(10,22,39,.88),rgba(4,11,20,.9));border:1px solid rgba(255,255,255,.09);box-shadow:0 30px 90px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.04)}
+.map-visual{background:radial-gradient(circle at 52% 48%,rgba(76,129,207,.14),transparent 32%),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:auto,42px 42px,42px 42px}
+.map-line{filter:drop-shadow(0 0 7px rgba(110,168,255,.3));stroke-dasharray:9 9;animation:routeDash 2.6s linear infinite}
+@keyframes routeDash{to{stroke-dashoffset:-36}}
+.map-dot{box-shadow:0 0 0 5px rgba(110,168,255,.08),0 0 24px rgba(110,168,255,.35)}
+@keyframes nodePulse{0%,100%{transform:scale(1);opacity:.78}50%{transform:scale(1.22);opacity:1}}
+.map-dot{animation:nodePulse 2.4s ease-in-out infinite}
+.map-dot.dot-usa{animation-delay:.2s}.map-dot.dot-eu{animation-delay:.5s}.map-dot.dot-asia{animation-delay:.8s}
+@media(max-width:760px){.hero-grid:after{display:none}.hero h1{letter-spacing:-.03em}.map-visual{min-height:360px}}
+@media(prefers-reduced-motion:reduce){.map-line,.map-dot{animation:none}}
+
+.premium-strip{margin-top:-18px;padding:0 0 46px;position:relative;z-index:2}.premium-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.premium-metrics>div{padding:18px 20px;border:1px solid rgba(255,255,255,.07);border-radius:16px;background:rgba(8,17,29,.64);backdrop-filter:blur(16px)}.premium-metrics small{display:block;font-size:10px;letter-spacing:.16em;color:rgba(255,255,255,.45);margin-bottom:8px}.premium-metrics strong{display:block;font-size:18px;letter-spacing:-.02em}.premium-metrics span{display:block;margin-top:5px;font-size:12px;color:rgba(255,255,255,.55);line-height:1.45}@media(max-width:820px){.premium-metrics{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.premium-metrics{grid-template-columns:1fr}.premium-strip{padding-bottom:30px}}
+
+/* Requested text-only color adjustments */
+.hero h1 span{color:#d8b56a!important;background:none!important;-webkit-background-clip:initial!important;background-clip:initial!important}
+#platform-title,
+#platform .card h3,
+#approach-title,
+#approach .step h3,
+#portfolio-title,
+#products-title,
+#network-title,
+#global-network .corridor b,
+.premium-metrics strong{color:#fff!important}
+
+</style>
 
   <script type="application/ld+json">
   {
@@ -897,6 +965,7 @@
     </div>
   </noscript>
 
+  <div id="scroll-progress" aria-hidden="true"></div>
   <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
       <div class="wrap hero-grid">
@@ -908,6 +977,15 @@
             <a class="btn primary" href="#platform">Explore the Platform →</a>
             <a class="btn secondary" href="#contact">Partner with DhanaSeed</a>
             <button class="btn secondary" type="button" onclick="openModal('waitlist-modal')">Join Early Access</button>
+          </div>
+          <div class="hero-journey" aria-label="Choose your DhanaSeed journey">
+            <div class="journey-label">Explore by investor journey</div>
+            <div class="journey-buttons" role="group" aria-label="Investor journey options">
+              <button class="journey-btn active" type="button" data-journey="india-global">🇮🇳 India → Global</button>
+              <button class="journey-btn" type="button" data-journey="global-india">🌎 Global → India</button>
+              <button class="journey-btn" type="button" data-journey="wealth">◈ One Global Portfolio</button>
+            </div>
+            <div class="journey-result" id="journey-result" aria-live="polite">Discover permitted overseas opportunities with currency visibility, LRS tracking and a unified global portfolio.</div>
           </div>
         </div>
 
@@ -932,7 +1010,7 @@
 
         <div class="market-ticker-grid" id="market-grid">
           <!-- S&P 500 -->
-          <div class="market-card">
+          <div class="market-card tilt">
             <div class="market-card-top">
               <span class="market-symbol">S&P 500</span>
               <span class="market-name">US Index</span>
@@ -945,7 +1023,7 @@
           </div>
 
           <!-- NIFTY 50 -->
-          <div class="market-card">
+          <div class="market-card tilt">
             <div class="market-card-top">
               <span class="market-symbol">NIFTY 50</span>
               <span class="market-name">India Index</span>
@@ -958,7 +1036,7 @@
           </div>
 
           <!-- NASDAQ 100 -->
-          <div class="market-card">
+          <div class="market-card tilt">
             <div class="market-card-top">
               <span class="market-symbol">NASDAQ</span>
               <span class="market-name">US Tech</span>
@@ -971,7 +1049,7 @@
           </div>
 
           <!-- GOLD -->
-          <div class="market-card">
+          <div class="market-card tilt">
             <div class="market-card-top">
               <span class="market-symbol">GOLD</span>
               <span class="market-name">USD / oz</span>
@@ -984,7 +1062,7 @@
           </div>
 
           <!-- EUR/USD -->
-          <div class="market-card">
+          <div class="market-card tilt">
             <div class="market-card-top">
               <span class="market-symbol">EUR/USD</span>
               <span class="market-name">Forex</span>
@@ -997,7 +1075,7 @@
           </div>
 
           <!-- BITCOIN -->
-          <div class="market-card">
+          <div class="market-card tilt">
             <div class="market-card-top">
               <span class="market-symbol">BTC/USD</span>
               <span class="market-name">Crypto</span>
@@ -1024,7 +1102,7 @@
       </div>
     </div>
 
-    <section id="platform" aria-labelledby="platform-title">
+    <section id="platform" class="reveal" aria-labelledby="platform-title">
       <div class="wrap">
         <div class="intro">
           <div class="eyebrow">The Platform</div>
@@ -1033,17 +1111,17 @@
         </div>
 
         <div class="cards">
-          <article class="card">
+          <article class="card tilt">
             <span class="num">01 / ACCESS</span>
             <h3>Global Market Access</h3>
             <p>Designed to connect investors with permitted opportunities across global markets through a streamlined digital experience.</p>
           </article>
-          <article class="card">
+          <article class="card tilt">
             <span class="num">02 / INTELLIGENCE</span>
             <h3>Portfolio Intelligence</h3>
             <p>Unified portfolio visibility and actionable insights designed to make complex investment information easier to understand.</p>
           </article>
-          <article class="card">
+          <article class="card tilt">
             <span class="num">03 / INSIGHT</span>
             <h3>Tax &amp; Currency Intelligence</h3>
             <p>Bring tax and currency considerations into the decision-making framework for cross-border investing.</p>
@@ -1052,7 +1130,7 @@
       </div>
     </section>
 
-    <section class="dark" id="solutions" aria-labelledby="solutions-title">
+    <section class="reveal dark" id="solutions" aria-labelledby="solutions-title">
       <div class="wrap">
         <div class="intro">
           <div class="eyebrow">Solutions</div>
@@ -1061,17 +1139,17 @@
         </div>
 
         <div class="cards">
-          <article class="card">
+          <article class="card tilt">
             <span class="num">FOR INVESTORS</span>
             <h3>Invest Smarter</h3>
             <p>Discover a clearer way to evaluate and manage permitted global investment opportunities.</p>
           </article>
-          <article class="card">
+          <article class="card tilt">
             <span class="num">FOR BUSINESSES</span>
             <h3>Think Beyond Capital</h3>
             <p>Use financial intelligence and capital-oriented thinking to support planning, growth and strategic decisions.</p>
           </article>
-          <article class="card">
+          <article class="card tilt">
             <span class="num">FOR PARTNERS</span>
             <h3>Build Together</h3>
             <p>Connect complementary capabilities across finance, technology and professional services.</p>
@@ -1080,7 +1158,7 @@
       </div>
     </section>
 
-    <section id="approach" aria-labelledby="approach-title">
+    <section id="approach" class="reveal" aria-labelledby="approach-title">
       <div class="wrap">
         <div class="product">
           <div class="intro">
@@ -1107,7 +1185,7 @@
       </div>
     </section>
 
-    <section id="about" class="dark" aria-labelledby="about-title">
+    <section id="about" class="reveal dark" aria-labelledby="about-title">
       <div class="wrap">
         <div class="intro">
           <div class="eyebrow">About DhanaSeed</div>
@@ -1116,18 +1194,18 @@
         </div>
 
         <div class="cards" style="margin-top:40px;">
-          <article class="card">
+          <article class="card tilt">
             <span class="num">LEADERSHIP & VISION</span>
             <h3>Pravin V.</h3>
             <p style="color:var(--gold); font-weight:600; margin-bottom:8px;">Founder & CEO</p>
             <p>Leading the strategic roadmap to build institutional-grade cross-border capital infrastructure and portfolio intelligence for retail and institutional investors.</p>
           </article>
-          <article class="card">
+          <article class="card tilt">
             <span class="num">REGULATORY COMPLIANCE</span>
             <h3>RBI LRS Alignment</h3>
             <p>Structured around India's Liberalised Remittance Scheme (LRS) guidelines to ensure fully compliant overseas capital transfers for resident Indian investors.</p>
           </article>
-          <article class="card">
+          <article class="card tilt">
             <span class="num">ASSET SAFETY</span>
             <h3>Regulated Custody</h3>
             <p>Securities and assets are held directly in segregated accounts managed by licensed, regulated custodial partners and broker-dealers in each jurisdiction.</p>
@@ -1136,7 +1214,8 @@
       </div>
     </section>
 
-    <section id="global-network" aria-labelledby="network-title">
+    <section class="premium-strip reveal" aria-label="Platform signals"><div class="wrap premium-metrics"><div><small>GLOBAL REACH</small><strong>Multi-market</strong><span>Designed for cross-border investing</span></div><div><small>INTELLIGENCE</small><strong>One view</strong><span>Portfolio · currency · tax visibility</span></div><div><small>EXPERIENCE</small><strong>Digital-first</strong><span>Built around clarity and control</span></div><div><small>VISION</small><strong>One Global Portfolio</strong><span>A unified wealth operating layer</span></div></div></section>
+<section id="global-network" class="reveal" aria-labelledby="network-title">
       <div class="wrap">
         <div class="intro">
           <div class="eyebrow">Global Network</div>
@@ -1144,22 +1223,51 @@
           <p>Designed around the long-term DhanaSeed model: India → Global, Global → India and Global → Global, with eligibility and regulatory requirements determining what can be offered in each market.</p>
         </div>
         <div class="globe-map">
-          <div class="map-visual" aria-hidden="true">
-            <div class="map-core"></div><div class="map-line line-a"></div><div class="map-line line-b"></div><div class="map-line line-c"></div>
-            <i class="map-dot dot-india"></i><i class="map-dot dot-usa"></i><i class="map-dot dot-eu"></i><i class="map-dot dot-asia"></i>
-            <span class="map-tag tag-india">India</span><span class="map-tag tag-usa">USA</span><span class="map-tag tag-global">Global markets</span>
+          <div class="map-visual animated-world" aria-label="Schematic animated global network map. Routes and nodes are illustrative, not to scale.">
+            <div class="map-topbar"><span>GLOBAL ROUTE LAYER</span><b>Illustrative network view</b></div>
+            <svg class="world-svg" viewBox="0 0 900 460" role="img" aria-label="Illustrative world map with animated capital-market corridors">
+              <defs>
+                <radialGradient id="mapGlow" cx="50%" cy="50%"><stop offset="0" stop-color="#c9a45c" stop-opacity=".22"/><stop offset="1" stop-color="#c9a45c" stop-opacity="0"/></radialGradient>
+                <linearGradient id="routeGold" x1="0" x2="1"><stop offset="0" stop-color="#c9a45c" stop-opacity="0"/><stop offset=".5" stop-color="#f4d58e"/><stop offset="1" stop-color="#c9a45c" stop-opacity="0"/></linearGradient>
+                <filter id="softGlow"><feGaussianBlur stdDeviation="5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <g class="graticule"><path d="M60 230H840M90 150H810M90 310H810M150 70V390M300 55V405M450 45V415M600 55V405M750 70V390"/></g>
+              <circle class="map-aura" cx="450" cy="230" r="190" fill="url(#mapGlow)"/>
+              <g class="continents" aria-hidden="true">
+                <path d="M92 112l42-27 57 8 38 31-9 33-31 11-10 32-35 13-26-19-38 2-24-29 18-35z"/>
+                <path d="M245 232l35 5 27 28-4 35-22 22-10 49-25 48-22-28 9-49-17-36 12-39z"/>
+                <path d="M410 102l39-25 62 6 33 28 41 3 31 31-21 22-48 0-18 31-35 6-29-17-36 9-30-26 12-31z"/>
+                <path d="M514 222l39-13 45 20 14 37-17 26-4 43-32 24-34-31 6-39-26-26z"/>
+                <path d="M690 113l49-15 53 24 27 38-18 28-43-4-22 28-39-14-18-30 14-28z"/>
+                <path d="M760 246l48 4 27 27-12 28-42 4-27-25z"/>
+              </g>
+              <g class="route-layer">
+                <path class="route route-ig" d="M560 265 C500 210, 430 170, 350 195 C285 215, 205 170, 170 145"/>
+                <path class="route route-gi" d="M560 265 C500 220, 420 190, 350 195 C430 240, 510 255, 575 235"/>
+                <path class="route route-gg" d="M560 265 C625 225, 670 175, 710 145 C755 115, 785 270, 650 315"/>
+              </g>
+              <g class="network-nodes">
+                <g class="node node-usa"><circle cx="170" cy="145" r="7"/><text x="170" y="128">USA</text></g>
+                <g class="node node-eu"><circle cx="350" cy="195" r="7"/><text x="350" y="178">EU</text></g>
+                <g class="node node-india"><circle cx="560" cy="265" r="9"/><text x="560" y="291">INDIA</text></g>
+                <g class="node node-asia"><circle cx="710" cy="145" r="7"/><text x="710" y="128">ASIA</text></g>
+                <g class="node node-global"><circle cx="650" cy="315" r="6"/><text x="650" y="338">GLOBAL</text></g>
+              </g>
+              <circle class="route-ping ping-1" cx="560" cy="265" r="12" filter="url(#softGlow)"/><circle class="route-ping ping-2" cx="350" cy="195" r="10" filter="url(#softGlow)"/>
+            </svg>
+            <div class="map-footer"><span><i></i> Capital corridor</span><span><i></i> Market node</span><span>Routes are schematic / not to scale</span></div>
           </div>
           <div class="corridors">
-            <div class="corridor active" data-corridor="india-global"><b>🇮🇳 India → Global</b><span>For Indian residents seeking permitted overseas investment opportunities.</span></div>
-            <div class="corridor" data-corridor="global-india"><b>🌎 Global → India</b><span>For NRIs, OCIs and eligible foreign investors seeking India access.</span></div>
-            <div class="corridor" data-corridor="global-global"><b>🌎 Global → Global</b><span>The long-term multi-market opportunity, subject to jurisdiction-specific frameworks.</span></div>
+            <div class="corridor active tilt" data-corridor="india-global"><b>🇮🇳 India → Global</b><span>For Indian residents seeking permitted overseas investment opportunities.</span></div>
+            <div class="corridor tilt" data-corridor="global-india"><b>🌎 Global → India</b><span>For NRIs, OCIs and eligible foreign investors seeking India access.</span></div>
+            <div class="corridor tilt" data-corridor="global-global"><b>🌎 Global → Global</b><span>The long-term multi-market opportunity, subject to jurisdiction-specific frameworks.</span></div>
             <div class="corridor-detail" id="corridor-detail">Global market discovery, international securities, currency visibility, overseas investment information and portfolio intelligence — where permitted and eligible.</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section aria-labelledby="portfolio-title">
+    <section aria-labelledby="portfolio-title" class="reveal">
       <div class="wrap">
         <div class="intro">
           <div class="eyebrow">Flagship Experience</div>
@@ -1172,26 +1280,26 @@
           <div class="demo-content" id="demo-content" role="tabpanel" tabindex="0" aria-live="polite">
             <div class="demo-box"><b>Country Allocation</b><div class="demo-row"><span>🇮🇳 India</span><strong>65%</strong></div><div class="bar"><i style="width:65%"></i></div><div class="demo-row"><span>🇺🇸 USA</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>🌎 Others</span><strong>7%</strong></div><div class="bar"><i style="width:7%"></i></div></div><div class="demo-box"><b>Asset Mix</b><div class="demo-row"><span>Equity</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>ETF</span><strong>12%</strong></div><div class="bar"><i style="width:12%"></i></div><div class="demo-row"><span>Debt + Cash</span><strong>20%</strong></div><div class="bar"><i style="width:20%"></i></div></div>
           </div>
-          <div class="demo-disclaimer">Illustrative platform vision — not live account, market or investment data.</div>
+          <div class="demo-disclaimer">Illustrative platform vision — not live account, market or investment data.</div><div class="interactive-hint"><i></i> Tap the views above to explore the portfolio intelligence layer.</div>
         </div>
       </div>
     </section>
 
-    <section id="intelligence" class="dark" aria-labelledby="intelligence-title">
+    <section id="intelligence" class="reveal dark" aria-labelledby="intelligence-title">
       <div class="wrap">
         <div class="intro"><div class="eyebrow">Intelligence Layer</div><h2 id="intelligence-title">The information behind better financial decisions.</h2><p>Portfolio, tax and currency intelligence are intended to sit alongside market access — not as disconnected tools.</p></div>
         <div class="intelligence" style="background:rgba(255,255,255,.04);border-color:rgba(255,255,255,.1)">
           <div class="intel-grid">
-            <article class="intel-card"><div class="intel-icon">◈</div><h3>Portfolio</h3><p>Unified holdings, performance, concentration, diversification and reporting.</p></article>
-            <article class="intel-card"><div class="intel-icon">⌁</div><h3>Currency</h3><p>Multi-currency valuation and home-currency return context.</p></article>
-            <article class="intel-card"><div class="intel-icon">▣</div><h3>Tax</h3><p>Transaction, cost-basis and tax-information workflows across relevant assets.</p></article>
-            <article class="intel-card"><div class="intel-icon">◇</div><h3>Compliance</h3><p>Rules based on residence, investor category, market, product and eligibility.</p></article>
+            <article class="intel-card tilt"><div class="intel-icon">◈</div><h3>Portfolio</h3><p>Unified holdings, performance, concentration, diversification and reporting.</p></article>
+            <article class="intel-card tilt"><div class="intel-icon">⌁</div><h3>Currency</h3><p>Multi-currency valuation and home-currency return context.</p></article>
+            <article class="intel-card tilt"><div class="intel-icon">▣</div><h3>Tax</h3><p>Transaction, cost-basis and tax-information workflows across relevant assets.</p></article>
+            <article class="intel-card tilt"><div class="intel-icon">◇</div><h3>Compliance</h3><p>Rules based on residence, investor category, market, product and eligibility.</p></article>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="products" aria-labelledby="products-title">
+    <section id="products" class="reveal" aria-labelledby="products-title">
       <div class="wrap">
         <div class="intro"><div class="eyebrow">DhanaSeed Ecosystem</div><h2 id="products-title">A platform family built to grow with the investor.</h2><p>The roadmap starts focused and expands toward a broader global capital-markets and wealth technology platform.</p></div>
         <div class="products">
@@ -1207,7 +1315,7 @@
       </div>
     </section>
 
-    <section class="dark" id="roadmap" aria-labelledby="roadmap-title">
+    <section class="reveal dark" id="roadmap" aria-labelledby="roadmap-title">
       <div class="wrap"><div class="intro"><div class="eyebrow">Strategic Roadmap</div><h2 id="roadmap-title">Focus → Prove → Raise → Expand.</h2><p>The strategic sequence keeps the initial build focused while preparing the architecture for a global platform.</p></div>
         <div class="roadmap">
           <div class="phase"><i class="phase-dot"></i><span>PHASE 01</span><h3>India</h3><p>DhanaSeed Invest + Tax Intelligence</p></div>
@@ -1221,7 +1329,7 @@
     </section>
 
     <!-- DHANASEED ACADEMY SECTION -->
-    <section class="dark" id="academy" aria-labelledby="academy-title">
+    <section class="reveal dark" id="academy" aria-labelledby="academy-title">
       <div class="wrap">
         <div class="intro">
           <div class="eyebrow">DhanaSeed Academy</div>
@@ -1252,7 +1360,7 @@
     </section>
 
     <!-- FREQUENTLY ASKED QUESTIONS SECTION -->
-    <section class="dark" id="faq" aria-labelledby="faq-title" style="border-top: 1px solid #1f2d42;">
+    <section class="reveal dark" id="faq" aria-labelledby="faq-title" style="border-top: 1px solid #1f2d42;">
       <div class="wrap">
         <div class="intro">
           <div class="eyebrow">FAQ</div>
@@ -1294,7 +1402,7 @@
       </div>
     </section>
 
-    <section class="cta" id="contact" aria-labelledby="contact-title">
+    <section class="reveal cta" id="contact" aria-labelledby="contact-title">
       <div class="wrap cta-box">
         <div>
           <h2 id="contact-title">Let's build the future of global finance.</h2>
@@ -1828,7 +1936,7 @@
           document.querySelectorAll('.corridor').forEach(x => x.classList.remove('active'));
           el.classList.add('active');
           const detail = document.getElementById('corridor-detail');
-          if (detail) detail.textContent = details[el.dataset.corridor] || '';
+          const map = document.querySelector('.animated-world'); if (map) { map.classList.remove('route-india-global','route-global-india','route-global-global'); map.classList.add('route-' + el.dataset.corridor); }          if (detail) detail.textContent = details[el.dataset.corridor] || '';
         };
 
         el.addEventListener('click', activate);
@@ -1889,9 +1997,58 @@
       });
     })();
 
+    // Premium fintech number micro-interactions
+(() => {
+  const els=[...document.querySelectorAll('.portfolio-value')];
+  if(!els.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  els.forEach(el=>{const raw=el.textContent.trim(); const m=raw.match(/([₹$€£])?\s*([\d.]+)/); if(!m)return; const prefix=m[1]||''; const target=parseFloat(m[2]); let start=performance.now(); const duration=900; const tick=t=>{const p=Math.min(1,(t-start)/duration),e=1-Math.pow(1-p,3); el.textContent=prefix+(target*e).toFixed(2)+' lakh'; if(p<1)requestAnimationFrame(tick)}; requestAnimationFrame(tick);});
+})();
+
+// Visual interaction layer
+    (() => {
+      const progress=document.getElementById('scroll-progress');
+      const updateProgress=()=>{if(!progress)return;const max=document.documentElement.scrollHeight-window.innerHeight;progress.style.width=`${max>0?Math.min(100,Math.max(0,window.scrollY/max*100)):0}%`;};
+      window.addEventListener('scroll',updateProgress,{passive:true});window.addEventListener('resize',updateProgress);updateProgress();
+      const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const observer='IntersectionObserver' in window?new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target);}}),{threshold:.12}):null;
+      document.querySelectorAll('.reveal').forEach(el=>observer?observer.observe(el):el.classList.add('is-visible'));
+      const hero=document.querySelector('.hero'),stage=document.querySelector('.globe-stage');
+      if(hero&&!reduceMotion&&window.matchMedia('(pointer:fine)').matches){hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();const x=(e.clientX-r.left)/r.width*100,y=(e.clientY-r.top)/r.height*100;hero.style.setProperty('--mx',`${x}%`);hero.style.setProperty('--my',`${y}%`);if(stage){const dx=((e.clientX-r.left)/r.width-.5)*7,dy=((e.clientY-r.top)/r.height-.5)*-5;stage.style.transform=`translate3d(${dx}px,${dy}px,0)`;}});hero.addEventListener('pointerleave',()=>{hero.style.setProperty('--mx','78%');hero.style.setProperty('--my','38%');if(stage)stage.style.transform='';});}
+      const journeys={'india-global':'Discover permitted overseas opportunities with currency visibility, LRS tracking and a unified global portfolio.','global-india':'Explore the intended India-from-anywhere experience for eligible NRIs, OCIs and foreign investors, with digital onboarding and tax visibility.','wealth':'See the flagship One Global Portfolio concept: holdings, country allocation, currency exposure, risk and tax information in one place.'};
+      const jr=document.getElementById('journey-result');document.querySelectorAll('.journey-btn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.journey-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');if(jr)jr.textContent=journeys[btn.dataset.journey]||'';}));
+      if(!reduceMotion&&window.matchMedia('(pointer:fine)').matches){document.querySelectorAll('.tilt').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),rx=((e.clientY-r.top)/r.height-.5)*-3,ry=((e.clientX-r.left)/r.width-.5)*3;card.style.transform=`perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-2px)`;});card.addEventListener('pointerleave',()=>{card.style.transform='';});});}
+    })();
+
     // Refresh once immediately and then once per minute.
     refreshMarkets();
     window.setInterval(refreshMarkets, MARKET_REFRESH_MS);
   </script>
+
+<style id="investor-dashboard-style">
+.investor-dashboard{margin:48px auto 0;max-width:1180px;padding:26px;border:1px solid rgba(255,255,255,.1);border-radius:28px;background:linear-gradient(145deg,rgba(13,19,31,.96),rgba(7,11,20,.94));box-shadow:0 30px 90px rgba(0,0,0,.28);color:#eef2f7;position:relative;overflow:hidden}
+.investor-dashboard:before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 72% 20%,rgba(45,212,191,.11),transparent 28%),radial-gradient(circle at 20% 90%,rgba(201,164,92,.09),transparent 30%);pointer-events:none}
+.id-head,.id-grid,.id-actions{position:relative;z-index:1}.id-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:22px}.id-kicker{font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#8f9aab}.id-head h2{margin:5px 0 0;font-size:30px}.id-status{border:1px solid rgba(45,212,191,.3);color:#79e1d2;background:rgba(45,212,191,.07);padding:8px 12px;border-radius:999px;font-size:12px}.id-grid{display:grid;grid-template-columns:1.5fr .85fr;gap:18px}.id-card{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);border-radius:20px;padding:20px}.id-value{font-size:34px;font-weight:700;letter-spacing:-.03em}.id-change{font-size:13px;color:#78d6c7;margin-top:4px}.id-chart{height:210px;margin-top:16px;position:relative}.id-chart svg{width:100%;height:100%;overflow:visible}.id-gridline{stroke:rgba(255,255,255,.07);stroke-width:1}.id-area{fill:url(#idArea);opacity:.55}.id-line{fill:none;stroke:#7fe0d2;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 8px rgba(127,224,210,.28))}.id-dot{fill:#0b121e;stroke:#f1ca72;stroke-width:2}.id-controls{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.id-controls button,.id-tab{background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);color:#aeb8c7;border-radius:10px;padding:8px 11px;cursor:pointer}.id-controls button.active,.id-tab.active{color:#101820;background:#d8b66b;border-color:#d8b66b}.id-side{display:grid;gap:18px}.id-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}.id-metric{padding:13px;border-radius:14px;background:rgba(255,255,255,.035)}.id-metric b{display:block;font-size:17px}.id-metric span{font-size:11px;color:#8f9aab}.id-bars{display:grid;gap:13px;margin-top:15px}.id-bar-row{display:grid;gap:6px}.id-bar-label{display:flex;justify-content:space-between;font-size:12px;color:#b8c1ce}.id-bar{height:7px;border-radius:10px;background:rgba(255,255,255,.07);overflow:hidden}.id-bar i{display:block;height:100%;border-radius:10px;background:linear-gradient(90deg,#d8b66b,#7fe0d2);width:var(--w);transition:width .6s ease}.id-activity{display:grid;gap:10px;margin-top:14px}.id-activity div{display:flex;justify-content:space-between;gap:12px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.06);font-size:12px}.id-activity span{color:#8f9aab}.id-actions{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-top:18px;padding-top:17px;border-top:1px solid rgba(255,255,255,.07)}.id-tabs{display:flex;gap:6px}.id-tab{font-size:12px}.id-note{font-size:11px;color:#778293;text-align:right}.id-tooltip{position:absolute;display:none;pointer-events:none;padding:7px 9px;background:#0c1420;border:1px solid rgba(255,255,255,.12);border-radius:8px;font-size:11px;color:#eef2f7;transform:translate(-50%,-120%);white-space:nowrap}
+@media(max-width:820px){.id-grid{grid-template-columns:1fr}.id-head{align-items:start;flex-direction:column}.id-actions{align-items:start;flex-direction:column}.id-note{text-align:left}.investor-dashboard{padding:18px;border-radius:22px}}
+</style>
+<section class="investor-dashboard" id="investor-dashboard" aria-labelledby="id-title">
+  <div class="id-head"><div><div class="id-kicker">Investor workspace · illustrative</div><h2 id="id-title">One Global Portfolio</h2></div><div class="id-status">● Intelligence active</div></div>
+  <div class="id-grid">
+    <div class="id-card">
+      <div class="id-kicker">Portfolio value</div><div class="id-value" id="id-value">₹35.00 lakh</div><div class="id-change">+8.42% · illustrative period return</div>
+      <div class="id-chart" id="id-chart"><svg viewBox="0 0 700 210" role="img" aria-label="Illustrative portfolio value trend"><defs><linearGradient id="idArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#7fe0d2" stop-opacity=".35"/><stop offset="1" stop-color="#7fe0d2" stop-opacity="0"/></linearGradient></defs><line class="id-gridline" x1="0" y1="45" x2="700" y2="45"/><line class="id-gridline" x1="0" y1="105" x2="700" y2="105"/><line class="id-gridline" x1="0" y1="165" x2="700" y2="165"/><path class="id-area" id="id-area"/><path class="id-line" id="id-line"/><g id="id-dots"></g></svg><div class="id-tooltip" id="id-tooltip"></div></div>
+      <div class="id-controls" aria-label="Chart period"><button type="button" data-period="1M">1M</button><button type="button" data-period="3M">3M</button><button type="button" class="active" data-period="1Y">1Y</button><button type="button" data-period="MAX">MAX</button></div>
+    </div>
+    <div class="id-side">
+      <div class="id-card"><div class="id-kicker">Portfolio health</div><div class="id-metrics"><div class="id-metric"><b>7</b><span>Markets</span></div><div class="id-metric"><b>4</b><span>Currencies</span></div><div class="id-metric"><b>62%</b><span>Global exposure</span></div><div class="id-metric"><b>Low</b><span>Concentration</span></div></div></div>
+      <div class="id-card"><div class="id-kicker">Geographic exposure</div><div class="id-bars"><div class="id-bar-row"><div class="id-bar-label"><span>India</span><b>38%</b></div><div class="id-bar"><i style="--w:38%"></i></div></div><div class="id-bar-row"><div class="id-bar-label"><span>North America</span><b>27%</b></div><div class="id-bar"><i style="--w:27%"></i></div></div><div class="id-bar-row"><div class="id-bar-label"><span>Europe</span><b>18%</b></div><div class="id-bar"><i style="--w:18%"></i></div></div><div class="id-bar-row"><div class="id-bar-label"><span>Asia Pacific</span><b>17%</b></div><div class="id-bar"><i style="--w:17%"></i></div></div></div></div>
+    </div>
+  </div>
+  <div class="id-card" style="margin-top:18px"><div class="id-kicker">Recent intelligence</div><div class="id-activity"><div><strong>Currency exposure</strong><span>USD + EUR monitored</span></div><div><strong>Tax view</strong><span>Cross-border review ready</span></div><div><strong>Risk signal</strong><span>Portfolio within target band</span></div></div></div>
+  <div class="id-actions"><div class="id-tabs"><button type="button" class="id-tab active">Overview</button><button type="button" class="id-tab">Allocation</button><button type="button" class="id-tab">Intelligence</button></div><div class="id-note">Illustrative platform concept — not live account, market or investment data.</div></div>
+</section>
+<script>
+(()=>{const root=document.getElementById('investor-dashboard');if(!root||root.dataset.ready)return;root.dataset.ready='1';const data={"1M":[31,31.8,32.2,32.0,33.1,33.8,34.4,35],"3M":[29,30.2,30.8,31.7,31.2,32.8,33.4,34.1,35],"1Y":[25,26.1,27.4,27.0,28.8,29.7,30.4,29.9,31.6,32.2,33.4,34.2,35],"MAX":[18,19.2,20.1,21.7,23.3,24.1,25.8,27.4,29.2,30.5,32.1,33.7,35]};const line=document.getElementById('id-line'),area=document.getElementById('id-area'),dots=document.getElementById('id-dots'),tip=document.getElementById('id-tooltip'),chart=document.getElementById('id-chart'),value=document.getElementById('id-value');function draw(key){const vals=data[key]||data['1Y'],min=Math.min(...vals)-1,max=Math.max(...vals)+1,w=700,h=190,pts=vals.map((v,i)=>{const x=i*(w/(vals.length-1)),y=15+(max-v)/(max-min)*(h-30);return [x,y,v]});const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');line.setAttribute('d',d);area.setAttribute('d',d+' L '+w+' '+h+' L 0 '+h+' Z');dots.innerHTML=pts.map((p,i)=>`<circle class="id-dot" cx="${p[0]}" cy="${p[1]}" r="4" data-i="${i}"/>`).join('');value.textContent='₹'+vals[vals.length-1].toFixed(2)+' lakh';dots.querySelectorAll('circle').forEach(c=>c.addEventListener('pointerenter',()=>{const i=+c.dataset.i;tip.textContent=key+' · ₹'+vals[i].toFixed(2)+' lakh';tip.style.display='block';tip.style.left=(+c.getAttribute('cx')/700*100)+'%';tip.style.top=(+c.getAttribute('cy')/190*100)+'%'}));chart.addEventListener('pointerleave',()=>tip.style.display='none',{once:false});root.querySelectorAll('[data-period]').forEach(b=>b.classList.toggle('active',b.dataset.period===key))}root.querySelectorAll('[data-period]').forEach(b=>b.addEventListener('click',()=>draw(b.dataset.period)));draw('1Y');root.querySelectorAll('.id-tab').forEach(b=>b.addEventListener('click',()=>{root.querySelectorAll('.id-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active')}));})();
+</script>
+
 </body>
 </html>
