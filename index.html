@@ -51,6 +51,8 @@
       --line:#e5e8ee;
       --white:#fff;
       --focus:#f1ca72;
+      --green:#10b981;
+      --red:#ef4444;
     }
 
     *{box-sizing:border-box}
@@ -261,6 +263,125 @@
     .primary:hover{background:#eee}
     .secondary{border:1px solid rgba(255,255,255,.2);color:#fff;background:transparent}
     .secondary:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05)}
+
+    /* Dynamic Live Market Data Ticker */
+    .live-market-section{
+      background:#050d18;
+      border-top:1px solid #1a2a40;
+      border-bottom:1px solid #1a2a40;
+      padding:20px 0;
+      color:#d1d7e0;
+    }
+    .market-header-bar{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:15px;
+      padding-bottom:10px;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .market-title-group{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .live-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      background:rgba(16,185,129,.15);
+      border:1px solid rgba(16,185,129,.3);
+      color:var(--green);
+      font-size:11px;
+      font-weight:700;
+      padding:3px 8px;
+      border-radius:20px;
+      letter-spacing:.05em;
+    }
+    .live-dot{
+      width:7px;
+      height:7px;
+      background:var(--green);
+      border-radius:50%;
+      box-shadow:0 0 8px var(--green);
+      animation:livePulse 1.5s infinite;
+    }
+    .market-title{
+      font-family:Manrope,sans-serif;
+      font-size:15px;
+      font-weight:700;
+      color:#fff;
+    }
+    .market-timestamp{
+      font-size:12px;
+      color:#7c8ba1;
+    }
+    .market-ticker-grid{
+      display:grid;
+      grid-template-columns:repeat(6,1fr);
+      gap:14px;
+    }
+    .market-card{
+      background:linear-gradient(145deg,#0a1626,#08121f);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;
+      padding:14px;
+      transition:border-color .25s ease,transform .25s ease;
+    }
+    .market-card:hover{
+      border-color:rgba(201,164,92,.4);
+      transform:translateY(-2px);
+    }
+    .market-card-top{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      margin-bottom:6px;
+    }
+    .market-symbol{
+      font-family:Manrope,sans-serif;
+      font-weight:800;
+      font-size:13px;
+      color:#fff;
+    }
+    .market-name{
+      font-size:10px;
+      color:#7c8ba1;
+      display:block;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .market-price{
+      font-family:Manrope,sans-serif;
+      font-weight:700;
+      font-size:16px;
+      color:#fff;
+      margin:4px 0 2px;
+      transition:color .3s ease;
+    }
+    .market-change{
+      font-size:11px;
+      font-weight:700;
+      display:inline-flex;
+      align-items:center;
+      gap:3px;
+    }
+    .market-change.positive{color:var(--green)}
+    .market-change.negative{color:var(--red)}
+    .market-sub{
+      font-size:10px;
+      color:#65758c;
+      margin-top:6px;
+      display:flex;
+      justify-content:space-between;
+    }
+
+    @keyframes livePulse{
+      0%{opacity:1;transform:scale(1)}
+      50%{opacity:.4;transform:scale(.8)}
+      100%{opacity:1;transform:scale(1)}
+    }
 
     /* Content */
     .ticker{
@@ -565,6 +686,14 @@
 
     @keyframes pulseLine{0%,100%{opacity:.35}50%{opacity:1}}@keyframes dotPulse{0%,100%{transform:scale(.9);opacity:.75}50%{transform:scale(1.25);opacity:1}}
 
+    .market-source-note{margin-top:10px;font-size:10px;color:#65758c;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .market-source-note .status-live{color:var(--green)}
+    .market-source-note .status-fallback{color:#f1ca72}
+    .market-sub b{font-weight:700;color:#aeb9c9}
+    .form-note{font-size:11px;color:var(--muted);margin:2px 0 0;line-height:1.5}
+    .modal-error{display:none;padding:12px 14px;border-radius:12px;background:#fff1f1;color:#9b2525;margin-top:12px;font-size:13px}
+    .modal-error.show{display:block}
+
     /* Comprehensive Responsive Styles Across Devices */
     @media (max-width: 1024px) {
       .hero-grid {
@@ -578,6 +707,9 @@
       .hero p {
         margin-left: auto;
         margin-right: auto;
+      }
+      .market-ticker-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
       .ticker .wrap {
         grid-template-columns: repeat(3, 1fr);
@@ -614,6 +746,9 @@
       }
       .menu-toggle {
         display: block;
+      }
+      .market-ticker-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
       .product,
       .globe-map,
@@ -658,12 +793,18 @@
     }
 
     @media (max-width: 560px) {
+      .market-ticker-grid,
       .cards,
       .products,
       .intel-grid,
       .ticker .wrap,
       .foot-grid {
         grid-template-columns: 1fr;
+      }
+      .market-header-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
       }
       .map-visual {
         min-height: 300px;
@@ -698,6 +839,9 @@
     "address":{"@type":"PostalAddress","streetAddress":"202, 3rd Floor, Moon Meadows, Opposite Sun Residency, Kasavanahalli","addressLocality":"Bengaluru","postalCode":"560035","addressCountry":"IN"}
   }
   </script>
+  <!-- Production hardening: real market-data retrieval with explicit outage state,
+       working early-access POST handoff, anti-spam honeypot, improved modal/FAQ/tab
+       accessibility, dynamic market highs/lows, and corrected WhatsApp tooltip. -->
 </head>
 
 <body>
@@ -712,6 +856,7 @@
         </a>
 
         <div class="links" id="desktop-navigation">
+          <a href="#market-data">Live Markets</a>
           <a href="#platform">Platform</a>
           <a href="#solutions">Solutions</a>
           <a href="#approach">Approach</a>
@@ -734,6 +879,7 @@
       </nav>
 
       <div class="mobile-menu" id="mobile-navigation" aria-label="Mobile navigation">
+        <a href="#market-data">Live Markets</a>
         <a href="#platform">Platform</a>
         <a href="#solutions">Solutions</a>
         <a href="#approach">Approach</a>
@@ -744,6 +890,12 @@
       </div>
     </div>
   </header>
+
+  <noscript>
+    <div style="position:fixed;inset:0 0 auto 0;z-index:5000;background:#fff4d5;color:#07111f;padding:12px 16px;text-align:center;font:600 14px/1.5 Arial,sans-serif;">
+      JavaScript is disabled. Navigation, live market data and the early-access form require JavaScript.
+    </div>
+  </noscript>
 
   <main id="main-content">
     <section class="hero" aria-labelledby="hero-title">
@@ -763,6 +915,103 @@
           <div class="route r1">India → Global</div><div class="route r2">Global → India</div><div class="route r3">Global → Global</div>
           <div class="globe-ring ring1"></div><div class="globe-ring ring2"></div><div class="globe-ring ring3"></div>
           <div class="globe"><div class="globe-logo"><div class="d">D</div><strong>DhanaSeed</strong><small>Capital Solutions</small></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE MARKET DATA TICKER SECTION -->
+    <section class="live-market-section" id="market-data" aria-label="Global Live Market Intelligence">
+      <div class="wrap">
+        <div class="market-header-bar">
+          <div class="market-title-group">
+            <span class="live-badge" id="market-live-badge"><i class="live-dot"></i> <span id="market-live-label">LIVE</span></span>
+            <span class="market-title">Global Markets Feed</span>
+          </div>
+          <span class="market-timestamp" id="live-timestamp" aria-live="polite">Connecting to market feed…</span>
+        </div>
+
+        <div class="market-ticker-grid" id="market-grid">
+          <!-- S&P 500 -->
+          <div class="market-card">
+            <div class="market-card-top">
+              <span class="market-symbol">S&P 500</span>
+              <span class="market-name">US Index</span>
+            </div>
+            <div class="market-price" id="price-sp500">5,824.10</div>
+            <div class="market-change positive" id="change-sp500">▲ +18.40 (+0.32%)</div>
+            <div class="market-sub">
+              <span>H: <b id="high-sp500">—</b></span><span>L: <b id="low-sp500">—</b></span>
+            </div>
+          </div>
+
+          <!-- NIFTY 50 -->
+          <div class="market-card">
+            <div class="market-card-top">
+              <span class="market-symbol">NIFTY 50</span>
+              <span class="market-name">India Index</span>
+            </div>
+            <div class="market-price" id="price-nifty">24,850.75</div>
+            <div class="market-change positive" id="change-nifty">▲ +112.30 (+0.45%)</div>
+            <div class="market-sub">
+              <span>H: <b id="high-nifty">—</b></span><span>L: <b id="low-nifty">—</b></span>
+            </div>
+          </div>
+
+          <!-- NASDAQ 100 -->
+          <div class="market-card">
+            <div class="market-card-top">
+              <span class="market-symbol">NASDAQ</span>
+              <span class="market-name">US Tech</span>
+            </div>
+            <div class="market-price" id="price-nasdaq">18,340.20</div>
+            <div class="market-change negative" id="change-nasdaq">▼ -45.10 (-0.25%)</div>
+            <div class="market-sub">
+              <span>H: <b id="high-nasdaq">—</b></span><span>L: <b id="low-nasdaq">—</b></span>
+            </div>
+          </div>
+
+          <!-- GOLD -->
+          <div class="market-card">
+            <div class="market-card-top">
+              <span class="market-symbol">GOLD</span>
+              <span class="market-name">USD / oz</span>
+            </div>
+            <div class="market-price" id="price-gold">$2,652.80</div>
+            <div class="market-change positive" id="change-gold">▲ +12.50 (+0.47%)</div>
+            <div class="market-sub">
+              <span>H: <b id="high-gold">—</b></span><span>L: <b id="low-gold">—</b></span>
+            </div>
+          </div>
+
+          <!-- EUR/USD -->
+          <div class="market-card">
+            <div class="market-card-top">
+              <span class="market-symbol">EUR/USD</span>
+              <span class="market-name">Forex</span>
+            </div>
+            <div class="market-price" id="price-eurusd">1.0925</div>
+            <div class="market-change negative" id="change-eurusd">▼ -0.0014 (-0.13%)</div>
+            <div class="market-sub">
+              <span>H: <b id="high-eurusd">—</b></span><span>L: <b id="low-eurusd">—</b></span>
+            </div>
+          </div>
+
+          <!-- BITCOIN -->
+          <div class="market-card">
+            <div class="market-card-top">
+              <span class="market-symbol">BTC/USD</span>
+              <span class="market-name">Crypto</span>
+            </div>
+            <div class="market-price" id="price-btc">$64,210.00</div>
+            <div class="market-change positive" id="change-btc">▲ +850.00 (+1.34%)</div>
+            <div class="market-sub">
+              <span>H: <b id="high-btc">—</b></span><span>L: <b id="low-btc">—</b></span>
+            </div>
+          </div>
+        </div>
+        <div class="market-source-note">
+          <span id="market-source-status" class="status-fallback">Connecting to public market data…</span>
+          <span>Market data may be delayed; verify prices with your broker/data provider before making decisions.</span>
         </div>
       </div>
     </section>
@@ -919,8 +1168,8 @@
         </div>
         <div class="portfolio-demo">
           <div class="portfolio-head"><div><div class="portfolio-sub">MY GLOBAL WEALTH · ILLUSTRATIVE</div><div class="portfolio-value">₹35.00 lakh</div></div><div class="portfolio-sub">Portfolio Intelligence · Available</div></div>
-          <div class="tabs" role="tablist"><button class="tab active" data-tab="allocation">Allocation</button><button class="tab" data-tab="currency">Currency</button><button class="tab" data-tab="intelligence">Intelligence</button><button class="tab" data-tab="tax">Tax</button></div>
-          <div class="demo-content" id="demo-content">
+          <div class="tabs" role="tablist" aria-label="Illustrative portfolio views"><button class="tab active" id="tab-allocation" role="tab" aria-selected="true" aria-controls="demo-content" tabindex="0" data-tab="allocation">Allocation</button><button class="tab" id="tab-currency" role="tab" aria-selected="false" aria-controls="demo-content" tabindex="-1" data-tab="currency">Currency</button><button class="tab" id="tab-intelligence" role="tab" aria-selected="false" aria-controls="demo-content" tabindex="-1" data-tab="intelligence">Intelligence</button><button class="tab" id="tab-tax" role="tab" aria-selected="false" aria-controls="demo-content" tabindex="-1" data-tab="tax">Tax</button></div>
+          <div class="demo-content" id="demo-content" role="tabpanel" tabindex="0" aria-live="polite">
             <div class="demo-box"><b>Country Allocation</b><div class="demo-row"><span>🇮🇳 India</span><strong>65%</strong></div><div class="bar"><i style="width:65%"></i></div><div class="demo-row"><span>🇺🇸 USA</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>🌎 Others</span><strong>7%</strong></div><div class="bar"><i style="width:7%"></i></div></div><div class="demo-box"><b>Asset Mix</b><div class="demo-row"><span>Equity</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>ETF</span><strong>12%</strong></div><div class="bar"><i style="width:12%"></i></div><div class="demo-row"><span>Debt + Cash</span><strong>20%</strong></div><div class="bar"><i style="width:20%"></i></div></div>
           </div>
           <div class="demo-disclaimer">Illustrative platform vision — not live account, market or investment data.</div>
@@ -1013,31 +1262,31 @@
 
         <div class="faq-list">
           <div class="faq-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">
+            <button class="accordion-header" type="button" aria-expanded="false" aria-controls="faq-panel-1" onclick="toggleAccordion(this)">
               <span>How does DhanaSeed handle cross-border fund transfers?</span>
               <span class="icon">↓</span>
             </button>
-            <div class="accordion-body">
+            <div class="accordion-body" id="faq-panel-1" role="region">
               <p>Transactions strictly follow RBI's Liberalised Remittance Scheme (LRS) guidelines for resident Indian investors and recognized banking channels for foreign accounts, ensuring full tax reporting and currency clarity.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">
+            <button class="accordion-header" type="button" aria-expanded="false" aria-controls="faq-panel-2" onclick="toggleAccordion(this)">
               <span>Is my capital safe on the DhanaSeed platform?</span>
               <span class="icon">↓</span>
             </button>
-            <div class="accordion-body">
+            <div class="accordion-body" id="faq-panel-2" role="region">
               <p>DhanaSeed serves as the technology and portfolio intelligence layer. All underlying assets and securities are held in individual accounts managed by licensed, regulated custodial partners and broker-dealers in their respective jurisdictions.</p>
             </div>
           </div>
 
           <div class="faq-item">
-            <button class="accordion-header" onclick="toggleAccordion(this)">
+            <button class="accordion-header" type="button" aria-expanded="false" aria-controls="faq-panel-3" onclick="toggleAccordion(this)">
               <span>Which markets can I access at launch?</span>
               <span class="icon">↓</span>
             </button>
-            <div class="accordion-body">
+            <div class="accordion-body" id="faq-panel-3" role="region">
               <p>Phase 1 focuses on connecting Indian investors to US equities and global ETFs. Phase 2 expands to Global-to-India access for NRIs and OCIs, followed by multi-currency global corridors.</p>
             </div>
           </div>
@@ -1104,9 +1353,9 @@
           <h3>Connect & Legal</h3>
           <div class="foot-links">
             <a href="#contact">Contact DhanaSeed</a>
-            <a href="javascript:void(0)" onclick="openModal('privacy-modal')">Privacy Policy</a>
-            <a href="javascript:void(0)" onclick="openModal('terms-modal')">Terms of Service</a>
-            <a href="javascript:void(0)" onclick="openModal('disclosures-modal')">Risk Disclosures</a>
+            <a href="#privacy-modal" onclick="event.preventDefault(); openModal('privacy-modal')">Privacy Policy</a>
+            <a href="#terms-modal" onclick="event.preventDefault(); openModal('terms-modal')">Terms of Service</a>
+            <a href="#disclosures-modal" onclick="event.preventDefault(); openModal('disclosures-modal')">Risk Disclosures</a>
             <a href="https://www.google.com/maps/search/?api=1&query=202%2C%203rd%20Floor%2C%20Moon%20Meadows%2C%20Opposite%20Sun%20Residency%2C%20Kasavanahalli%2C%20Bengaluru%20560035" target="_blank" rel="noopener noreferrer">Directions</a>
           </div>
         </div>
@@ -1136,9 +1385,9 @@
       <h2 id="waitlist-title">Join Early Access</h2>
       <p>Be among the first to experience DhanaSeed's cross-border wealth platform.</p>
       
-      <form class="modal-form" onsubmit="handleFormSubmit(event, 'waitlist-success')">
-        <input name="name" placeholder="Full Name" aria-label="Full Name" required>
-        <input name="email" type="email" placeholder="Work Email Address" aria-label="Work Email Address" required>
+      <form class="modal-form" id="waitlist-form" method="post" novalidate onsubmit="handleFormSubmit(event)">
+        <input name="name" autocomplete="name" maxlength="100" placeholder="Full Name" aria-label="Full Name" required>
+        <input name="email" type="email" autocomplete="email" maxlength="254" placeholder="Email Address" aria-label="Email Address" required>
         <select name="account_type" aria-label="Select Account Type" required>
           <option value="" disabled selected>Select Account Type...</option>
           <option value="individual">Individual Investor (Resident Indian)</option>
@@ -1146,71 +1395,75 @@
           <option value="business">Business / Corporate Account</option>
           <option value="partner">Institutional / Strategic Partner</option>
         </select>
+        <input name="company" autocomplete="organization" maxlength="120" placeholder="Company / Organization (optional)" aria-label="Company / Organization (optional)">
+        <input name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" value="">
+        <p class="form-note">We’ll use these details only to respond to your early-access request. Please do not submit confidential financial information.</p>
         <button class="btn primary" style="background:var(--navy); color:#fff;" type="submit">Submit Request →</button>
       </form>
-      <div class="modal-success" id="waitlist-success">Thank you! Your request for early access has been received.</div>
+      <div class="modal-success" id="waitlist-success" role="status" aria-live="polite">Thank you! Your early-access request has been received.</div>
+      <div class="modal-error" id="waitlist-error" role="alert" aria-live="assertive"></div>
     </div>
   </div>
 
   <!-- Academy Guides Modals -->
-  <div class="modal-overlay" id="guide-lrs-modal" role="dialog" aria-modal="true">
+  <div class="modal-overlay" id="guide-lrs-modal" role="dialog" aria-modal="true" aria-labelledby="guide-lrs-title">
     <div class="modal-card">
       <button class="modal-close" onclick="closeModal('guide-lrs-modal')" aria-label="Close">&times;</button>
       <div class="eyebrow">Guide 01</div>
-      <h2>Navigating RBI's LRS Limits</h2>
+      <h2 id="guide-lrs-title">Navigating RBI's LRS Limits</h2>
       <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
-        Under the Reserve Bank of India’s Liberalised Remittance Scheme (LRS), resident individuals can freely remit up to $250,000 USD per financial year for permitted capital and current account transactions. DhanaSeed simplifies compliance by tracking TCS threshold calculations, facilitating seamless A2 form workflows, and maintaining real-time FX transparency.
+        Under the Reserve Bank of India’s Liberalised Remittance Scheme (LRS), resident individuals can freely remit up to $250,000 USD per financial year for permitted capital and current account transactions. The intended DhanaSeed experience may incorporate TCS information, A2-form workflows and FX visibility; actual features and regulatory treatment will depend on the final product and applicable rules.
       </p>
     </div>
   </div>
 
-  <div class="modal-overlay" id="guide-nri-modal" role="dialog" aria-modal="true">
+  <div class="modal-overlay" id="guide-nri-modal" role="dialog" aria-modal="true" aria-labelledby="guide-nri-title">
     <div class="modal-card">
       <button class="modal-close" onclick="closeModal('guide-nri-modal')" aria-label="Close">&times;</button>
       <div class="eyebrow">Guide 02</div>
-      <h2>India Access from Anywhere</h2>
+      <h2 id="guide-nri-title">India Access from Anywhere</h2>
       <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
-        Global Indians face complex account setups across NRE, NRO, and PIS accounts. DhanaSeed consolidates repatriation reporting, foreign exchange handling, and cross-border tax compliance, empowering NRIs and OCIs to allocate seamlessly back into Indian equities and debt instruments.
+        Global Indians face complex account setups across NRE, NRO, and PIS accounts. The intended DhanaSeed experience is designed to organize repatriation information, foreign exchange considerations and tax-related workflows for eligible NRIs and OCIs; actual availability will depend on the final product, partners and applicable rules.
       </p>
     </div>
   </div>
 
-  <div class="modal-overlay" id="guide-tax-modal" role="dialog" aria-modal="true">
+  <div class="modal-overlay" id="guide-tax-modal" role="dialog" aria-modal="true" aria-labelledby="guide-tax-title">
     <div class="modal-card">
       <button class="modal-close" onclick="closeModal('guide-tax-modal')" aria-label="Close">&times;</button>
       <div class="eyebrow">Guide 03</div>
       <h2>Multi-Currency Risk & Tax Intelligence</h2>
       <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
-        Cross-border investing introduces foreign exchange volatility and dual-tax considerations. DhanaSeed calculates true real returns in your primary currency, accounts for foreign tax credits (FTC), and unifies multi-jurisdiction capital gain ledgers.
+        Cross-border investing introduces foreign exchange volatility and dual-tax considerations. The intended intelligence layer may present home-currency return context, foreign-tax information and multi-jurisdiction transaction records; tax treatment should be confirmed with qualified advisers.
       </p>
     </div>
   </div>
 
   <!-- Legal Modals -->
-  <div class="modal-overlay" id="privacy-modal" role="dialog" aria-modal="true">
+  <div class="modal-overlay" id="privacy-modal" role="dialog" aria-modal="true" aria-labelledby="privacy-title">
     <div class="modal-card">
       <button class="modal-close" onclick="closeModal('privacy-modal')" aria-label="Close">&times;</button>
-      <h2>Privacy Policy</h2>
+      <h2 id="privacy-title">Privacy Policy</h2>
       <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
         DhanaSeed Capital Solutions is committed to protecting your personal and financial information. We process data strictly in compliance with applicable data protection regulations and employ enterprise-grade security standards to safeguard user inputs across our platform preview and registration touchpoints.
       </p>
     </div>
   </div>
 
-  <div class="modal-overlay" id="terms-modal" role="dialog" aria-modal="true">
+  <div class="modal-overlay" id="terms-modal" role="dialog" aria-modal="true" aria-labelledby="terms-title">
     <div class="modal-card">
       <button class="modal-close" onclick="closeModal('terms-modal')" aria-label="Close">&times;</button>
-      <h2>Terms of Service</h2>
+      <h2 id="terms-title">Terms of Service</h2>
       <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
         By accessing this website, you agree to comply with our terms. All materials on this website describe the platform vision of DhanaSeed Capital Solutions and do not constitute an offer of service in jurisdictions where regulatory approvals are pending.
       </p>
     </div>
   </div>
 
-  <div class="modal-overlay" id="disclosures-modal" role="dialog" aria-modal="true">
+  <div class="modal-overlay" id="disclosures-modal" role="dialog" aria-modal="true" aria-labelledby="disclosures-title">
     <div class="modal-card">
       <button class="modal-close" onclick="closeModal('disclosures-modal')" aria-label="Close">&times;</button>
-      <h2>Risk Disclosures</h2>
+      <h2 id="disclosures-title">Risk Disclosures</h2>
       <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
         International investments carry inherent risks including currency exchange fluctuations, cross-border market volatility, and changing regulatory environments. Past performance metrics displayed are illustrative and do not guarantee future returns.
       </p>
@@ -1218,63 +1471,303 @@
   </div>
 
   <script>
-    // General Modal Handlers with Focus Management
-    let previousActiveElement = null;
+    'use strict';
+
+    // -----------------------------
+    // Modal system + accessibility
+    // -----------------------------
+    let modalReturnFocus = null;
+
+    function getFocusable(container) {
+      return Array.from(container.querySelectorAll(
+        'button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+      ));
+    }
 
     function openModal(id) {
       const modal = document.getElementById(id);
-      if (modal) {
-        previousActiveElement = document.activeElement;
-        modal.classList.add('active');
-        const focusable = modal.querySelectorAll('button, input, select, textarea, a[href]');
-        if (focusable.length) focusable[0].focus();
-      }
+      if (!modal) return;
+
+      modalReturnFocus = document.activeElement;
+      modal.classList.add('active');
+      document.body.classList.add('menu-open');
+
+      const focusable = getFocusable(modal);
+      if (focusable.length) window.setTimeout(() => focusable[0].focus(), 0);
     }
 
     function closeModal(id) {
       const modal = document.getElementById(id);
-      if (modal) {
-        modal.classList.remove('active');
-        if (previousActiveElement) previousActiveElement.focus();
+      if (!modal) return;
+
+      modal.classList.remove('active');
+
+      if (!document.querySelector('.modal-overlay.active')) {
+        document.body.classList.remove('menu-open');
+        if (modalReturnFocus && typeof modalReturnFocus.focus === 'function') {
+          window.setTimeout(() => modalReturnFocus.focus(), 0);
+        }
+        modalReturnFocus = null;
       }
     }
 
-    function handleFormSubmit(event, successId) {
+    // -----------------------------
+    // Early-access form
+    // -----------------------------
+    // FormSubmit provides a server-side email handoff suitable for this
+    // static GitHub Pages site. No API secret is exposed in the browser.
+    const WAITLIST_ENDPOINT = 'https://formsubmit.co/ajax/pravinv.dcs@gmail.com';
+
+    async function handleFormSubmit(event) {
       event.preventDefault();
-      const successEl = document.getElementById(successId);
-      if (successEl) successEl.classList.add('show');
-      const btn = event.target.querySelector('button');
-      if (btn) {
-        btn.textContent = 'Submitted ✓';
-        btn.disabled = true;
+
+      const form = event.currentTarget;
+      const button = form.querySelector('button[type="submit"]');
+      const successEl = document.getElementById('waitlist-success');
+      const errorEl = document.getElementById('waitlist-error');
+
+      if (successEl) successEl.classList.remove('show');
+      if (errorEl) {
+        errorEl.textContent = '';
+        errorEl.classList.remove('show');
+      }
+
+      // Honeypot anti-spam field.
+      if (form.elements._honey && form.elements._honey.value.trim()) return;
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const originalText = button ? button.textContent : '';
+      if (button) {
+        button.disabled = true;
+        button.textContent = 'Submitting…';
+      }
+
+      const data = new FormData(form);
+      data.append('_subject', 'DhanaSeed Early Access Request');
+      data.append('_captcha', 'false');
+      data.append('_template', 'table');
+
+      try {
+        const response = await fetch(WAITLIST_ENDPOINT, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        let result = {};
+        try { result = await response.json(); } catch (_) {}
+
+        if (!response.ok || result.success === false) {
+          throw new Error(`Submission failed: ${response.status}`);
+        }
+
+        form.reset();
+
+        if (successEl) {
+          successEl.textContent = 'Thank you! Your early-access request has been received. We’ll contact you using the email you provided.';
+          successEl.classList.add('show');
+        }
+        if (button) button.textContent = 'Submitted ✓';
+
+      } catch (error) {
+        console.error('Early-access submission error:', error);
+        if (errorEl) {
+          errorEl.textContent = 'We couldn’t submit the form automatically. Please email pravinv.dcs@gmail.com with your name and account type.';
+          errorEl.classList.add('show');
+        }
+        if (button) {
+          button.disabled = false;
+          button.textContent = originalText;
+        }
       }
     }
 
-    // FAQ Accordion Handler
+    // -----------------------------
+    // FAQ accordion
+    // -----------------------------
     function toggleAccordion(button) {
-      const body = button.nextElementSibling;
-      const isExpanded = body.style.display === "block";
-      
-      // Close all accordions
-      document.querySelectorAll('.accordion-body').forEach(el => el.style.display = 'none');
-      document.querySelectorAll('.accordion-header .icon').forEach(el => el.textContent = '↓');
-      
-      // Toggle selected
-      if (!isExpanded) {
-        body.style.display = "block";
-        button.querySelector('.icon').textContent = '↑';
+      const body = document.getElementById(button.getAttribute('aria-controls'));
+      if (!body) return;
+
+      const willOpen = button.getAttribute('aria-expanded') !== 'true';
+
+      document.querySelectorAll('.accordion-header').forEach(header => {
+        header.setAttribute('aria-expanded', 'false');
+        const panelId = header.getAttribute('aria-controls');
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (panel) panel.style.display = 'none';
+        const icon = header.querySelector('.icon');
+        if (icon) icon.textContent = '↓';
+      });
+
+      if (willOpen) {
+        button.setAttribute('aria-expanded', 'true');
+        body.style.display = 'block';
+        const icon = button.querySelector('.icon');
+        if (icon) icon.textContent = '↑';
       }
     }
 
-    // Nav & Tabs Functionality
+    // -----------------------------
+    // Real public market data feed
+    // -----------------------------
+    // Yahoo Finance chart endpoints are used as a no-key public data source.
+    // If the source is unavailable or browser access is blocked, the UI
+    // clearly reports the outage instead of fabricating price movements.
+    const marketConfig = {
+      sp500:  { ticker: '^GSPC',    decimals: 2, prefix: '' },
+      nifty:  { ticker: '^NSEI',    decimals: 2, prefix: '' },
+      nasdaq: { ticker: '^IXIC',    decimals: 2, prefix: '' },
+      gold:   { ticker: 'GC=F',     decimals: 2, prefix: '$' },
+      eurusd: { ticker: 'EURUSD=X', decimals: 4, prefix: '' },
+      btc:    { ticker: 'BTC-USD',  decimals: 2, prefix: '$' }
+    };
+
+    const MARKET_REFRESH_MS = 60000;
+
+    function formatMarketNumber(value, decimals, prefix) {
+      if (!Number.isFinite(value)) return '—';
+      return `${prefix}${value.toLocaleString(undefined, {
+        minimumFractionDigits: decimals,
+        maximumFractionDigits: decimals
+      })}`;
+    }
+
+    function updateMarketCard(key, quote) {
+      const cfg = marketConfig[key];
+      const price = Number(quote.price);
+      const previousClose = Number(quote.previousClose);
+      const high = Number(quote.high);
+      const low = Number(quote.low);
+
+      if (!Number.isFinite(price)) return;
+
+      const change = Number.isFinite(previousClose) ? price - previousClose : NaN;
+      const pct = Number.isFinite(change) && previousClose !== 0 ? (change / previousClose) * 100 : NaN;
+
+      const priceEl = document.getElementById(`price-${key}`);
+      const changeEl = document.getElementById(`change-${key}`);
+      const highEl = document.getElementById(`high-${key}`);
+      const lowEl = document.getElementById(`low-${key}`);
+
+      if (priceEl) priceEl.textContent = formatMarketNumber(price, cfg.decimals, cfg.prefix);
+
+      if (changeEl && Number.isFinite(change) && Number.isFinite(pct)) {
+        const positive = change >= 0;
+        const arrow = positive ? '▲ +' : '▼ ';
+        changeEl.textContent =
+          `${arrow}${Math.abs(change).toFixed(cfg.decimals)} (${positive ? '+' : '-'}${Math.abs(pct).toFixed(2)}%)`;
+        changeEl.className = `market-change ${positive ? 'positive' : 'negative'}`;
+      }
+
+      if (highEl) highEl.textContent = formatMarketNumber(high, cfg.decimals, cfg.prefix);
+      if (lowEl) lowEl.textContent = formatMarketNumber(low, cfg.decimals, cfg.prefix);
+    }
+
+    async function fetchYahooQuote(ticker) {
+      const url = `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(ticker)}?range=1d&interval=1m&includePrePost=false`;
+      const controller = new AbortController();
+      const timeout = window.setTimeout(() => controller.abort(), 10000);
+
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: { 'Accept': 'application/json' },
+          cache: 'no-store',
+          signal: controller.signal
+        });
+
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const json = await response.json();
+        const result = json?.chart?.result?.[0];
+        const meta = result?.meta;
+        if (!meta) throw new Error('No market metadata');
+
+        const quote = result?.indicators?.quote?.[0] || {};
+        const highs = Array.isArray(quote.high) ? quote.high.filter(Number.isFinite) : [];
+        const lows = Array.isArray(quote.low) ? quote.low.filter(Number.isFinite) : [];
+
+        const price = Number(meta.regularMarketPrice);
+        const previousClose = Number(meta.previousClose ?? meta.chartPreviousClose);
+        const high = Number(meta.regularMarketDayHigh ?? (highs.length ? Math.max(...highs) : NaN));
+        const low = Number(meta.regularMarketDayLow ?? (lows.length ? Math.min(...lows) : NaN));
+
+        if (!Number.isFinite(price)) throw new Error('Invalid price');
+
+        return {
+          price,
+          previousClose,
+          high,
+          low,
+          timestamp: Number(meta.regularMarketTime) * 1000 || Date.now()
+        };
+      } finally {
+        clearTimeout(timeout);
+      }
+    }
+
+    function setMarketStatus(message, live, count) {
+      const timestampEl = document.getElementById('live-timestamp');
+      const statusEl = document.getElementById('market-source-status');
+      const badgeLabel = document.getElementById('market-live-label');
+
+      if (timestampEl) timestampEl.textContent = message;
+
+      if (statusEl) {
+        statusEl.textContent = live
+          ? (count === 6 ? 'Live public market feed connected' : `Live feed partial · ${count}/6 instruments`)
+          : 'Market feed unavailable — no fabricated prices are shown';
+        statusEl.className = live ? 'status-live' : 'status-fallback';
+      }
+
+      if (badgeLabel) badgeLabel.textContent = live ? 'LIVE' : 'FEED OFFLINE';
+    }
+
+    async function refreshMarkets() {
+      const entries = Object.entries(marketConfig);
+      const results = await Promise.allSettled(
+        entries.map(async ([key, cfg]) => [key, await fetchYahooQuote(cfg.ticker)])
+      );
+
+      let successCount = 0;
+      let latestTimestamp = 0;
+
+      results.forEach(result => {
+        if (result.status !== 'fulfilled') return;
+        const [key, quote] = result.value;
+        updateMarketCard(key, quote);
+        successCount += 1;
+        latestTimestamp = Math.max(latestTimestamp, quote.timestamp || 0);
+      });
+
+      if (successCount > 0) {
+        const time = latestTimestamp ? new Date(latestTimestamp) : new Date();
+        setMarketStatus(
+          `Updated: ${time.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`,
+          true,
+          successCount
+        );
+      } else {
+        setMarketStatus('Market feed unavailable · retrying automatically', false, 0);
+      }
+    }
+
+    // -----------------------------
+    // Navigation, modals, corridors, tabs
+    // -----------------------------
     (() => {
-      // Mobile Nav
       const toggle = document.querySelector('.menu-toggle');
       const menu = document.getElementById('mobile-navigation');
 
       if (toggle && menu) {
         const closeMenu = () => {
           toggle.setAttribute('aria-expanded', 'false');
+          toggle.setAttribute('aria-label', 'Open navigation menu');
           menu.classList.remove('is-open');
           document.body.classList.remove('menu-open');
         };
@@ -1282,6 +1775,7 @@
         toggle.addEventListener('click', () => {
           const isOpen = toggle.getAttribute('aria-expanded') === 'true';
           toggle.setAttribute('aria-expanded', String(!isOpen));
+          toggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
           menu.classList.toggle('is-open', !isOpen);
           document.body.classList.toggle('menu-open', !isOpen);
         });
@@ -1289,62 +1783,115 @@
         menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
       }
 
-      // Focus Trap & Outer Click for Modals
       document.querySelectorAll('.modal-overlay').forEach(overlay => {
-        overlay.addEventListener('click', e => { 
-          if (e.target === overlay) closeModal(overlay.id); 
+        overlay.addEventListener('click', e => {
+          if (e.target === overlay) closeModal(overlay.id);
         });
 
         overlay.addEventListener('keydown', e => {
-          if (e.key === 'Tab') {
-            const focusables = overlay.querySelectorAll('button, input, select, textarea, a[href]');
-            if (!focusables.length) return;
-            const first = focusables[0];
-            const last = focusables[focusables.length - 1];
-            if (e.shiftKey && document.activeElement === first) {
-              last.focus();
-              e.preventDefault();
-            } else if (!e.shiftKey && document.activeElement === last) {
-              first.focus();
-              e.preventDefault();
-            }
+          if (e.key !== 'Tab') return;
+
+          const focusables = getFocusable(overlay);
+          if (!focusables.length) return;
+
+          const first = focusables[0];
+          const last = focusables[focusables.length - 1];
+
+          if (e.shiftKey && document.activeElement === first) {
+            last.focus();
+            e.preventDefault();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            first.focus();
+            e.preventDefault();
           }
         });
       });
 
       document.addEventListener('keydown', e => {
         if (e.key === 'Escape') {
-          document.querySelectorAll('.modal-overlay.active').forEach(el => closeModal(el.id));
+          const active = document.querySelector('.modal-overlay.active');
+          if (active) closeModal(active.id);
         }
       });
 
-      // Corridor details
       const details = {
-        'india-global':'Global market discovery, international securities, currency visibility, overseas investment information and portfolio intelligence — where permitted and eligible.',
-        'global-india':'Digital onboarding, KYC, Indian market access, portfolio visibility, tax documents and related funding/repatriation information for eligible customer categories.',
-        'global-global':'A long-term multi-market architecture involving customer eligibility, regulatory rules, market partners, custody, tax, FX and reporting — market by market.'
+        'india-global': 'Global market discovery, international securities, currency visibility, overseas investment information and portfolio intelligence — where permitted and eligible.',
+        'global-india': 'Digital onboarding, KYC, Indian market access, portfolio visibility, tax documents and related funding/repatriation information for eligible customer categories.',
+        'global-global': 'A long-term multi-market architecture involving customer eligibility, regulatory rules, market partners, custody, tax, FX and reporting — market by market.'
       };
-      document.querySelectorAll('.corridor').forEach(el => el.addEventListener('click', () => {
-        document.querySelectorAll('.corridor').forEach(x => x.classList.remove('active'));
-        el.classList.add('active');
-        document.getElementById('corridor-detail').textContent = details[el.dataset.corridor] || '';
-      }));
-      
-      // Dynamic Portfolio Tab Content
+
+      document.querySelectorAll('.corridor').forEach(el => {
+        el.setAttribute('tabindex', '0');
+        el.setAttribute('role', 'button');
+
+        const activate = () => {
+          document.querySelectorAll('.corridor').forEach(x => x.classList.remove('active'));
+          el.classList.add('active');
+          const detail = document.getElementById('corridor-detail');
+          if (detail) detail.textContent = details[el.dataset.corridor] || '';
+        };
+
+        el.addEventListener('click', activate);
+        el.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activate();
+          }
+        });
+      });
+
       const demo = {
         allocation:`<div class="demo-box"><b>Country Allocation</b><div class="demo-row"><span>🇮🇳 India</span><strong>65%</strong></div><div class="bar"><i style="width:65%"></i></div><div class="demo-row"><span>🇺🇸 USA</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>🌎 Others</span><strong>7%</strong></div><div class="bar"><i style="width:7%"></i></div></div><div class="demo-box"><b>Asset Mix</b><div class="demo-row"><span>Equity</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>ETF</span><strong>12%</strong></div><div class="bar"><i style="width:12%"></i></div><div class="demo-row"><span>Debt + Cash</span><strong>20%</strong></div><div class="bar"><i style="width:20%"></i></div></div>`,
         currency:`<div class="demo-box"><b>Currency Exposure</b><div class="demo-row"><span>INR</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>USD</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>Others</span><strong>4%</strong></div><div class="bar"><i style="width:4%"></i></div></div><div class="demo-box"><b>Currency-adjusted return</b><div class="demo-row"><span>Security return</span><strong>+12%</strong></div><div class="demo-row"><span>Currency impact</span><strong>−2%</strong></div><div class="demo-row"><span>Home-currency return</span><strong>+10%</strong></div></div>`,
         intelligence:`<div class="demo-box"><b>Portfolio Intelligence</b><div class="demo-row"><span>Portfolio risk</span><strong>Moderate</strong></div><div class="demo-row"><span>Top concentration</span><strong>18%</strong></div><div class="demo-row"><span>Realised gains</span><strong>₹X</strong></div><div class="demo-row"><span>Unrealised gains</span><strong>₹X</strong></div></div><div class="demo-box"><b>Income & diversification</b><div class="demo-row"><span>Dividend income</span><strong>₹X</strong></div><div class="demo-row"><span>Country diversification</span><strong>Available</strong></div><div class="demo-row"><span>Sector exposure</span><strong>Available</strong></div></div>`,
         tax:`<div class="demo-box"><b>Tax Information</b><div class="demo-row"><span>Capital gains</span><strong>Available</strong></div><div class="demo-row"><span>Dividend information</span><strong>Available</strong></div><div class="demo-row"><span>Withholding information</span><strong>Available</strong></div><div class="demo-row"><span>Transaction summaries</span><strong>Available</strong></div></div><div class="demo-box"><b>Intelligence pipeline</b><div class="demo-row"><span>Transactions</span><strong>→ Ledger</strong></div><div class="demo-row"><span>Cost basis</span><strong>→ Classification</strong></div><div class="demo-row"><span>Currency</span><strong>→ Reports</strong></div></div>`
       };
+
       const content = document.getElementById('demo-content');
-      function renderTab(name) {
-        if (!content) return;
+      const tabs = Array.from(document.querySelectorAll('.tab'));
+
+      function renderTab(name, focusTab = false) {
+        if (!content || !demo[name]) return;
         content.innerHTML = demo[name];
-        document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+
+        tabs.forEach(tab => {
+          const selected = tab.dataset.tab === name;
+          tab.classList.toggle('active', selected);
+          tab.setAttribute('aria-selected', String(selected));
+          tab.setAttribute('tabindex', selected ? '0' : '-1');
+        });
+
+        if (focusTab) {
+          const selectedTab = tabs.find(tab => tab.dataset.tab === name);
+          if (selectedTab) selectedTab.focus();
+        }
       }
-      document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => renderTab(b.dataset.tab)));
+
+      tabs.forEach((tab, index) => {
+        tab.addEventListener('click', () => renderTab(tab.dataset.tab));
+
+        tab.addEventListener('keydown', e => {
+          let nextIndex = index;
+
+          if (e.key === 'ArrowRight') nextIndex = (index + 1) % tabs.length;
+          else if (e.key === 'ArrowLeft') nextIndex = (index - 1 + tabs.length) % tabs.length;
+          else if (e.key === 'Home') nextIndex = 0;
+          else if (e.key === 'End') nextIndex = tabs.length - 1;
+          else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            renderTab(tab.dataset.tab, true);
+            return;
+          } else return;
+
+          e.preventDefault();
+          tabs[nextIndex].focus();
+        });
+      });
     })();
+
+    // Refresh once immediately and then once per minute.
+    refreshMarkets();
+    window.setInterval(refreshMarkets, MARKET_REFRESH_MS);
   </script>
 </body>
 </html>
