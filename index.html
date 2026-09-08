@@ -12,10 +12,14 @@
   <meta name="theme-color" content="#07111f">
   <meta name="format-detection" content="telephone=yes">
 
+  <!-- Favicon Icons -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
   <!-- Canonical public URL for the GitHub Pages site. -->
   <link rel="canonical" href="https://pravinvdcs-lang.github.io/dhanaseed/">
 
-  <!-- Open Graph: works for social sharing and provides useful link previews. -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="DhanaSeed Capital Solutions">
   <meta property="og:title" content="DhanaSeed | The Gateway to Global Markets">
@@ -27,7 +31,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="DhanaSeed Capital Solutions — The Gateway to Global Markets">
 
-  <!-- Twitter/X uses these same share signals when available. -->
+  <!-- Twitter/X -->
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="DhanaSeed | The Gateway to Global Markets">
   <meta name="twitter:description" content="Technology-led global capital markets and WealthTech designed to make global investing simpler, more transparent and intelligent.">
@@ -222,8 +226,8 @@
       margin-bottom:22px;
     }
     .hero h1{
-      font-size:clamp(48px,6.5vw,78px);
-      line-height:1.02;
+      font-size:clamp(44px,6.2vw,76px);
+      line-height:1.15;
     }
     .hero h1 span{color:#d9bb7d}
     .hero p{
@@ -243,6 +247,16 @@
       cursor:pointer;
       border:0;
     }
+    .btn-text{
+      background:none;
+      border:none;
+      color:#f2d99e;
+      font-weight:700;
+      font-size:13px;
+      padding:0;
+      cursor:pointer;
+    }
+    .btn-text:hover{text-decoration:underline}
     .primary{background:#fff;color:#07111f}
     .primary:hover{background:#eee}
     .secondary{border:1px solid rgba(255,255,255,.2);color:#fff;background:transparent}
@@ -272,7 +286,7 @@
     section{padding:105px 0}
     .intro{max-width:760px}
     .intro .eyebrow{color:#9b7838}
-    .intro h2{font-size:45px;line-height:1.08}
+    .intro h2{font-size:clamp(28px, 4.5vw, 45px);line-height:1.2;margin-bottom:12px}
     .intro p{color:var(--muted);font-size:17px}
 
     .cards{
@@ -350,7 +364,7 @@
     .cta .primary{background:var(--navy);color:#fff}
     .cta .primary:hover{background:#12243a}
 
-    /* FAQ Details Styling */
+    /* Dynamic FAQ Accordion */
     .faq-list{
       display:grid;
       gap:16px;
@@ -360,33 +374,33 @@
       background:#0e1b2d;
       border:1px solid #223149;
       border-radius:14px;
-      padding:22px;
+      overflow:hidden;
     }
-    .faq-item summary{
+    .accordion-header{
+      width:100%;
+      background:transparent;
+      border:none;
+      padding:22px;
       font-family:Manrope,sans-serif;
       font-size:18px;
       font-weight:700;
       color:#fff;
+      text-align:left;
       cursor:pointer;
-      list-style:none;
       display:flex;
       justify-content:space-between;
       align-items:center;
     }
-    .faq-item summary::-webkit-details-marker{display:none}
-    .faq-item summary::after{
-      content:"↓";
+    .accordion-header .icon{
       color:var(--gold);
-      font-size:16px;
+      font-size:18px;
       transition:transform .2s ease;
     }
-    .faq-item[open] summary::after{
-      transform:rotate(180deg);
-    }
-    .faq-item p{
+    .accordion-body{
+      display:none;
+      padding:0 22px 22px;
       color:#aeb9c9;
       font-size:14px;
-      margin-top:12px;
       line-height:1.6;
     }
 
@@ -461,54 +475,7 @@
       max-width:760px;
     }
 
-    /* Responsive */
-    @media(max-width:900px){
-      .links{display:none}
-      .menu-toggle{display:block}
-      .hero{padding-top:125px}
-      .hero-grid,.product{grid-template-columns:1fr}
-      .hero-grid{gap:25px}
-      .cards{grid-template-columns:1fr}
-      .steps{grid-template-columns:1fr}
-      .steps .step{border-left:0;border-top:1px solid #d9dde4}
-      .steps .step:first-child{border-left:0;border-top:2px solid var(--gold)}
-      .cta-box{display:block}
-      .cta .btn{margin-top:15px}
-      .foot-grid{grid-template-columns:1fr 1fr}
-      .foot-grid > :first-child{grid-column:1 / -1}
-      .copyright{display:block}
-      .ownership{margin-bottom:10px}
-    }
-
-    @media(max-width:600px){
-      .wrap{width:min(92%,1180px)}
-      nav{min-height:68px}
-      .brand{font-size:17px}
-      .mark{width:36px;height:36px}
-      .hero{min-height:auto;padding:120px 0 70px}
-      .hero h1{font-size:clamp(43px,13vw,62px)}
-      .hero p{font-size:16px}
-      .ticker .wrap{grid-template-columns:1fr;gap:16px}
-      section{padding:75px 0}
-      .intro h2{font-size:36px}
-      .panel{padding:27px}
-      .metric{font-size:14px}
-      .cta{padding:70px 0}
-      .cta h2{font-size:35px}
-      .foot-grid{grid-template-columns:1fr}
-      .foot-grid > :first-child{grid-column:auto}
-    }
-
-    @media(prefers-reduced-motion:reduce){
-      html{scroll-behavior:auto}
-      *,*::before,*::after{
-        transition-duration:.01ms!important;
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
-      }
-    }
-  
-    /* Integrated visual system from the alternate DhanaSeed concepts */
+    /* Globe & Map styling */
     .globe-stage{height:470px;position:relative;display:grid;place-items:center;isolation:isolate}
     .globe{width:350px;height:350px;border-radius:50%;position:relative;background:radial-gradient(circle at 35% 28%,rgba(255,255,255,.23),transparent 5%),radial-gradient(circle at 43% 40%,#163c62 0%,#0b2a49 40%,#06182d 72%,#020d1a 100%);box-shadow:inset -28px -20px 60px rgba(0,0,0,.48),inset 12px 8px 35px rgba(113,171,219,.22),0 0 0 1px rgba(213,167,79,.35),0 0 70px rgba(56,123,180,.18)}
     .globe:before{content:"";position:absolute;inset:18px;border-radius:50%;background:repeating-linear-gradient(80deg,transparent 0 27px,rgba(101,163,207,.15) 28px,transparent 29px 55px),repeating-linear-gradient(170deg,transparent 0 35px,rgba(101,163,207,.12) 36px,transparent 37px 70px);opacity:.8;transform:rotate(-9deg)}
@@ -518,21 +485,15 @@
     .globe-logo{position:absolute;text-align:center;z-index:3;text-shadow:0 4px 18px rgba(0,0,0,.55)}
     .globe-logo .d{font:58px Georgia,serif;color:#efc66c;border:2px solid #efc66c;border-radius:7px;width:68px;height:68px;display:grid;place-items:center;margin:auto}.globe-logo strong{display:block;font:700 25px Playfair Display,serif;margin-top:9px}.globe-logo small{display:block;color:#efc66c;font-size:12px;margin-top:1px}
     .route{position:absolute;color:#fff;font:14px Georgia,serif;white-space:nowrap}.route:after{content:"";display:inline-block;width:5px;height:5px;background:#e6b65e;border-radius:50%;margin-left:8px;vertical-align:middle;box-shadow:0 0 12px #e6b65e}.r1{left:4%;top:27%}.r2{right:0;top:20%}.r3{right:1%;bottom:25%}
-    @media(max-width:900px){.globe-stage{height:390px}}
-    @media(max-width:620px){.globe-stage{height:320px}.globe{width:245px;height:245px}.ring1{width:340px;height:100px}.ring2{width:330px;height:180px}.ring3{width:200px;height:350px}.globe-logo .d{width:50px;height:50px;font-size:42px}.globe-logo strong{font-size:18px}.globe-logo small{font-size:9px}.route{font-size:11px}.r1{left:0}.r2{right:0}.r3{right:-2%;bottom:17%}}
 
-    /* WhatsApp floating contact button */
     .whatsapp-float{position:fixed;right:24px;bottom:24px;width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:#25D366;color:#fff;text-decoration:none;box-shadow:0 10px 28px rgba(0,0,0,.22);z-index:1200;transition:transform .2s ease,box-shadow .2s ease}
     .whatsapp-float:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 14px 34px rgba(0,0,0,.28)}
     .whatsapp-float:focus-visible{outline:3px solid #fff;outline-offset:3px}
     .whatsapp-float svg{width:30px;height:30px;fill:currentColor}
     .whatsapp-tooltip{position:absolute;right:70px;white-space:nowrap;background:#07111f;color:#fff;padding:9px 12px;border-radius:8px;font-size:13px;opacity:0;pointer-events:none;transform:translateX(5px);transition:.2s ease}
     .whatsapp-float:hover .whatsapp-tooltip,.whatsapp-float:focus-visible .whatsapp-tooltip{opacity:1;transform:translateX(0)}
-    @media(max-width:600px){.whatsapp-float{right:16px;bottom:16px;width:54px;height:54px}.whatsapp-float svg{width:28px;height:28px}.whatsapp-tooltip{display:none}}
 
-    /* ===== DhanaSeed 2.0 enhancements ===== */
     .section-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--gold);margin-bottom:12px}
-    .section-note{color:var(--muted);max-width:760px}
     .globe-map{display:grid;grid-template-columns:1.05fr .95fr;gap:32px;align-items:stretch;margin-top:44px}
     .map-visual{min-height:430px;border-radius:28px;background:radial-gradient(circle at 50% 45%,rgba(201,164,92,.2),transparent 35%),linear-gradient(145deg,#09182a,#10253d);position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
     .map-visual:before{content:"";position:absolute;inset:11%;border:1px dashed rgba(201,164,92,.25);border-radius:50%;box-shadow:0 0 0 42px rgba(255,255,255,.015),0 0 0 84px rgba(255,255,255,.012)}
@@ -544,15 +505,185 @@
     .portfolio-demo{margin-top:34px;background:linear-gradient(135deg,#081423,#10283f);border-radius:26px;padding:28px;color:#fff;box-shadow:0 20px 55px rgba(7,17,31,.18)}.portfolio-head{display:flex;justify-content:space-between;align-items:end;gap:20px}.portfolio-value{font:800 34px Manrope,sans-serif}.portfolio-sub{font-size:12px;color:#9eafc1}.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:22px 0}.tab{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.05);color:#dce5ef;border-radius:999px;padding:9px 13px;cursor:pointer}.tab.active{background:var(--gold);color:#07111f;border-color:var(--gold);font-weight:800}.demo-content{display:grid;grid-template-columns:1fr 1fr;gap:18px}.demo-box{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);border-radius:18px;padding:20px}.bar{height:9px;border-radius:99px;background:#243a51;overflow:hidden;margin:9px 0 14px}.bar i{display:block;height:100%;background:var(--gold);border-radius:inherit}.demo-row{display:flex;justify-content:space-between;gap:12px;margin:9px 0;font-size:13px;color:#dce5ef}.demo-disclaimer{font-size:11px;color:#93a6b9;margin-top:18px}
     .products{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}.product-card{border:1px solid var(--line);border-radius:20px;padding:22px;background:#fff;min-height:185px;transition:.25s}.product-card:hover{transform:translateY(-4px);box-shadow:0 16px 35px rgba(7,17,31,.08);border-color:#d8c18f}.product-card .pill{font-size:10px;letter-spacing:.12em;color:var(--gold);font-weight:800}.product-card h3{margin:12px 0 8px}.product-card p{font-size:13px;color:var(--muted);line-height:1.55;margin:0}
     .roadmap{margin-top:50px;position:relative;display:grid;grid-template-columns:repeat(6,1fr);gap:12px}.roadmap:before{content:"";position:absolute;left:4%;right:4%;top:20px;height:1px;background:rgba(201,164,92,.5)}.phase{position:relative;padding-top:50px}.phase-dot{position:absolute;top:12px;left:0;width:17px;height:17px;border-radius:50%;background:var(--gold);border:4px solid #0d1b2d;box-shadow:0 0 0 1px var(--gold)}.phase span{font-size:11px;color:var(--gold);font-weight:800;letter-spacing:.12em}.phase h3{margin:8px 0}.phase p{font-size:12px;color:#aab6c4;line-height:1.5}
-    .academy{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:30px}.academy-card{padding:24px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(255,255,255,.04)}.academy-card h3{margin:10px 0}.academy-card p{color:#aab6c4;font-size:13px}.academy-card a{color:#f2d99e;text-decoration:none;font-weight:700;font-size:13px}
+    .academy{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:30px}.academy-card{padding:24px;border:1px solid rgba(255,255,255,.12);border-radius:20px;background:rgba(255,255,255,.04)}.academy-card h3{margin:10px 0}.academy-card p{color:#aab6c4;font-size:13px}
 
-    /* Waitlist Modal Styles */
-    .waitlist{position:fixed;inset:0;background:rgba(2,8,15,.72);backdrop-filter:blur(10px);display:none;align-items:center;justify-content:center;padding:20px;z-index:2000}.waitlist.show{display:flex}.wait-card{width:min(560px,100%);background:#fff;border-radius:24px;padding:30px;box-shadow:0 30px 90px rgba(0,0,0,.3);position:relative}.wait-close{position:absolute;right:16px;top:14px;border:0;background:transparent;font-size:26px;cursor:pointer}.wait-form{display:grid;gap:12px;margin-top:20px}.wait-form input,.wait-form select{padding:13px 14px;border:1px solid var(--line);border-radius:12px;font:inherit}.wait-success{display:none;padding:14px;border-radius:12px;background:#eef8f1;margin-top:14px}.wait-success.show{display:block}
+    /* Modal Overlay System */
+    .modal-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(2,8,15,.75);
+      backdrop-filter:blur(10px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+      z-index:2000;
+    }
+    .modal-overlay.active{display:flex}
+    .modal-card{
+      width:min(580px,100%);
+      background:#fff;
+      border-radius:24px;
+      padding:32px;
+      box-shadow:0 30px 90px rgba(0,0,0,.3);
+      position:relative;
+      max-height:90vh;
+      overflow-y:auto;
+    }
+    .modal-close{
+      position:absolute;
+      right:18px;
+      top:16px;
+      border:0;
+      background:transparent;
+      font-size:26px;
+      cursor:pointer;
+      color:var(--muted);
+    }
+    .modal-form{
+      display:grid;
+      gap:12px;
+      margin-top:20px;
+    }
+    .modal-form input,.modal-form select,.modal-form textarea{
+      padding:13px 14px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      font:inherit;
+      width:100%;
+    }
+    .modal-success{
+      display:none;
+      padding:14px;
+      border-radius:12px;
+      background:#eef8f1;
+      color:#1d6333;
+      margin-top:14px;
+      font-size:14px;
+    }
+    .modal-success.show{display:block}
 
     @keyframes pulseLine{0%,100%{opacity:.35}50%{opacity:1}}@keyframes dotPulse{0%,100%{transform:scale(.9);opacity:.75}50%{transform:scale(1.25);opacity:1}}
-    @media(max-width:1000px){.products{grid-template-columns:repeat(2,1fr)}.intel-grid{grid-template-columns:repeat(2,1fr)}.roadmap{grid-template-columns:repeat(3,1fr)}.roadmap:before{display:none}.phase{padding-top:25px}.phase-dot{top:0}}
-    @media(max-width:800px){.globe-map,.demo-content{grid-template-columns:1fr}.map-visual{min-height:350px}.academy{grid-template-columns:1fr}.portfolio-head{align-items:start;flex-direction:column}.roadmap{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:560px){.products,.intel-grid{grid-template-columns:1fr}.map-visual{min-height:300px}.map-core{width:125px;height:125px}.intelligence,.portfolio-demo{padding:20px}.roadmap{grid-template-columns:1fr}}
+
+    /* Comprehensive Responsive Styles Across Devices */
+    @media (max-width: 1024px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+      }
+      .buttons {
+        justify-content: center;
+      }
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .ticker .wrap {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .intel-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .roadmap {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .roadmap:before {
+        display: none;
+      }
+      .phase {
+        padding-top: 25px;
+      }
+      .phase-dot {
+        top: 0;
+      }
+      .foot-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .links {
+        display: none; /* Mobile Navigation Toggle */
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .product,
+      .globe-map,
+      .demo-content {
+        grid-template-columns: 1fr;
+      }
+      .map-visual {
+        min-height: 350px;
+      }
+      .academy {
+        grid-template-columns: 1fr;
+      }
+      .portfolio-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .steps {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .step {
+        border-left: 2px solid var(--gold);
+        padding: 12px 0 12px 18px;
+      }
+      .globe-stage {
+        height: 340px;
+      }
+      .globe {
+        width: 250px;
+        height: 250px;
+      }
+      .ring1 { width: 340px; height: 100px; }
+      .ring2 { width: 320px; height: 180px; }
+      .ring3 { width: 200px; height: 360px; }
+      .r1 { left: 0%; top: 10%; }
+      .r2 { right: 0%; top: 5%; }
+      .r3 { right: 0%; bottom: 10%; }
+    }
+
+    @media (max-width: 560px) {
+      .cards,
+      .products,
+      .intel-grid,
+      .ticker .wrap,
+      .foot-grid {
+        grid-template-columns: 1fr;
+      }
+      .map-visual {
+        min-height: 300px;
+      }
+      .map-core {
+        width: 125px;
+        height: 125px;
+      }
+      .intelligence,
+      .portfolio-demo {
+        padding: 20px;
+      }
+      .roadmap {
+        grid-template-columns: 1fr;
+      }
+      .copyright {
+        flex-direction: column;
+        gap: 12px;
+      }
+    }
   </style>
 
   <script type="application/ld+json">
@@ -575,7 +706,7 @@
   <header>
     <div class="wrap">
       <nav aria-label="Primary navigation">
-        <a class="brand" href="#" aria-label="DhanaSeed home">
+        <a class="brand" href="#main-content" aria-label="DhanaSeed home">
           <span class="mark" aria-hidden="true">D</span>
           <span>DhanaSeed</span>
         </a>
@@ -585,6 +716,7 @@
           <a href="#solutions">Solutions</a>
           <a href="#approach">Approach</a>
           <a href="#about">About & Leadership</a>
+          <a href="#academy">Academy</a>
           <a href="#faq">FAQ</a>
           <a class="navbtn" href="#contact">Contact</a>
         </div>
@@ -606,6 +738,7 @@
         <a href="#solutions">Solutions</a>
         <a href="#approach">Approach</a>
         <a href="#about">About & Leadership</a>
+        <a href="#academy">Academy</a>
         <a href="#faq">FAQ</a>
         <a class="mobile-navbtn" href="#contact">Contact DhanaSeed</a>
       </div>
@@ -622,7 +755,7 @@
           <div class="buttons">
             <a class="btn primary" href="#platform">Explore the Platform →</a>
             <a class="btn secondary" href="#contact">Partner with DhanaSeed</a>
-            <button class="btn secondary" type="button" data-open-waitlist>Join Early Access</button>
+            <button class="btn secondary" type="button" onclick="openModal('waitlist-modal')">Join Early Access</button>
           </div>
         </div>
 
@@ -725,7 +858,6 @@
       </div>
     </section>
 
-    <!-- FOUNDER, LEADERSHIP & REGULATORY SECTION -->
     <section id="about" class="dark" aria-labelledby="about-title">
       <div class="wrap">
         <div class="intro">
@@ -788,7 +920,9 @@
         <div class="portfolio-demo">
           <div class="portfolio-head"><div><div class="portfolio-sub">MY GLOBAL WEALTH · ILLUSTRATIVE</div><div class="portfolio-value">₹35.00 lakh</div></div><div class="portfolio-sub">Portfolio Intelligence · Available</div></div>
           <div class="tabs" role="tablist"><button class="tab active" data-tab="allocation">Allocation</button><button class="tab" data-tab="currency">Currency</button><button class="tab" data-tab="intelligence">Intelligence</button><button class="tab" data-tab="tax">Tax</button></div>
-          <div class="demo-content" id="demo-content"></div>
+          <div class="demo-content" id="demo-content">
+            <div class="demo-box"><b>Country Allocation</b><div class="demo-row"><span>🇮🇳 India</span><strong>65%</strong></div><div class="bar"><i style="width:65%"></i></div><div class="demo-row"><span>🇺🇸 USA</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>🌎 Others</span><strong>7%</strong></div><div class="bar"><i style="width:7%"></i></div></div><div class="demo-box"><b>Asset Mix</b><div class="demo-row"><span>Equity</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>ETF</span><strong>12%</strong></div><div class="bar"><i style="width:12%"></i></div><div class="demo-row"><span>Debt + Cash</span><strong>20%</strong></div><div class="bar"><i style="width:20%"></i></div></div>
+          </div>
           <div class="demo-disclaimer">Illustrative platform vision — not live account, market or investment data.</div>
         </div>
       </div>
@@ -837,7 +971,7 @@
       </div>
     </section>
 
-    <!-- DHANASEED ACADEMY & KNOWLEDGE GUIDES -->
+    <!-- DHANASEED ACADEMY SECTION -->
     <section class="dark" id="academy" aria-labelledby="academy-title">
       <div class="wrap">
         <div class="intro">
@@ -850,19 +984,19 @@
             <span class="section-label">01 · GLOBAL INVESTING</span>
             <h3>Navigating RBI's LRS Limits</h3>
             <p>A guide to resident Indian overseas remittance limits ($250,000 cap), TCS rules, and tax efficiency for international diversification.</p>
-            <a href="#contact">Read Guide →</a>
+            <button class="btn-text" onclick="openModal('guide-lrs-modal')">Read Guide →</button>
           </article>
           <article class="academy-card">
             <span class="section-label">02 · NRI / OCI</span>
             <h3>India Access from Anywhere</h3>
             <p>Understanding NRE/NRO account setups, PIS compliance, and repatriation procedures for global Indian investors.</p>
-            <a href="#contact">Read Guide →</a>
+            <button class="btn-text" onclick="openModal('guide-nri-modal')">Read Guide →</button>
           </article>
           <article class="academy-card">
             <span class="section-label">03 · TAX & RISK</span>
             <h3>Multi-Currency Risk & Tax Intelligence</h3>
             <p>How currency fluctuation impacts overall real returns and strategies for tracking cross-border capital gains.</p>
-            <a href="#contact">Read Guide →</a>
+            <button class="btn-text" onclick="openModal('guide-tax-modal')">Read Guide →</button>
           </article>
         </div>
       </div>
@@ -878,20 +1012,35 @@
         </div>
 
         <div class="faq-list">
-          <details class="faq-item">
-            <summary>How does DhanaSeed handle cross-border fund transfers?</summary>
-            <p>Transactions strictly follow RBI's Liberalised Remittance Scheme (LRS) guidelines for resident Indian investors and recognized banking channels for foreign accounts, ensuring full tax reporting and currency clarity.</p>
-          </details>
+          <div class="faq-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <span>How does DhanaSeed handle cross-border fund transfers?</span>
+              <span class="icon">↓</span>
+            </button>
+            <div class="accordion-body">
+              <p>Transactions strictly follow RBI's Liberalised Remittance Scheme (LRS) guidelines for resident Indian investors and recognized banking channels for foreign accounts, ensuring full tax reporting and currency clarity.</p>
+            </div>
+          </div>
 
-          <details class="faq-item">
-            <summary>Is my capital safe on the DhanaSeed platform?</summary>
-            <p>DhanaSeed serves as the technology and portfolio intelligence layer. All underlying assets and securities are held in individual accounts managed by licensed, regulated custodial partners and broker-dealers in their respective jurisdictions.</p>
-          </details>
+          <div class="faq-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <span>Is my capital safe on the DhanaSeed platform?</span>
+              <span class="icon">↓</span>
+            </button>
+            <div class="accordion-body">
+              <p>DhanaSeed serves as the technology and portfolio intelligence layer. All underlying assets and securities are held in individual accounts managed by licensed, regulated custodial partners and broker-dealers in their respective jurisdictions.</p>
+            </div>
+          </div>
 
-          <details class="faq-item">
-            <summary>Which markets can I access at launch?</summary>
-            <p>Phase 1 focuses on connecting Indian investors to US equities and global ETFs. Phase 2 expands to Global-to-India access for NRIs and OCIs, followed by multi-currency global corridors.</p>
-          </details>
+          <div class="faq-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+              <span>Which markets can I access at launch?</span>
+              <span class="icon">↓</span>
+            </button>
+            <div class="accordion-body">
+              <p>Phase 1 focuses on connecting Indian investors to US equities and global ETFs. Phase 2 expands to Global-to-India access for NRIs and OCIs, followed by multi-currency global corridors.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -904,7 +1053,7 @@
         </div>
         <div class="buttons">
           <a class="btn primary" href="mailto:pravinv.dcs@gmail.com">Contact DhanaSeed →</a>
-          <button class="btn secondary" style="color:var(--navy); border-color:var(--navy);" type="button" data-open-waitlist>Request Early Access</button>
+          <button class="btn secondary" style="color:var(--navy); border-color:var(--navy);" type="button" onclick="openModal('waitlist-modal')">Request Early Access</button>
         </div>
       </div>
     </section>
@@ -952,17 +1101,13 @@
         </div>
 
         <div>
-          <h3>Connect</h3>
+          <h3>Connect & Legal</h3>
           <div class="foot-links">
             <a href="#contact">Contact DhanaSeed</a>
-            <a href="mailto:pravinv.dcs@gmail.com">Email</a>
-            <a href="tel:+919970184606">Phone</a>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=202%2C%203rd%20Floor%2C%20Moon%20Meadows%2C%20Opposite%20Sun%20Residency%2C%20Kasavanahalli%2C%20Bengaluru%20560035"
-              target="_blank"
-              rel="noopener noreferrer">
-              Directions
-            </a>
+            <a href="javascript:void(0)" onclick="openModal('privacy-modal')">Privacy Policy</a>
+            <a href="javascript:void(0)" onclick="openModal('terms-modal')">Terms of Service</a>
+            <a href="javascript:void(0)" onclick="openModal('disclosures-modal')">Risk Disclosures</a>
+            <a href="https://www.google.com/maps/search/?api=1&query=202%2C%203rd%20Floor%2C%20Moon%20Meadows%2C%20Opposite%20Sun%20Residency%2C%20Kasavanahalli%2C%20Bengaluru%20560035" target="_blank" rel="noopener noreferrer">Directions</a>
           </div>
         </div>
       </div>
@@ -976,93 +1121,230 @@
     </div>
   </footer>
 
-  <script>
-    (() => {
-      const toggle = document.querySelector('.menu-toggle');
-      const menu = document.getElementById('mobile-navigation');
-
-      if (!toggle || !menu) return;
-
-      const closeMenu = () => {
-        toggle.setAttribute('aria-expanded', 'false');
-        toggle.setAttribute('aria-label', 'Open navigation menu');
-        menu.classList.remove('is-open');
-        document.body.classList.remove('menu-open');
-      };
-
-      toggle.addEventListener('click', () => {
-        const isOpen = toggle.getAttribute('aria-expanded') === 'true';
-        toggle.setAttribute('aria-expanded', String(!isOpen));
-        toggle.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
-        menu.classList.toggle('is-open', !isOpen);
-        document.body.classList.toggle('menu-open', !isOpen);
-      });
-
-      menu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMenu);
-      });
-
-      document.addEventListener('keydown', event => {
-        if (event.key === 'Escape') closeMenu();
-      });
-
-      window.addEventListener('resize', () => {
-        if (window.innerWidth > 900) closeMenu();
-      });
-    })();
-  </script>
-
-  <a class="whatsapp-float" href="https://wa.me/919970184606?text=Hello%20DhanaSeed%20Capital%20Solutions%2C%20I%27d%20like%20to%20know%20more%20about%20your%20global%20finance%20platform." target="_blank" rel="noopener noreferrer" aria-label="Chat with DhanaSeed on WhatsApp">
+  <a class="whatsapp-float" href="https://api.whatsapp.com/send?phone=919970184606&text=Hello%20DhanaSeed%20Capital%20Solutions%2C%20I%27d%20like%20to%20know%20more%20about%20your%20global%20finance%20platform." target="_blank" rel="noopener noreferrer" aria-label="Chat with DhanaSeed on WhatsApp">
     <span class="whatsapp-tooltip">Chat with us on WhatsApp</span>
     <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.2c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.98 2.63 1.11 2.81c.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.55.57.65.21 1.24.18 1.71.11.52-.08 1.6-.66 1.82-1.29.23-.63.23-1.17.16-1.29-.07-.11-.25-.18-.52-.32zM16.02 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.39 1.63 6.24L3.1 28.8l6.72-1.71a12.75 12.75 0 0 0 6.2 1.6h.01c7.06 0 12.79-5.73 12.79-12.79S23.08 3.2 16.02 3.2zm0 23.35h-.01c-2.03 0-4.02-.55-5.75-1.58l-.41-.24-3.99 1.02 1.07-3.89-.27-.4a10.57 10.57 0 1 1 9.36 5.09z"/></svg>
   </a>
 
-  <!-- INTERACTIVE LEAD CAPTURE MODAL -->
-  <div class="waitlist" id="waitlist" role="dialog" aria-modal="true" aria-labelledby="wait-title">
-    <div class="wait-card">
-      <button class="wait-close" type="button" data-close-waitlist aria-label="Close">×</button>
+  <!-- MODALS -->
+
+  <!-- Waitlist Modal -->
+  <div class="modal-overlay" id="waitlist-modal" role="dialog" aria-modal="true" aria-labelledby="waitlist-title">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('waitlist-modal')" aria-label="Close">&times;</button>
       <div class="eyebrow">Priority Early Access</div>
-      <h2 id="wait-title">Join the DhanaSeed Waitlist</h2>
-      <p>Get early platform updates, cross-border portfolio insights, and priority onboarding.</p>
+      <h2 id="waitlist-title">Join Early Access</h2>
+      <p>Be among the first to experience DhanaSeed's cross-border wealth platform.</p>
       
-      <form class="wait-form" id="wait-form">
-        <input name="name" placeholder="Full Name" required>
-        <input name="email" type="email" placeholder="Work Email Address" required>
-        <select name="account_type" required>
-          <option value="">Select Account Type...</option>
+      <form class="modal-form" onsubmit="handleFormSubmit(event, 'waitlist-success')">
+        <input name="name" placeholder="Full Name" aria-label="Full Name" required>
+        <input name="email" type="email" placeholder="Work Email Address" aria-label="Work Email Address" required>
+        <select name="account_type" aria-label="Select Account Type" required>
+          <option value="" disabled selected>Select Account Type...</option>
           <option value="individual">Individual Investor (Resident Indian)</option>
           <option value="nri_oci">NRI / OCI Investor</option>
           <option value="business">Business / Corporate Account</option>
           <option value="partner">Institutional / Strategic Partner</option>
         </select>
-        <button class="btn primary" style="background:var(--navy); color:#fff;" type="submit">Request Early Access →</button>
+        <button class="btn primary" style="background:var(--navy); color:#fff;" type="submit">Submit Request →</button>
       </form>
-      <div class="wait-success" id="wait-success">Thank you! Your request for early access has been received.</div>
+      <div class="modal-success" id="waitlist-success">Thank you! Your request for early access has been received.</div>
+    </div>
+  </div>
+
+  <!-- Academy Guides Modals -->
+  <div class="modal-overlay" id="guide-lrs-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('guide-lrs-modal')" aria-label="Close">&times;</button>
+      <div class="eyebrow">Guide 01</div>
+      <h2>Navigating RBI's LRS Limits</h2>
+      <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
+        Under the Reserve Bank of India’s Liberalised Remittance Scheme (LRS), resident individuals can freely remit up to $250,000 USD per financial year for permitted capital and current account transactions. DhanaSeed simplifies compliance by tracking TCS threshold calculations, facilitating seamless A2 form workflows, and maintaining real-time FX transparency.
+      </p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="guide-nri-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('guide-nri-modal')" aria-label="Close">&times;</button>
+      <div class="eyebrow">Guide 02</div>
+      <h2>India Access from Anywhere</h2>
+      <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
+        Global Indians face complex account setups across NRE, NRO, and PIS accounts. DhanaSeed consolidates repatriation reporting, foreign exchange handling, and cross-border tax compliance, empowering NRIs and OCIs to allocate seamlessly back into Indian equities and debt instruments.
+      </p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="guide-tax-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('guide-tax-modal')" aria-label="Close">&times;</button>
+      <div class="eyebrow">Guide 03</div>
+      <h2>Multi-Currency Risk & Tax Intelligence</h2>
+      <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
+        Cross-border investing introduces foreign exchange volatility and dual-tax considerations. DhanaSeed calculates true real returns in your primary currency, accounts for foreign tax credits (FTC), and unifies multi-jurisdiction capital gain ledgers.
+      </p>
+    </div>
+  </div>
+
+  <!-- Legal Modals -->
+  <div class="modal-overlay" id="privacy-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('privacy-modal')" aria-label="Close">&times;</button>
+      <h2>Privacy Policy</h2>
+      <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
+        DhanaSeed Capital Solutions is committed to protecting your personal and financial information. We process data strictly in compliance with applicable data protection regulations and employ enterprise-grade security standards to safeguard user inputs across our platform preview and registration touchpoints.
+      </p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="terms-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('terms-modal')" aria-label="Close">&times;</button>
+      <h2>Terms of Service</h2>
+      <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
+        By accessing this website, you agree to comply with our terms. All materials on this website describe the platform vision of DhanaSeed Capital Solutions and do not constitute an offer of service in jurisdictions where regulatory approvals are pending.
+      </p>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="disclosures-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal('disclosures-modal')" aria-label="Close">&times;</button>
+      <h2>Risk Disclosures</h2>
+      <p style="color:var(--muted); font-size:14px; margin-top:10px; line-height:1.7;">
+        International investments carry inherent risks including currency exchange fluctuations, cross-border market volatility, and changing regulatory environments. Past performance metrics displayed are illustrative and do not guarantee future returns.
+      </p>
     </div>
   </div>
 
   <script>
-  (function(){
-    const details={
-      'india-global':'Global market discovery, international securities, currency visibility, overseas investment information and portfolio intelligence — where permitted and eligible.',
-      'global-india':'Digital onboarding, KYC, Indian market access, portfolio visibility, tax documents and related funding/repatriation information for eligible customer categories.',
-      'global-global':'A long-term multi-market architecture involving customer eligibility, regulatory rules, market partners, custody, tax, FX and reporting — market by market.'
-    };
-    document.querySelectorAll('.corridor').forEach(el=>el.addEventListener('click',()=>{document.querySelectorAll('.corridor').forEach(x=>x.classList.remove('active'));el.classList.add('active');document.getElementById('corridor-detail').textContent=details[el.dataset.corridor]||'';}));
-    
-    const demo={
-      allocation:`<div class="demo-box"><b>Country Allocation</b><div class="demo-row"><span>🇮🇳 India</span><strong>65%</strong></div><div class="bar"><i style="width:65%"></i></div><div class="demo-row"><span>🇺🇸 USA</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>🌎 Others</span><strong>7%</strong></div><div class="bar"><i style="width:7%"></i></div></div><div class="demo-box"><b>Asset Mix</b><div class="demo-row"><span>Equity</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>ETF</span><strong>12%</strong></div><div class="bar"><i style="width:12%"></i></div><div class="demo-row"><span>Debt + Cash</span><strong>20%</strong></div><div class="bar"><i style="width:20%"></i></div></div>`,
-      currency:`<div class="demo-box"><b>Currency Exposure</b><div class="demo-row"><span>INR</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>USD</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>Others</span><strong>4%</strong></div><div class="bar"><i style="width:4%"></i></div></div><div class="demo-box"><b>Currency-adjusted return</b><div class="demo-row"><span>Security return</span><strong>+12%</strong></div><div class="demo-row"><span>Currency impact</span><strong>−2%</strong></div><div class="demo-row"><span>Home-currency return</span><strong>+10%</strong></div></div>`,
-      intelligence:`<div class="demo-box"><b>Portfolio Intelligence</b><div class="demo-row"><span>Portfolio risk</span><strong>Moderate</strong></div><div class="demo-row"><span>Top concentration</span><strong>18%</strong></div><div class="demo-row"><span>Realised gains</span><strong>₹X</strong></div><div class="demo-row"><span>Unrealised gains</span><strong>₹X</strong></div></div><div class="demo-box"><b>Income & diversification</b><div class="demo-row"><span>Dividend income</span><strong>₹X</strong></div><div class="demo-row"><span>Country diversification</span><strong>Available</strong></div><div class="demo-row"><span>Sector exposure</span><strong>Available</strong></div></div>`,
-      tax:`<div class="demo-box"><b>Tax Information</b><div class="demo-row"><span>Capital gains</span><strong>Available</strong></div><div class="demo-row"><span>Dividend information</span><strong>Available</strong></div><div class="demo-row"><span>Withholding information</span><strong>Available</strong></div><div class="demo-row"><span>Transaction summaries</span><strong>Available</strong></div></div><div class="demo-box"><b>Intelligence pipeline</b><div class="demo-row"><span>Transactions</span><strong>→ Ledger</strong></div><div class="demo-row"><span>Cost basis</span><strong>→ Classification</strong></div><div class="demo-row"><span>Currency</span><strong>→ Reports</strong></div></div>`
-    };
-    const content=document.getElementById('demo-content');
-    function renderTab(name){content.innerHTML=demo[name];document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===name));}
-    document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>renderTab(b.dataset.tab)));renderTab('allocation');
-    
-    const modal=document.getElementById('waitlist');const open=()=>modal.classList.add('show');const close=()=>modal.classList.remove('show');document.querySelectorAll('[data-open-waitlist]').forEach(b=>b.addEventListener('click',open));document.querySelector('[data-close-waitlist]').addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape')close()});
-    document.getElementById('wait-form').addEventListener('submit',e=>{e.preventDefault();document.getElementById('wait-success').classList.add('show');e.target.querySelector('button').textContent='Interest received ✓';e.target.querySelector('button').disabled=true;});
-  })();
+    // General Modal Handlers with Focus Management
+    let previousActiveElement = null;
+
+    function openModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        previousActiveElement = document.activeElement;
+        modal.classList.add('active');
+        const focusable = modal.querySelectorAll('button, input, select, textarea, a[href]');
+        if (focusable.length) focusable[0].focus();
+      }
+    }
+
+    function closeModal(id) {
+      const modal = document.getElementById(id);
+      if (modal) {
+        modal.classList.remove('active');
+        if (previousActiveElement) previousActiveElement.focus();
+      }
+    }
+
+    function handleFormSubmit(event, successId) {
+      event.preventDefault();
+      const successEl = document.getElementById(successId);
+      if (successEl) successEl.classList.add('show');
+      const btn = event.target.querySelector('button');
+      if (btn) {
+        btn.textContent = 'Submitted ✓';
+        btn.disabled = true;
+      }
+    }
+
+    // FAQ Accordion Handler
+    function toggleAccordion(button) {
+      const body = button.nextElementSibling;
+      const isExpanded = body.style.display === "block";
+      
+      // Close all accordions
+      document.querySelectorAll('.accordion-body').forEach(el => el.style.display = 'none');
+      document.querySelectorAll('.accordion-header .icon').forEach(el => el.textContent = '↓');
+      
+      // Toggle selected
+      if (!isExpanded) {
+        body.style.display = "block";
+        button.querySelector('.icon').textContent = '↑';
+      }
+    }
+
+    // Nav & Tabs Functionality
+    (() => {
+      // Mobile Nav
+      const toggle = document.querySelector('.menu-toggle');
+      const menu = document.getElementById('mobile-navigation');
+
+      if (toggle && menu) {
+        const closeMenu = () => {
+          toggle.setAttribute('aria-expanded', 'false');
+          menu.classList.remove('is-open');
+          document.body.classList.remove('menu-open');
+        };
+
+        toggle.addEventListener('click', () => {
+          const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+          toggle.setAttribute('aria-expanded', String(!isOpen));
+          menu.classList.toggle('is-open', !isOpen);
+          document.body.classList.toggle('menu-open', !isOpen);
+        });
+
+        menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+      }
+
+      // Focus Trap & Outer Click for Modals
+      document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', e => { 
+          if (e.target === overlay) closeModal(overlay.id); 
+        });
+
+        overlay.addEventListener('keydown', e => {
+          if (e.key === 'Tab') {
+            const focusables = overlay.querySelectorAll('button, input, select, textarea, a[href]');
+            if (!focusables.length) return;
+            const first = focusables[0];
+            const last = focusables[focusables.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+              last.focus();
+              e.preventDefault();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              first.focus();
+              e.preventDefault();
+            }
+          }
+        });
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') {
+          document.querySelectorAll('.modal-overlay.active').forEach(el => closeModal(el.id));
+        }
+      });
+
+      // Corridor details
+      const details = {
+        'india-global':'Global market discovery, international securities, currency visibility, overseas investment information and portfolio intelligence — where permitted and eligible.',
+        'global-india':'Digital onboarding, KYC, Indian market access, portfolio visibility, tax documents and related funding/repatriation information for eligible customer categories.',
+        'global-global':'A long-term multi-market architecture involving customer eligibility, regulatory rules, market partners, custody, tax, FX and reporting — market by market.'
+      };
+      document.querySelectorAll('.corridor').forEach(el => el.addEventListener('click', () => {
+        document.querySelectorAll('.corridor').forEach(x => x.classList.remove('active'));
+        el.classList.add('active');
+        document.getElementById('corridor-detail').textContent = details[el.dataset.corridor] || '';
+      }));
+      
+      // Dynamic Portfolio Tab Content
+      const demo = {
+        allocation:`<div class="demo-box"><b>Country Allocation</b><div class="demo-row"><span>🇮🇳 India</span><strong>65%</strong></div><div class="bar"><i style="width:65%"></i></div><div class="demo-row"><span>🇺🇸 USA</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>🌎 Others</span><strong>7%</strong></div><div class="bar"><i style="width:7%"></i></div></div><div class="demo-box"><b>Asset Mix</b><div class="demo-row"><span>Equity</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>ETF</span><strong>12%</strong></div><div class="bar"><i style="width:12%"></i></div><div class="demo-row"><span>Debt + Cash</span><strong>20%</strong></div><div class="bar"><i style="width:20%"></i></div></div>`,
+        currency:`<div class="demo-box"><b>Currency Exposure</b><div class="demo-row"><span>INR</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>USD</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>Others</span><strong>4%</strong></div><div class="bar"><i style="width:4%"></i></div></div><div class="demo-box"><b>Currency-adjusted return</b><div class="demo-row"><span>Security return</span><strong>+12%</strong></div><div class="demo-row"><span>Currency impact</span><strong>−2%</strong></div><div class="demo-row"><span>Home-currency return</span><strong>+10%</strong></div></div>`,
+        intelligence:`<div class="demo-box"><b>Portfolio Intelligence</b><div class="demo-row"><span>Portfolio risk</span><strong>Moderate</strong></div><div class="demo-row"><span>Top concentration</span><strong>18%</strong></div><div class="demo-row"><span>Realised gains</span><strong>₹X</strong></div><div class="demo-row"><span>Unrealised gains</span><strong>₹X</strong></div></div><div class="demo-box"><b>Income & diversification</b><div class="demo-row"><span>Dividend income</span><strong>₹X</strong></div><div class="demo-row"><span>Country diversification</span><strong>Available</strong></div><div class="demo-row"><span>Sector exposure</span><strong>Available</strong></div></div>`,
+        tax:`<div class="demo-box"><b>Tax Information</b><div class="demo-row"><span>Capital gains</span><strong>Available</strong></div><div class="demo-row"><span>Dividend information</span><strong>Available</strong></div><div class="demo-row"><span>Withholding information</span><strong>Available</strong></div><div class="demo-row"><span>Transaction summaries</span><strong>Available</strong></div></div><div class="demo-box"><b>Intelligence pipeline</b><div class="demo-row"><span>Transactions</span><strong>→ Ledger</strong></div><div class="demo-row"><span>Cost basis</span><strong>→ Classification</strong></div><div class="demo-row"><span>Currency</span><strong>→ Reports</strong></div></div>`
+      };
+      const content = document.getElementById('demo-content');
+      function renderTab(name) {
+        if (!content) return;
+        content.innerHTML = demo[name];
+        document.querySelectorAll('.tab').forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+      }
+      document.querySelectorAll('.tab').forEach(b => b.addEventListener('click', () => renderTab(b.dataset.tab)));
+    })();
   </script>
 </body>
 </html>
