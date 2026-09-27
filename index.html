@@ -2772,5 +2772,54 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
 })();
 </script>
 
+
+<style id="ds-mobile-visibility-fix">
+/* Mobile visibility and requested text colors */
+.experience-studio .es-kicker,
+#ds-intelligence-terminal .intro .eyebrow,
+#compare-lab .intro .eyebrow {
+  color:#fff !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  display:block !important;
+}
+#ds-intelligence-terminal .intro h2,
+#compare-lab .intro h2 {
+  color:#fff !important;
+  opacity:1 !important;
+  visibility:visible !important;
+}
+#compare-title {
+  color:#fff !important;
+}
+@media(max-width:600px){
+  .experience-studio .es-kicker,
+  #ds-intelligence-terminal .intro .eyebrow,
+  #compare-lab .intro .eyebrow {
+    font-size:11px !important;
+    line-height:1.4 !important;
+    letter-spacing:.14em !important;
+  }
+  #ds-intelligence-terminal .intro h2,
+  #compare-lab .intro h2 {
+    font-size:30px !important;
+    line-height:1.2 !important;
+  }
+}
+</style>
+<script id="ds-late-section-visibility-fix">
+/* Ensure sections added after the original reveal observer are also revealed. */
+(function(){
+  const showLateSections = () => {
+    document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => el.classList.add('is-visible'));
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', showLateSections, { once:true });
+  } else {
+    showLateSections();
+  }
+  window.addEventListener('load', showLateSections, { once:true });
+})();
+</script>
 </body>
 </html>
