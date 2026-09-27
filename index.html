@@ -1057,7 +1057,7 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
             <span class="live-badge" id="market-live-badge"><i class="live-dot"></i> <span id="market-live-label">LIVE</span></span>
             <span class="market-title">Global Markets Feed</span>
           </div>
-          <span class="market-timestamp" id="live-timestamp" aria-live="polite">Connecting to market feed…</span>
+          <div class="market-feed-meta"><span class="market-timestamp" id="live-timestamp" aria-live="polite">Connecting to market feed…</span><span class="market-source" id="market-source">Source: public market feed</span></div>
         </div>
 
         <div class="market-ticker-grid" id="market-grid">
@@ -2714,7 +2714,7 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
   <div class="ds-workspace-wrap">
     <div class="ds-workspace-head">
       <div><span class="ds-mini-label">PERSONAL WORKSPACE</span><h2 id="ds-workspace-title">Turn exploration into a saved journey.</h2><p>Save a lightweight watchlist, preferences and notes directly in this browser. It is designed to demonstrate how DhanaSeed can evolve from a website into a persistent investor workspace.</p></div>
-      <div class="ds-workspace-status"><i></i><span id="ds-storage-status">Local workspace ready</span></div>
+      <div class="ds-workspace-status" style="gap:10px;flex-wrap:wrap"><i></i><span id="ds-storage-status">Local workspace ready</span><button type="button" id="ds-cloud-btn" style="display:none">Connect cloud</button></div>
     </div>
     <div class="ds-workspace-grid">
       <div class="ds-w-card">
@@ -2726,7 +2726,7 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
           <div class="ds-watch" data-symbol="NASDAQ 100"><div><b>NASDAQ 100</b><span>US · USD</span></div><button type="button" aria-label="Save NASDAQ 100" title="Save">☆</button></div>
           <div class="ds-watch" data-symbol="EUR/INR"><div><b>EUR/INR</b><span>FX corridor</span></div><button type="button" aria-label="Save EUR/INR" title="Save">☆</button></div>
         </div>
-        <p class="ds-local-note">Saved items remain in your browser using localStorage. This demo does not send them to a server.</p>
+        <p class="ds-local-note" id="ds-cloud-note">Browser-local mode is active. When a secure Supabase project is configured, this workspace can sync across devices without placing service secrets in this HTML.</p>
       </div>
       <div class="ds-w-card">
         <h3>Investor Preference</h3>
@@ -2752,7 +2752,7 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
   const $=id=>document.getElementById(id);
   const fallback={watch:[],focus:'',notes:''};
   function load(){try{return {...fallback,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){return {...fallback}}}
-  function save(state){try{localStorage.setItem(KEY,JSON.stringify(state));$('ds-storage-status').textContent='Saved locally in this browser';return true}catch(e){$('ds-storage-status').textContent='Local storage unavailable';return false}}
+  function save(state){try{localStorage.setItem(KEY,JSON.stringify(state));$('ds-storage-status').textContent='Saved locally in this browser';window.DhanaSeedWorkspace?.sync?.(state);window.DhanaSeedProduct?.track('workspace_saved');return true}catch(e){$('ds-storage-status').textContent='Local storage unavailable';return false}}
   let state=load();
   const cards=[...document.querySelectorAll('#ds-watch-grid .ds-watch')];
   function render(){cards.forEach(card=>{const symbol=card.dataset.symbol;const active=state.watch.includes(symbol);const btn=card.querySelector('button');btn.classList.toggle('active',active);btn.textContent=active?'★':'☆';btn.setAttribute('aria-label',(active?'Remove ':'Save ')+symbol);});if($('ds-focus-input'))$('ds-focus-input').value=state.focus||'';if($('ds-notes-input'))$('ds-notes-input').value=state.notes||'';if($('ds-focus-status'))$('ds-focus-status').textContent=state.focus?'Saved focus: '+state.focus:'No preference saved yet.';if($('ds-notes-status'))$('ds-notes-status').textContent=state.notes?'Notes saved locally · '+state.notes.length+' characters':'No notes saved yet.';}
@@ -2761,6 +2761,7 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
   $('ds-notes-save')?.addEventListener('click',()=>{state.notes=$('ds-notes-input').value.trim();save(state);render();});
   $('ds-notes-clear')?.addEventListener('click',()=>{state.notes='';save(state);render();});
   $('ds-clear-workspace')?.addEventListener('click',()=>{state={...fallback};try{localStorage.removeItem(KEY)}catch(e){}render();$('ds-storage-status').textContent='Workspace reset';});
+  window.DhanaSeedWorkspace={get:()=>({...state}),sync:null,hydrate:(next)=>{state={...fallback,...next};try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}render();}};
   render();
 
   let deferredPrompt=null;
@@ -2772,6 +2773,100 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
 })();
 </script>
 
+
+
+<script id="ds-product-config">
+/* Optional production integrations. Keep service-role keys and AI provider secrets on the server only. */
+window.DHANASEED_CONFIG = Object.assign({
+  SUPABASE_URL: '',
+  SUPABASE_ANON_KEY: '',
+  API_BASE: ''
+}, window.DHANASEED_CONFIG || {});
+</script>
+
+<script id="ds-product-bridge">
+(()=>{
+  const cfg=window.DHANASEED_CONFIG||{};
+  const $=id=>document.getElementById(id);
+  const status=$('ds-storage-status'), btn=$('ds-cloud-btn'), note=$('ds-cloud-note');
+  const setStatus=(t)=>{if(status)status.textContent=t};
+  const configured=Boolean(cfg.SUPABASE_URL && cfg.SUPABASE_ANON_KEY);
+  window.DhanaSeedProduct={
+    configured,
+    apiBase:(cfg.API_BASE||'').replace(/\/$/,''),
+    track(event,detail={}){
+      try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'dhanaseed_'+event,...detail,timestamp:new Date().toISOString()});}catch(e){}
+    }
+  };
+  DhanaSeedProduct.track('page_view',{path:location.pathname});
+  if(!configured){
+    if(note) note.textContent='Browser-local mode is active. Cloud sync is ready to activate when a Supabase project URL and public anon key are configured.';
+    return;
+  }
+  if(btn){btn.style.display='inline-flex';btn.textContent='Connect cloud';}
+  if(note) note.textContent='Secure cloud sync is configured. Sign in to sync your workspace across devices.';
+  let client=null;
+  const loadSupabase=()=>new Promise((resolve,reject)=>{
+    if(window.supabase?.createClient)return resolve(window.supabase);
+    const sc=document.createElement('script');
+    sc.src='https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
+    sc.async=true;sc.onload=()=>resolve(window.supabase);sc.onerror=reject;document.head.appendChild(sc);
+  });
+  const connect=async()=>{
+    try{
+      const sb=await loadSupabase();
+      client=sb.createClient(cfg.SUPABASE_URL,cfg.SUPABASE_ANON_KEY,{auth:{persistSession:true,autoRefreshToken:true,detectSessionInUrl:true}});
+      const {data:{session}}=await client.auth.getSession();
+      if(session){
+        setStatus('Cloud workspace connected · '+(session.user.email||'signed in'));
+        if(btn)btn.textContent='Sign out';
+        try{
+          const {data,error}=await client.from('investor_workspaces').select('watchlist,focus,notes').eq('user_id',session.user.id).maybeSingle();
+          if(error) throw error;
+          if(data && window.DhanaSeedWorkspace){
+            const local=window.DhanaSeedWorkspace.get?.()||{watch:[],focus:'',notes:''};
+            const merged={watch:Array.isArray(data.watchlist)?data.watchlist:local.watch||[],focus:data.focus||local.focus||'',notes:data.notes||local.notes||''};
+            window.DhanaSeedWorkspace.hydrate(merged);
+          }
+        }catch(e){console.warn('DhanaSeed cloud workspace load:',e);}
+        return session;
+      }
+      const email=window.prompt('Enter your email to receive a secure DhanaSeed sign-in link:');
+      if(!email)return null;
+      const redirect=location.origin+location.pathname;
+      const {error}=await client.auth.signInWithOtp({email,options:{emailRedirectTo:redirect}});
+      if(error)throw error;
+      setStatus('Check your email for the secure sign-in link');
+      DhanaSeedProduct.track('cloud_signin_requested');
+      return null;
+    }catch(err){console.error(err);setStatus('Cloud sync unavailable · local mode remains active');}
+  };
+  const syncWorkspace=async(state)=>{
+    if(!client || !state) return;
+    try{
+      const {data:{session}}=await client.auth.getSession();
+      if(!session?.user?.id) return;
+      const row={user_id:session.user.id,watchlist:state.watch||[],focus:state.focus||'',notes:state.notes||'',updated_at:new Date().toISOString()};
+      const {error}=await client.from('investor_workspaces').upsert(row,{onConflict:'user_id'});
+      if(error) throw error;
+      setStatus('Cloud workspace synced · '+(session.user.email||'signed in'));
+    }catch(err){console.warn('DhanaSeed cloud sync:',err);}
+  };
+  window.DhanaSeedWorkspace=window.DhanaSeedWorkspace||{};
+  window.DhanaSeedWorkspace.sync=syncWorkspace;
+
+  btn?.addEventListener('click',async()=>{
+    if(!client) await connect();
+    else {await client.auth.signOut();setStatus('Signed out · local workspace remains available');if(btn)btn.textContent='Connect cloud';}
+  });
+  connect();
+})();
+</script>
+
+<style id="ds-product-bridge-style">
+#ds-cloud-btn{border:1px solid rgba(212,175,55,.5);background:rgba(212,175,55,.08);color:#fff;border-radius:999px;padding:7px 12px;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap}
+#ds-cloud-btn:hover{background:rgba(212,175,55,.16)}
+</style>
 
 <style id="ds-mobile-visibility-fix">
 /* Mobile visibility and requested text colors */
