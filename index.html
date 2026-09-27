@@ -15,6 +15,11 @@
   <!-- Favicon Icons -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="application-name" content="DhanaSeed">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
   <!-- Canonical public URL for the GitHub Pages site. -->
   <link rel="canonical" href="https://pravinvdcs-lang.github.io/dhanaseed/">
@@ -897,6 +902,32 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
 #global-network .corridor b,
 .premium-metrics strong{color:#fff!important}
 
+    /* Competitive positioning layer */
+    .positioning-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:38px}
+    .positioning-card{padding:26px;border:1px solid rgba(255,255,255,.1);border-radius:20px;background:linear-gradient(145deg,#0e1b2d,#091321);box-shadow:0 18px 50px rgba(0,0,0,.18)}
+    .positioning-card .badge{display:inline-flex;padding:6px 9px;border-radius:999px;font-size:10px;letter-spacing:.12em;font-weight:800;background:rgba(216,181,106,.1);color:#e6c77f;border:1px solid rgba(216,181,106,.2)}
+    .positioning-card h3{margin:14px 0 8px;font-size:21px;color:#fff}
+    .positioning-card p{margin:0;color:#aeb9c9;font-size:14px}
+    .workflow-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:38px}
+    .workflow{padding:20px;border:1px solid var(--line);border-radius:18px;background:#fff;min-height:170px}
+    .workflow span{font-size:10px;letter-spacing:.14em;color:#a17d3d;font-weight:800}
+    .workflow h3{margin:10px 0 7px;font-size:18px}
+    .workflow p{font-size:13px;color:var(--muted);margin:0;line-height:1.55}
+    .trust-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:18px;margin-top:38px}
+    .trust-panel{padding:28px;border:1px solid rgba(255,255,255,.1);border-radius:22px;background:rgba(255,255,255,.035)}
+    .trust-panel h3{color:#fff;margin:0 0 14px;font-size:21px}
+    .trust-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+    .trust-list li{display:flex;gap:12px;align-items:flex-start;color:#aeb9c9;font-size:13px;line-height:1.55}
+    .trust-list i{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:7px;flex:none;box-shadow:0 0 10px rgba(216,181,106,.35)}
+    .status-grid{display:grid;gap:10px}
+    .status-row{display:flex;justify-content:space-between;gap:15px;padding:13px 14px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(255,255,255,.025);font-size:12px}
+    .status-row span{color:#9eabba}.status-row b{color:#fff}.status-row .planned{color:#f1ca72}.status-row .concept{color:#8fa0b4}.status-row .site{color:#79e1d2}
+    .differentiator{margin-top:38px;padding:28px;border-radius:22px;border:1px solid rgba(216,181,106,.18);background:linear-gradient(135deg,rgba(216,181,106,.08),rgba(110,168,255,.04))}
+    .differentiator h3{color:#fff;margin:0 0 8px;font-size:23px}.differentiator p{color:#b6c0ce;margin:0;max-width:850px;font-size:15px}
+    .trust-note{font-size:11px;color:#7f8b9b;margin-top:16px;line-height:1.6}
+    @media(max-width:900px){.positioning-grid,.trust-grid{grid-template-columns:1fr}.workflow-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:560px){.workflow-grid{grid-template-columns:1fr}}
+
 </style>
 
   <script type="application/ld+json">
@@ -911,9 +942,23 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
     "address":{"@type":"PostalAddress","streetAddress":"202, 3rd Floor, Moon Meadows, Opposite Sun Residency, Kasavanahalli","addressLocality":"Bengaluru","postalCode":"560035","addressCountry":"IN"}
   }
   </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"DhanaSeed Capital Solutions",
+    "url":"https://pravinvdcs-lang.github.io/dhanaseed/",
+    "description":"Cross-border capital-markets and WealthTech platform concept focused on market access, portfolio, tax and currency intelligence."
+  }
+  </script>
   <!-- Production hardening: real market-data retrieval with explicit outage state,
        working early-access POST handoff, anti-spam honeypot, improved modal/FAQ/tab
        accessibility, dynamic market highs/lows, and corrected WhatsApp tooltip. -->
+
+<style id="ds-white-text-overrides">
+.ds-white-text { color: #ffffff !important; }
+</style>
 </head>
 
 <body>
@@ -929,12 +974,14 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
 
         <div class="links" id="desktop-navigation">
           <a href="#market-data">Live Markets</a>
+          <a href="#experience-hub">Experience</a>
           <a href="#platform">Platform</a>
           <a href="#solutions">Solutions</a>
           <a href="#approach">Approach</a>
           <a href="#about">About & Leadership</a>
           <a href="#academy">Academy</a>
           <a href="#faq">FAQ</a>
+          <a href="#trust">Trust</a>
           <a class="navbtn" href="#contact">Contact</a>
         </div>
 
@@ -952,6 +999,7 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
 
       <div class="mobile-menu" id="mobile-navigation" aria-label="Mobile navigation">
         <a href="#market-data">Live Markets</a>
+        <a href="#experience-hub">Experience</a>
         <a href="#platform">Platform</a>
         <a href="#solutions">Solutions</a>
         <a href="#approach">Approach</a>
@@ -1134,28 +1182,44 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
       </div>
     </section>
 
-    <section class="reveal dark" id="solutions" aria-labelledby="solutions-title">
+    <section id="differentiation" class="reveal dark" aria-labelledby="differentiation-title">
+      <div class="wrap">
+        <div class="intro">
+          <div class="eyebrow">What Makes DhanaSeed Different</div>
+          <h2 id="differentiation-title">Not just access. Context around the entire cross-border decision.</h2>
+          <p>DhanaSeed is designed to sit above fragmented market, portfolio, tax, currency and compliance information so investors can understand the consequences of a global financial decision before they act.</p>
+        </div>
+        <div class="positioning-grid">
+          <article class="positioning-card"><span class="badge">ACCESS + CONTEXT</span><h3>Go beyond a brokerage screen</h3><p>Market access is one layer. DhanaSeed is designed to connect access with portfolio, currency, tax and eligibility context.</p></article>
+          <article class="positioning-card"><span class="badge">ONE GLOBAL VIEW</span><h3>See the portfolio across borders</h3><p>Bring countries, currencies, assets, concentration and reporting into a unified wealth view rather than separate account silos.</p></article>
+          <article class="positioning-card"><span class="badge">DECISION INTELLIGENCE</span><h3>Turn complexity into signals</h3><p>Surface the information that matters around a transaction or portfolio change instead of simply displaying another data feed.</p></article>
+        </div>
+        <div class="differentiator"><h3>The DhanaSeed thesis</h3><p>Global investing is not only a trading problem. It is an access, tax, currency, compliance, reporting and portfolio-coordination problem. DhanaSeed is being designed around that combined problem.</p></div>
+      </div>
+    </section>
+
+    <section class="reveal" id="solutions" aria-labelledby="solutions-title">
       <div class="wrap">
         <div class="intro">
           <div class="eyebrow">Solutions</div>
-          <h2 id="solutions-title">Built for the new generation of global finance.</h2>
+          <h2 id="solutions-title"><span class="ds-white-text">Built for the new generation of global finance.</span></h2>
           <p>Our vision is to bridge technology, financial expertise and market connectivity across investors, businesses and strategic partners.</p>
         </div>
 
         <div class="cards">
           <article class="card tilt">
             <span class="num">FOR INVESTORS</span>
-            <h3>Invest Smarter</h3>
+            <h3><span class="ds-white-text">Invest Smarter</span></h3>
             <p>Discover a clearer way to evaluate and manage permitted global investment opportunities.</p>
           </article>
           <article class="card tilt">
             <span class="num">FOR BUSINESSES</span>
-            <h3>Think Beyond Capital</h3>
+            <h3><span class="ds-white-text">Think Beyond Capital</span></h3>
             <p>Use financial intelligence and capital-oriented thinking to support planning, growth and strategic decisions.</p>
           </article>
           <article class="card tilt">
             <span class="num">FOR PARTNERS</span>
-            <h3>Build Together</h3>
+            <h3><span class="ds-white-text">Build Together</span></h3>
             <p>Connect complementary capabilities across finance, technology and professional services.</p>
           </article>
         </div>
@@ -1207,12 +1271,12 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
           <article class="card tilt">
             <span class="num">REGULATORY COMPLIANCE</span>
             <h3>RBI LRS Alignment</h3>
-            <p>Structured around India's Liberalised Remittance Scheme (LRS) guidelines to ensure fully compliant overseas capital transfers for resident Indian investors.</p>
+            <p>Designed with applicable India cross-border rules and LRS considerations in mind; final functionality will depend on the regulated partners, product structure and applicable rules.</p>
           </article>
           <article class="card tilt">
             <span class="num">ASSET SAFETY</span>
             <h3>Regulated Custody</h3>
-            <p>Securities and assets are held directly in segregated accounts managed by licensed, regulated custodial partners and broker-dealers in each jurisdiction.</p>
+            <p>The intended model uses licensed custodial and brokerage partners where required; the final custody structure will be disclosed for each launched product and jurisdiction.</p>
           </article>
         </div>
       </div>
@@ -1285,6 +1349,23 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
             <div class="demo-box"><b>Country Allocation</b><div class="demo-row"><span>🇮🇳 India</span><strong>65%</strong></div><div class="bar"><i style="width:65%"></i></div><div class="demo-row"><span>🇺🇸 USA</span><strong>28%</strong></div><div class="bar"><i style="width:28%"></i></div><div class="demo-row"><span>🌎 Others</span><strong>7%</strong></div><div class="bar"><i style="width:7%"></i></div></div><div class="demo-box"><b>Asset Mix</b><div class="demo-row"><span>Equity</span><strong>68%</strong></div><div class="bar"><i style="width:68%"></i></div><div class="demo-row"><span>ETF</span><strong>12%</strong></div><div class="bar"><i style="width:12%"></i></div><div class="demo-row"><span>Debt + Cash</span><strong>20%</strong></div><div class="bar"><i style="width:20%"></i></div></div>
           </div>
           <div class="demo-disclaimer">Illustrative platform vision — not live account, market or investment data.</div><div class="interactive-hint"><i></i> Tap the views above to explore the portfolio intelligence layer.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="reveal" aria-labelledby="experience-title">
+      <div class="wrap">
+        <div class="intro">
+          <div class="eyebrow">Designed Around the Investor Journey</div>
+          <h2 id="experience-title"><span class="ds-white-text">From discovery to portfolio intelligence.</span></h2>
+          <p>The product architecture is designed to make the cross-border journey understandable at every step, while actual availability depends on product launch, partners, eligibility and applicable regulation.</p>
+        </div>
+        <div class="workflow-grid">
+          <article class="workflow"><span>01 · DISCOVER</span><h3>Find</h3><p>Explore markets, assets and opportunities with relevant market context.</p></article>
+          <article class="workflow"><span>02 · UNDERSTAND</span><h3>Model</h3><p>See currency, tax, country and portfolio considerations before acting.</p></article>
+          <article class="workflow"><span>03 · EVALUATE</span><h3>Compare</h3><p>Bring risk, concentration and cross-border considerations into one view.</p></article>
+          <article class="workflow"><span>04 · ACT</span><h3>Connect</h3><p>Use the relevant regulated partners and permitted channels when available.</p></article>
+          <article class="workflow"><span>05 · MONITOR</span><h3>Manage</h3><p>Track holdings, currency exposure, tax information and portfolio changes.</p></article>
         </div>
       </div>
     </section>
@@ -1389,7 +1470,7 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
               <span class="icon">↓</span>
             </button>
             <div class="accordion-body" id="faq-panel-2" role="region">
-              <p>DhanaSeed serves as the technology and portfolio intelligence layer. All underlying assets and securities are held in individual accounts managed by licensed, regulated custodial partners and broker-dealers in their respective jurisdictions.</p>
+              <p>DhanaSeed is intended to operate as a technology and portfolio-intelligence layer. Where a product launches, custody and brokerage arrangements will be provided through the applicable regulated entities and disclosed before customer onboarding.</p>
             </div>
           </div>
 
@@ -1402,7 +1483,69 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
               <p>Phase 1 focuses on connecting Indian investors to US equities and global ETFs. Phase 2 expands to Global-to-India access for NRIs and OCIs, followed by multi-currency global corridors.</p>
             </div>
           </div>
+          <div class="faq-item">
+            <button class="accordion-header" type="button" aria-expanded="false" aria-controls="faq-panel-4" onclick="toggleAccordion(this)">
+              <span>Is DhanaSeed a broker or investment adviser today?</span>
+              <span class="icon">↓</span>
+            </button>
+            <div class="accordion-body" id="faq-panel-4" role="region">
+              <p>This website presents DhanaSeed's platform vision and does not by itself establish a brokerage, advisory or other regulated permission. Any regulated service will be offered only through the appropriate legal entities and partners, subject to applicable approvals and eligibility.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="accordion-header" type="button" aria-expanded="false" aria-controls="faq-panel-5" onclick="toggleAccordion(this)">
+              <span>How will DhanaSeed make money?</span>
+              <span class="icon">↓</span>
+            </button>
+            <div class="accordion-body" id="faq-panel-5" role="region">
+              <p>Commercial models may include product, platform, partner or premium-intelligence fees. Final pricing will be published for each launched service rather than presenting future pricing as current.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="accordion-header" type="button" aria-expanded="false" aria-controls="faq-panel-6" onclick="toggleAccordion(this)">
+              <span>What makes DhanaSeed different from a traditional broker?</span>
+              <span class="icon">↓</span>
+            </button>
+            <div class="accordion-body" id="faq-panel-6" role="region">
+              <p>The intended differentiation is the intelligence layer around cross-border investing: portfolio, currency, tax, compliance and market context in one experience, rather than access alone.</p>
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section id="trust" class="reveal dark" aria-labelledby="trust-title">
+      <div class="wrap">
+        <div class="intro">
+          <div class="eyebrow">Trust & Transparency</div>
+          <h2 id="trust-title">Clear about what exists, what is being built, and what depends on partners.</h2>
+          <p>DhanaSeed is an evolving platform concept. We would rather make product and regulatory status explicit than use future capabilities as if they were already available.</p>
+        </div>
+        <div class="trust-grid">
+          <div class="trust-panel">
+            <h3>Our operating principles</h3>
+            <ul class="trust-list">
+              <li><i></i><span><strong>Transparency:</strong> illustrative dashboards and future capabilities are labelled as such.</span></li>
+              <li><i></i><span><strong>Partner-led execution:</strong> regulated brokerage, custody, payments and market access will depend on the applicable entities and jurisdictions.</span></li>
+              <li><i></i><span><strong>Privacy:</strong> the public website should not be used to submit confidential financial information.</span></li>
+              <li><i></i><span><strong>Compliance by design:</strong> eligibility, residence, product and jurisdiction are intended to be part of the decision framework.</span></li>
+            </ul>
+          </div>
+          <div class="trust-panel">
+            <h3>Capability status</h3>
+            <div class="status-grid">
+              <div class="status-row"><span>Website & product vision</span><b class="site">Live</b></div>
+              <div class="status-row"><span>Illustrative portfolio experience</span><b class="site">Live demo</b></div>
+              <div class="status-row"><span>Public market feed</span><b class="site">Feed-dependent</b></div>
+              <div class="status-row"><span>Cross-border investing</span><b class="planned">Launch / partner dependent</b></div>
+              <div class="status-row"><span>Global wealth platform</span><b class="planned">Roadmap</b></div>
+              <div class="status-row"><span>API infrastructure</span><b class="concept">Future architecture</b></div>
+            </div>
+          </div>
+        </div>
+        <p class="trust-note">Regulatory status, permissions, product availability and partner arrangements should always be verified from the final legal entities and official documentation before any financial activity.</p>
       </div>
     </section>
 
@@ -1438,6 +1581,7 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
           <p>
             <a href="tel:+919970184606" aria-label="Call DhanaSeed at plus 91 99701 84606">+91 99701 84606</a><br>
             <a href="mailto:pravinv.dcs@gmail.com">pravinv.dcs@gmail.com</a>
+          </p>
           <div class="social-icons" aria-label="Social media links">
             <a href="https://x.com/pravinv_dcs" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24h-6.657l-5.214-6.817-5.964 6.817H1.684l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
@@ -1449,7 +1593,6 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
               <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M19.11 17.2c-.27-.14-1.6-.79-1.85-.88-.25-.09-.43-.14-.61.14-.18.27-.7.88-.86 1.06-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.58-1.5-1.85-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.95.93-.95 2.27s.98 2.63 1.11 2.81c.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.55.57.65.21 1.24.18 1.71.11.52-.08 1.6-.66 1.82-1.29.23-.63.23-1.17.16-1.29-.07-.11-.25-.18-.52-.32zM16.02 3.2c-7.07 0-12.8 5.73-12.8 12.8 0 2.26.59 4.39 1.63 6.24L3.1 28.8l6.72-1.71a12.75 12.75 0 0 0 6.2 1.6h.01c7.06 0 12.79-5.73 12.79-12.79S23.08 3.2 16.02 3.2zm0 23.35h-.01c-2.03 0-4.02-.55-5.75-1.58l-.41-.24-3.99 1.02 1.07-3.89-.27-.4a10.57 10.57 0 1 1 9.36 5.09z"/></svg>
             </a>
           </div>
-          </p>
           <a
             class="address"
             href="https://www.google.com/maps/search/?api=1&query=202%2C%203rd%20Floor%2C%20Moon%20Meadows%2C%20Opposite%20Sun%20Residency%2C%20Kasavanahalli%2C%20Bengaluru%20560035"
@@ -1469,6 +1612,7 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
             <a href="#approach">Approach</a>
             <a href="#about">About</a>
             <a href="#faq">FAQ</a>
+            <a href="#trust">Trust & Transparency</a>
           </div>
         </div>
 
@@ -2039,6 +2183,142 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
     window.setInterval(refreshMarkets, MARKET_REFRESH_MS);
   </script>
 
+<style id="ds-nextgen-experience-style">
+  .ds-xp{padding:92px 0;background:radial-gradient(circle at 20% 10%,rgba(110,168,255,.08),transparent 26%),linear-gradient(180deg,#07111f,#050b14);color:#fff}
+  .ds-xp-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:30px}.ds-xp-head .intro{max-width:820px}.ds-live-chip{font-size:11px;color:#79e1d2;border:1px solid rgba(121,225,210,.25);background:rgba(121,225,210,.06);padding:8px 12px;border-radius:999px;white-space:nowrap}
+  .ds-xp-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.ds-tool{border:1px solid rgba(255,255,255,.09);border-radius:24px;background:linear-gradient(145deg,rgba(18,31,50,.9),rgba(7,15,26,.9));padding:26px;box-shadow:0 18px 55px rgba(0,0,0,.2);position:relative;overflow:hidden}.ds-tool:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 90% 0,rgba(216,181,106,.08),transparent 30%);pointer-events:none}.ds-tool>*{position:relative}.ds-tool h3{font-size:24px;margin:6px 0 8px}.ds-tool p{font-size:13px;color:#9eabba;margin:0 0 18px}.ds-tool .ds-kicker{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#d8b56a;font-weight:800}
+  .ds-form-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.ds-field{display:grid;gap:6px}.ds-field label{font-size:11px;color:#8997aa}.ds-field input,.ds-field select{width:100%;padding:11px 12px;border-radius:11px;border:1px solid rgba(255,255,255,.1);background:#091522;color:#fff;font:inherit}.ds-range{width:100%;accent-color:#d8b56a}.ds-output{margin-top:16px;padding:15px;border-radius:15px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.07)}.ds-output strong{font-size:24px}.ds-output small{display:block;color:#8491a2;margin-top:4px}
+  .ds-globe-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}.ds-region-list{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}.ds-region{border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035);color:#dce5ef;border-radius:13px;padding:12px;text-align:left;cursor:pointer}.ds-region:hover,.ds-region.active{border-color:rgba(216,181,106,.55);background:rgba(216,181,106,.08)}.ds-region b{display:block;color:#fff}.ds-region span{font-size:10px;color:#8997aa}.ds-region-detail{min-height:150px;padding:18px;border-radius:16px;background:#07111f;border:1px solid rgba(255,255,255,.07)}
+  .ds-xray{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ds-score{font-size:38px;font-weight:800;color:#fff}.ds-score span{font-size:12px;color:#8795a8;font-weight:500}.ds-bars{display:grid;gap:10px}.ds-xbar{display:grid;gap:5px}.ds-xbar-top{display:flex;justify-content:space-between;font-size:11px;color:#aeb9c9}.ds-xbar-track{height:7px;border-radius:99px;background:#1d2c3e;overflow:hidden}.ds-xbar-track i{display:block;height:100%;background:linear-gradient(90deg,#d8b56a,#7fe0d2);border-radius:inherit}
+  .ds-copilot-shell{border:1px solid rgba(255,255,255,.09);border-radius:20px;background:linear-gradient(180deg,#071421,#050d17);overflow:hidden;box-shadow:inset 0 1px 0 rgba(255,255,255,.035)}
+  .ds-copilot-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;border-bottom:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025)}
+  .ds-copilot-agent{display:flex;align-items:center;gap:10px}.ds-copilot-avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#d8b56a,#7fe0d2);color:#07111f;font-weight:900;box-shadow:0 0 22px rgba(216,181,106,.2)}
+  .ds-copilot-agent b{display:block;font-size:12px;color:#fff}.ds-copilot-agent span{display:block;font-size:10px;color:#79e1d2;margin-top:2px}.ds-copilot-online{width:7px;height:7px;border-radius:50%;background:#47d7ae;display:inline-block;margin-right:5px;box-shadow:0 0 8px rgba(71,215,174,.7)}
+  .ds-copilot-clear{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);color:#9eabba;border-radius:9px;padding:7px 9px;font-size:10px;cursor:pointer}.ds-copilot-clear:hover{color:#fff;border-color:rgba(255,255,255,.22)}
+  .ds-chat{height:255px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding:14px;background:#06101b;scroll-behavior:smooth}.ds-chat::-webkit-scrollbar{width:7px}.ds-chat::-webkit-scrollbar-thumb{background:#223149;border-radius:99px}
+  .ds-msg{max-width:min(88%,520px);padding:10px 12px;border-radius:13px;font-size:12px;line-height:1.58;white-space:pre-wrap;overflow-wrap:anywhere;animation:dsMsgIn .2s ease}.ds-msg.ai{background:#102238;color:#dbe6f2;border-top-left-radius:5px}.ds-msg.user{margin-left:auto;background:#d8b56a;color:#07111f;border-top-right-radius:5px}.ds-msg .ds-msg-time{display:block;font-size:9px;opacity:.55;margin-top:5px;text-align:right}.ds-typing{display:inline-flex;gap:4px;align-items:center}.ds-typing i{width:5px;height:5px;border-radius:50%;background:#aeb9c9;animation:dsTyping 1s infinite}.ds-typing i:nth-child(2){animation-delay:.15s}.ds-typing i:nth-child(3){animation-delay:.3s}
+  .ds-copilot-prompts{display:flex;gap:7px;overflow-x:auto;padding:9px 12px;border-top:1px solid rgba(255,255,255,.06);scrollbar-width:none}.ds-copilot-prompts::-webkit-scrollbar{display:none}.ds-prompt{white-space:nowrap;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);color:#b9c5d3;border-radius:999px;padding:7px 10px;font-size:10px;cursor:pointer}.ds-prompt:hover{border-color:rgba(216,181,106,.45);color:#fff;background:rgba(216,181,106,.07)}
+  .ds-copilot-input{display:flex;gap:7px;padding:10px 12px 12px;border-top:1px solid rgba(255,255,255,.06)}.ds-copilot-input input{min-width:0;flex:1;padding:12px;border-radius:11px;border:1px solid rgba(255,255,255,.1);background:#091522;color:#fff;font:inherit;font-size:12px}.ds-copilot-input input::placeholder{color:#69788c}.ds-copilot-input input:focus{outline:2px solid rgba(216,181,106,.35);outline-offset:0;border-color:rgba(216,181,106,.5)}.ds-btn{border:0;border-radius:11px;padding:11px 15px;background:#d8b56a;color:#07111f;font-weight:800;cursor:pointer;min-width:64px}.ds-btn:hover{filter:brightness(1.08)}.ds-btn:disabled{opacity:.55;cursor:not-allowed}
+  .ds-copilot-disclaimer{padding:0 13px 11px;font-size:9px;color:#6f7e91;line-height:1.45}.ds-copilot-disclaimer strong{color:#9eabba}
+  @keyframes dsMsgIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}@keyframes dsTyping{0%,60%,100%{opacity:.3;transform:translateY(0)}30%{opacity:1;transform:translateY(-3px)}}
+
+  .ds-builder-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:14px}.ds-assets{display:grid;gap:9px}.ds-asset{display:flex;justify-content:space-between;align-items:center;padding:11px 12px;border:1px solid rgba(255,255,255,.08);border-radius:12px}.ds-asset input{width:70px;padding:7px;background:#091522;color:#fff;border:1px solid rgba(255,255,255,.1);border-radius:8px}.ds-allocation{height:18px;border-radius:99px;overflow:hidden;display:flex;background:#1c2a3a}.ds-allocation i{height:100%;display:block}.ds-alloc-note{font-size:11px;color:#8997aa;margin-top:8px}
+  .ds-alerts{display:grid;gap:10px}.ds-alert{display:flex;justify-content:space-between;gap:12px;align-items:center;padding:13px;border:1px solid rgba(255,255,255,.08);border-radius:13px;background:rgba(255,255,255,.035)}.ds-alert b{font-size:13px}.ds-alert small{display:block;color:#8795a8;margin-top:3px}.ds-switch{width:42px;height:23px;border-radius:99px;background:#26364c;position:relative;cursor:pointer;border:0}.ds-switch:after{content:"";position:absolute;width:17px;height:17px;top:3px;left:3px;border-radius:50%;background:#fff;transition:.2s}.ds-switch.on{background:#d8b56a}.ds-switch.on:after{left:22px;background:#07111f}
+  .ds-trust-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.ds-trust-mini div{padding:15px;border-radius:14px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.035)}.ds-trust-mini b{display:block;color:#fff}.ds-trust-mini span{font-size:11px;color:#8795a8;line-height:1.45}.ds-status{display:inline-flex;gap:6px;align-items:center;font-size:10px;color:#79e1d2;margin-top:8px}.ds-status i{width:6px;height:6px;border-radius:50%;background:#79e1d2}
+  @media(max-width:850px){.ds-xp-grid,.ds-globe-grid,.ds-builder-grid{grid-template-columns:1fr}.ds-copilot{grid-template-columns:1fr}.ds-trust-mini{grid-template-columns:1fr}.ds-xp-head{align-items:start;flex-direction:column}}
+  @media(max-width:520px){.ds-form-row,.ds-xray,.ds-region-list{grid-template-columns:1fr}.ds-tool{padding:20px}.ds-copilot-top{align-items:flex-start}.ds-copilot-input{align-items:stretch}.ds-copilot-input input{width:100%}.ds-btn{min-width:58px}.ds-msg{max-width:94%}}
+</style>
+
+<section class="ds-xp reveal" id="experience-hub" aria-labelledby="experience-hub-title">
+  <div class="wrap">
+    <div class="ds-xp-head">
+      <div class="intro"><div class="eyebrow">DhanaSeed Experience Layer</div><h2 id="experience-hub-title">Explore. Model. Understand. Act.</h2><p>Interactive product experiences that turn DhanaSeed from a brochure into a hands-on demonstration of the intended global wealth intelligence platform.</p></div>
+      <div class="ds-live-chip">● Interactive demo layer</div>
+    </div>
+
+    <div class="ds-xp-grid">
+      <article class="ds-tool" id="global-explorer"><div class="ds-kicker">01 · Global Explorer</div><h3>Global market corridors</h3><p>Select a region to explore the intended access, portfolio and intelligence context.</p><div class="ds-globe-grid"><div class="ds-region-list"><button class="ds-region active" data-region="india"><b>🇮🇳 India</b><span>Home market</span></button><button class="ds-region" data-region="usa"><b>🇺🇸 United States</b><span>US equities</span></button><button class="ds-region" data-region="europe"><b>🇪🇺 Europe</b><span>EU markets</span></button><button class="ds-region" data-region="asia"><b>🌏 Asia Pacific</b><span>Regional markets</span></button></div><div class="ds-region-detail" id="ds-region-detail"><b>India</b><p>Start with the home-market context, then layer global exposure, currency and tax information around the portfolio.</p><span class="ds-status"><i></i>Eligibility & partner dependent</span></div></div></article>
+
+      <article class="ds-tool" id="portfolio-xray"><div class="ds-kicker">02 · Portfolio X-Ray</div><h3>See what is really driving the portfolio</h3><p>Illustrative concentration, geography, currency and diversification signals update as the experience is explored.</p><div class="ds-xray"><div><div class="ds-score" id="xray-score">82<span>/100 health</span></div><div class="ds-status"><i></i>Illustrative intelligence signal</div></div><div class="ds-bars"><div class="ds-xbar"><div class="ds-xbar-top"><span>Geographic balance</span><b>86%</b></div><div class="ds-xbar-track"><i style="width:86%"></i></div></div><div class="ds-xbar"><div class="ds-xbar-top"><span>Currency diversification</span><b>74%</b></div><div class="ds-xbar-track"><i style="width:74%"></i></div></div><div class="ds-xbar"><div class="ds-xbar-top"><span>Concentration control</span><b>81%</b></div><div class="ds-xbar-track"><i style="width:81%"></i></div></div></div></div></article>
+
+      <article class="ds-tool" id="fx-simulator"><div class="ds-kicker">03 · FX Simulator</div><h3>Translate returns into your home currency</h3><p>Model how an exchange-rate move can change the INR value of a foreign investment. This is an educational simulation, not a forecast.</p><div class="ds-form-row"><div class="ds-field"><label for="fx-investment">Foreign investment</label><input id="fx-investment" type="number" min="0" value="10000"></div><div class="ds-field"><label for="fx-rate">Current FX · ₹ / USD</label><input id="fx-rate" type="number" min="0" step="0.01" value="88"></div></div><div class="ds-field" style="margin-top:10px"><label for="fx-move">FX change: <span id="fx-move-label">0%</span></label><input class="ds-range" id="fx-move" type="range" min="-15" max="15" value="0"></div><div class="ds-output"><strong id="fx-result">₹8,80,000</strong><small id="fx-detail">Illustrative INR value after the simulated FX move.</small></div></article>
+
+      <article class="ds-tool" id="tax-simulator"><div class="ds-kicker">04 · Tax Simulator</div><h3>Understand the tax-information layer</h3><p>Use a simplified illustrative model to see how a hypothetical gain and foreign tax could affect the amount left before professional advice.</p><div class="ds-form-row"><div class="ds-field"><label for="tax-gain">Hypothetical gain (₹)</label><input id="tax-gain" type="number" min="0" value="200000"></div><div class="ds-field"><label for="tax-rate">Illustrative rate</label><input id="tax-rate" type="number" min="0" max="100" value="20"></div></div><div class="ds-form-row" style="margin-top:10px"><div class="ds-field"><label for="foreign-tax">Foreign tax (₹)</label><input id="foreign-tax" type="number" min="0" value="10000"></div><div class="ds-field"><label for="tax-credit">Illustrative credit (₹)</label><input id="tax-credit" type="number" min="0" value="5000"></div></div><div class="ds-output"><strong id="tax-result">₹35,000</strong><small id="tax-detail">Illustrative tax after the assumed credit. Actual tax treatment varies by facts, treaty and jurisdiction.</small></div></article>
+
+      <article class="ds-tool" id="ai-copilot"><div class="ds-kicker">05 · AI Copilot UI</div><h3>Your global portfolio conversation</h3><p>Ask naturally about DhanaSeed, markets, portfolios, FX, tax, risk, the platform, or the interactive demos. The current GitHub Pages version uses an on-device response engine; no private question is sent from this page to an AI provider.</p><div class="ds-copilot-shell"><div class="ds-copilot-top"><div class="ds-copilot-agent"><div class="ds-copilot-avatar">D</div><div><b>DhanaSeed Copilot</b><span><i class="ds-copilot-online"></i>Online · Demo intelligence</span></div></div><button class="ds-copilot-clear" id="ds-copilot-clear" type="button">Clear chat</button></div><div class="ds-chat" id="ds-chat" role="log" aria-live="polite" aria-label="DhanaSeed Copilot conversation"></div><div class="ds-copilot-prompts" aria-label="Suggested questions"><button class="ds-prompt" type="button" data-prompt="What is DhanaSeed?">What is DhanaSeed?</button><button class="ds-prompt" type="button" data-prompt="How does FX exposure affect my portfolio?">FX exposure</button><button class="ds-prompt" type="button" data-prompt="Explain portfolio risk">Portfolio risk</button><button class="ds-prompt" type="button" data-prompt="How does the tax simulator work?">Tax simulator</button><button class="ds-prompt" type="button" data-prompt="What markets can DhanaSeed cover?">Global markets</button><button class="ds-prompt" type="button" data-prompt="What can you help me with?">Help</button></div><div class="ds-copilot-input"><input id="ds-copilot-input" autocomplete="off" maxlength="800" placeholder="Ask anything about DhanaSeed…" aria-label="Ask DhanaSeed Copilot"><button class="ds-btn" id="ds-copilot-send" type="button">Send</button></div><div class="ds-copilot-disclaimer"><strong>Demo:</strong> Responses are educational/product-experience content, not personalized investment, tax or legal advice. Live data and regulated services remain feed-, partner- and jurisdiction-dependent.</div></div></article>
+
+      <article class="ds-tool" id="portfolio-builder"><div class="ds-kicker">06 · Portfolio Builder</div><h3>Build a cross-market allocation</h3><p>Adjust the illustrative allocation and watch the portfolio mix update instantly.</p><div class="ds-builder-grid"><div class="ds-assets"><label class="ds-asset"><span>India</span><input type="number" min="0" max="100" value="40" data-alloc="India"></label><label class="ds-asset"><span>US</span><input type="number" min="0" max="100" value="30" data-alloc="US"></label><label class="ds-asset"><span>Europe</span><input type="number" min="0" max="100" value="15" data-alloc="Europe"></label><label class="ds-asset"><span>Asia</span><input type="number" min="0" max="100" value="15" data-alloc="Asia"></label></div><div><div class="ds-allocation" id="ds-allocation"></div><div class="ds-output"><strong id="ds-allocation-total">100%</strong><small id="ds-allocation-note">Balanced illustrative starting mix.</small></div></div></div></article>
+
+      <article class="ds-tool" id="alerts-center"><div class="ds-kicker">07 · Alerts Center</div><h3>Keep important signals visible</h3><p>Toggle illustrative alerts to demonstrate the notification experience. Browser push/email delivery is not activated by this static site alone.</p><div class="ds-alerts"><div class="ds-alert"><div><b>Market movement</b><small>Notify when a tracked index moves beyond a threshold.</small></div><button class="ds-switch on" aria-label="Toggle market movement alert"></button></div><div class="ds-alert"><div><b>FX threshold</b><small>Flag a meaningful USD/INR movement.</small></div><button class="ds-switch" aria-label="Toggle FX threshold alert"></button></div><div class="ds-alert"><div><b>Portfolio risk</b><small>Highlight concentration or allocation changes.</small></div><button class="ds-switch on" aria-label="Toggle portfolio risk alert"></button></div></div></article>
+
+      <article class="ds-tool" id="trust-center"><div class="ds-kicker">08 · Trust Center</div><h3>Know what is live, illustrative and roadmap</h3><p>Every interactive element is clearly separated from production financial functionality so visitors can understand the platform maturity.</p><div class="ds-trust-mini"><div><b>Live site</b><span>Website, navigation and interactive demos</span><em class="ds-status"><i></i>Live</em></div><div><b>Feed-dependent</b><span>Market quotes depend on public/approved data sources</span><em class="ds-status"><i></i>Feed-dependent</em></div><div><b>Roadmap</b><span>Brokerage, custody, regulated execution and personalized AI</span><em class="ds-status"><i></i>Partner-dependent</em></div></div></article>
+    </div>
+  </div>
+</section>
+
+<script>
+(()=>{
+  const $=id=>document.getElementById(id);
+  const money=n=>new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(Math.round(n));
+  const fx=()=>{const inv=+($('fx-investment')?.value||0),rate=+($('fx-rate')?.value||0),move=+($('fx-move')?.value||0),newRate=rate*(1+move/100),out=inv*newRate;if($('fx-move-label'))$('fx-move-label').textContent=(move>0?'+':'')+move+'%';if($('fx-result'))$('fx-result').textContent=money(out);if($('fx-detail'))$('fx-detail').textContent=`Simulated FX rate: ₹${newRate.toFixed(2)} per USD · not a forecast.`};
+  ['fx-investment','fx-rate','fx-move'].forEach(id=>$(id)?.addEventListener('input',fx));fx();
+  const tax=()=>{const gain=+($('tax-gain')?.value||0),rate=+($('tax-rate')?.value||0),foreign=+($('foreign-tax')?.value||0),credit=+($('tax-credit')?.value||0),gross=gain*rate/100,net=Math.max(0,gross-Math.min(credit,foreign));if($('tax-result'))$('tax-result').textContent=money(net);};['tax-gain','tax-rate','foreign-tax','tax-credit'].forEach(id=>$(id)?.addEventListener('input',tax));tax();
+  const regionData={india:['India','Start with the home-market context, then layer global exposure, currency and tax information around the portfolio.'],usa:['United States','Explore the intended US-market corridor with portfolio, FX and reporting context for eligible investors.'],europe:['Europe','Compare European-market exposure while keeping currency, country and portfolio concentration visible.'],asia:['Asia Pacific','Explore a regional view across selected Asian markets with the same portfolio-intelligence framework.']};
+  document.querySelectorAll('.ds-region').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.ds-region').forEach(x=>x.classList.remove('active'));b.classList.add('active');const d=regionData[b.dataset.region];$('ds-region-detail').innerHTML=`<b>${d[0]}</b><p>${d[1]}</p><span class="ds-status"><i></i>Eligibility & partner dependent</span>`;}));
+  const alloc=()=>{const vals=[...document.querySelectorAll('[data-alloc]')].map(i=>({name:i.dataset.alloc,v:Math.max(0,+i.value||0)})),total=vals.reduce((a,x)=>a+x.v,0),bar=$('ds-allocation');if(!bar)return;bar.innerHTML=vals.map(x=>`<i title="${x.name} ${x.v}%" style="width:${total?x.v/total*100:0}%;background:${x.name==='India'?'#d8b56a':x.name==='US'?'#7fe0d2':x.name==='Europe'?'#6ea8ff':'#b58cff'}"></i>`).join('');$('ds-allocation-total').textContent=total+'%';$('ds-allocation-note').textContent=total===100?'Balanced illustrative starting mix.':total<100?'Allocation has room to add exposure.':'Allocation exceeds 100%; rebalance the inputs.';};document.querySelectorAll('[data-alloc]').forEach(i=>i.addEventListener('input',alloc));alloc();
+  document.querySelectorAll('.ds-switch').forEach(b=>b.addEventListener('click',()=>b.classList.toggle('on')));
+  const chat=$('ds-chat'),input=$('ds-copilot-input'),send=$('ds-copilot-send'),clear=$('ds-copilot-clear');
+  const now=()=>new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+  const escapeHtml=v=>String(v).replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]));
+  const normalize=q=>q.toLowerCase().replace(/[^a-z0-9₹$%+\-\.\s]/g,' ').replace(/\s+/g,' ').trim();
+  const has=(q,words)=>words.some(w=>q.includes(w));
+  const moneyFormat=n=>{try{return new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:0}).format(n)}catch(e){return '₹'+Math.round(n).toLocaleString('en-IN')}};
+  const knowledge={
+    greeting:'Hello! I’m the DhanaSeed Copilot. Ask me about the platform, global markets, portfolio intelligence, FX, tax, risk, the simulations, or how DhanaSeed is designed to work.',
+    identity:'DhanaSeed is presented on this website as a technology-led global capital-markets and WealthTech platform concept. Its intended experience brings market access, portfolio intelligence, tax and currency context into one global portfolio view.',
+    platform:'The DhanaSeed platform concept combines global market access, portfolio intelligence, tax and currency intelligence, a global explorer, portfolio tools, alerts and an AI-style copilot. Availability of actual financial products depends on the final regulated entities, partners and jurisdiction.',
+    markets:'The site is designed around multi-market access, including India, the United States, Europe and Asia-Pacific. The market cards are feed-dependent: when a verified data source is unavailable, the interface should show that state rather than invent prices.',
+    portfolio:'Portfolio X-Ray is an illustrative analysis layer. It can surface allocation, geographic concentration, currency exposure and other portfolio signals so a user can understand the structure of a portfolio before making decisions.',
+    fx:'FX matters because a foreign investment can change in INR value even when the underlying asset price is unchanged. The FX simulator lets you change investment amount, exchange rate and FX movement to see the mechanical effect. It is an illustration, not a currency forecast.',
+    tax:'The Tax Simulator is an educational model for thinking about gains, an assumed tax rate, foreign tax and a potential credit. Actual tax depends on residence, asset, holding period, transaction details, treaty rules and current law, so the website should not treat the simulation as a tax calculation or advice.',
+    risk:'Portfolio X-Ray can highlight concentration, geography and currency signals. A signal is not automatically good or bad; its meaning depends on the investor’s objectives, time horizon, liquidity needs and risk tolerance. The current dashboard is illustrative.',
+    copilot:'This Copilot UI is designed to feel like a portfolio conversation: you can ask follow-up questions, use natural language, try suggested prompts and clear the conversation. This static GitHub Pages build uses a local response engine rather than sending your questions to a hidden API key.',
+    privacy:'Do not enter passwords, account numbers, private documents, OTPs or other confidential financial information into this demo. A production AI service should use authenticated, privacy-preserving infrastructure and explicit data controls.',
+    alerts:'The Alerts Center demonstrates how users could switch portfolio and market alerts on or off. Actual notifications would require a backend, verified market/event feeds and user authentication.',
+    builder:'Portfolio Builder is an illustrative allocation workspace. Change the percentages to see how the allocation bar responds. It is not an asset-allocation recommendation.',
+    explorer:'Global Explorer lets you switch between India, the United States, Europe and Asia-Pacific to see the intended market-corridor context. Eligibility and access are partner- and jurisdiction-dependent.',
+    trust:'The Trust Center is designed to distinguish what is live on the website from feed-dependent, partner-dependent and roadmap capabilities. DhanaSeed should not present future or regulated functionality as already available.',
+    contact:'You can use the website’s contact and early-access controls to express interest. For sensitive financial matters, use the final official and regulated communication channel once established.',
+    roadmap:'The broader concept is staged: establish the core India experience, expand into India-to-Global and Global-to-India corridors, then develop broader global wealth and infrastructure capabilities subject to regulatory and partner readiness.',
+    ai:'AI Copilot can explain product concepts, summarize the illustrative dashboard, walk through simulations and answer general educational questions. It should not pretend to know a user’s private holdings or provide individualized regulated advice without the appropriate production infrastructure.',
+    help:'I can help with: DhanaSeed and the platform, global markets, India-to-Global and Global-to-India corridors, portfolio X-Ray, portfolio construction concepts, FX, tax concepts, alerts, the Global Explorer, Trust Center, roadmap, privacy and how the interactive demos work. You can ask in your own words.',
+    thanks:'You’re welcome. If you want, ask a follow-up question and I’ll keep the conversation in context.'
+  };
+  function calculation(q){
+    const nums=(q.match(/-?\d+(?:\.\d+)?/g)||[]).map(Number);
+    if(has(q,['what is','what does','explain','how does','why'])) return null;
+    if(nums.length>=2 && has(q,['percent','%','increase','decrease','return','gain','loss'])){
+      const base=nums[0], pct=nums[1], value=base*(1+pct/100);
+      return `If ${base} changes by ${pct}%, the illustrative result is ${value.toFixed(2)}. The change is ${(value-base).toFixed(2)}. This is simple arithmetic, not an investment projection.`;
+    }
+    return null;
+  }
+  function answer(raw){
+    const q=normalize(raw); if(!q)return 'Please type a question and I’ll help.';
+    if(/^(hi|hello|hey|good morning|good afternoon|good evening)\b/.test(q))return knowledge.greeting;
+    if(has(q,['thank','thanks','appreciate']))return knowledge.thanks;
+    if(has(q,['who are you','what are you','your name','are you ai']))return knowledge.copilot;
+    if(has(q,['what can you do','help me','help','capabilities','what can i ask']))return knowledge.help;
+    if(has(q,['what is dhanaseed','what does dhanaseed do','about dhanaseed','tell me about dhanaseed']))return knowledge.identity;
+    if(has(q,['platform','website','feature','features','product']))return knowledge.platform;
+    if(has(q,['market','markets','stock','stocks','equity','equities','index','indices','live price','prices']))return knowledge.markets;
+    if(has(q,['portfolio x ray','portfolio xray','portfolio analysis','allocation','diversification','concentration','holding','holdings']))return knowledge.portfolio;
+    if(has(q,['fx','forex','foreign exchange','currency','usd','eur','inr','exchange rate']))return knowledge.fx;
+    if(has(q,['tax','taxes','taxation','capital gain','capital gains','withholding','foreign tax','tax credit']))return knowledge.tax;
+    if(has(q,['risk','risky','volatility','drawdown','concentration']))return knowledge.risk;
+    if(has(q,['alert','alerts','notification','notifications']))return knowledge.alerts;
+    if(has(q,['build portfolio','portfolio builder','asset allocation','allocate']))return knowledge.builder;
+    if(has(q,['explorer','global explorer','region','country','corridor']))return knowledge.explorer;
+    if(has(q,['trust','transparency','regulation','regulated','compliance','partner']))return knowledge.trust;
+    if(has(q,['privacy','data','secure','security','password','otp']))return knowledge.privacy;
+    if(has(q,['contact','early access','waitlist','join']))return knowledge.contact;
+    if(has(q,['roadmap','future','launch','when will','availability']))return knowledge.roadmap;
+    const calc=calculation(q); if(calc)return calc;
+    if(q.endsWith('?'))return `That’s a useful question. In the DhanaSeed context, I can break it down step by step. The current website demo can reliably explain its platform, portfolio, market, FX, tax, risk, alerts and global-investing concepts, but it does not have access to your private financial data or a live general-purpose internet AI model. If your question is about a specific DhanaSeed feature, tell me the feature name and I’ll explain how it is intended to work.`;
+    return `I can work with that. In this DhanaSeed demo, I’m designed to answer questions about the platform, global markets, portfolio intelligence, FX, tax, risk, alerts, the Global Explorer, Portfolio Builder, Trust Center and the product roadmap. If you’re asking about something outside those areas, I’ll still explain what I can from the information available on this page rather than pretending to know facts I cannot verify.`;
+  }
+  function addMessage(text,type){
+    if(!chat)return; const el=document.createElement('div'); el.className='ds-msg '+type; el.textContent=text; const t=document.createElement('span');t.className='ds-msg-time';t.textContent=now();el.appendChild(t);chat.appendChild(el);chat.scrollTop=chat.scrollHeight;
+  }
+  function addTyping(){const el=document.createElement('div');el.className='ds-msg ai';el.id='ds-typing';el.innerHTML='<span class="ds-typing"><i></i><i></i><i></i></span>';chat.appendChild(el);chat.scrollTop=chat.scrollHeight;return el;}
+  function welcome(){if(chat&&!chat.children.length)addMessage(knowledge.greeting,'ai');}
+  let busy=false;
+  function ask(text){const q=(text||input?.value||'').trim();if(!q||busy)return;if(input)input.value='';addMessage(q,'user');busy=true;if(send)send.disabled=true;const typing=addTyping();const delay=Math.min(1300,450+q.length*7);window.setTimeout(()=>{typing.remove();addMessage(answer(q),'ai');busy=false;if(send)send.disabled=false;input?.focus();},delay);}
+  welcome();send?.addEventListener('click',()=>ask());input?.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();ask();}});clear?.addEventListener('click',()=>{chat.innerHTML='';welcome();input?.focus();});document.querySelectorAll('.ds-prompt').forEach(b=>b.addEventListener('click',()=>ask(b.dataset.prompt)));
+
+})();
+</script>
+
 <style id="investor-dashboard-style">
 .investor-dashboard{margin:48px auto 0;max-width:1180px;padding:26px;border:1px solid rgba(255,255,255,.1);border-radius:28px;background:linear-gradient(145deg,rgba(13,19,31,.96),rgba(7,11,20,.94));box-shadow:0 30px 90px rgba(0,0,0,.28);color:#eef2f7;position:relative;overflow:hidden}
 .investor-dashboard:before{content:"";position:absolute;inset:-40%;background:radial-gradient(circle at 72% 20%,rgba(45,212,191,.11),transparent 28%),radial-gradient(circle at 20% 90%,rgba(201,164,92,.09),transparent 30%);pointer-events:none}
@@ -2063,6 +2343,433 @@ section:not(.hero):before{content:"";position:absolute;top:0;left:8%;right:8%;he
 </section>
 <script>
 (()=>{const root=document.getElementById('investor-dashboard');if(!root||root.dataset.ready)return;root.dataset.ready='1';const data={"1M":[31,31.8,32.2,32.0,33.1,33.8,34.4,35],"3M":[29,30.2,30.8,31.7,31.2,32.8,33.4,34.1,35],"1Y":[25,26.1,27.4,27.0,28.8,29.7,30.4,29.9,31.6,32.2,33.4,34.2,35],"MAX":[18,19.2,20.1,21.7,23.3,24.1,25.8,27.4,29.2,30.5,32.1,33.7,35]};const line=document.getElementById('id-line'),area=document.getElementById('id-area'),dots=document.getElementById('id-dots'),tip=document.getElementById('id-tooltip'),chart=document.getElementById('id-chart'),value=document.getElementById('id-value');function draw(key){const vals=data[key]||data['1Y'],min=Math.min(...vals)-1,max=Math.max(...vals)+1,w=700,h=190,pts=vals.map((v,i)=>{const x=i*(w/(vals.length-1)),y=15+(max-v)/(max-min)*(h-30);return [x,y,v]});const d=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)).join(' ');line.setAttribute('d',d);area.setAttribute('d',d+' L '+w+' '+h+' L 0 '+h+' Z');dots.innerHTML=pts.map((p,i)=>`<circle class="id-dot" cx="${p[0]}" cy="${p[1]}" r="4" data-i="${i}"/>`).join('');value.textContent='₹'+vals[vals.length-1].toFixed(2)+' lakh';dots.querySelectorAll('circle').forEach(c=>c.addEventListener('pointerenter',()=>{const i=+c.dataset.i;tip.textContent=key+' · ₹'+vals[i].toFixed(2)+' lakh';tip.style.display='block';tip.style.left=(+c.getAttribute('cx')/700*100)+'%';tip.style.top=(+c.getAttribute('cy')/190*100)+'%'}));chart.addEventListener('pointerleave',()=>tip.style.display='none',{once:false});root.querySelectorAll('[data-period]').forEach(b=>b.classList.toggle('active',b.dataset.period===key))}root.querySelectorAll('[data-period]').forEach(b=>b.addEventListener('click',()=>draw(b.dataset.period)));draw('1Y');root.querySelectorAll('.id-tab').forEach(b=>b.addEventListener('click',()=>{root.querySelectorAll('.id-tab').forEach(x=>x.classList.remove('active'));b.classList.add('active')}));})();
+</script>
+
+
+<style id="ds-experience-studio-style">
+.experience-studio{max-width:1180px;margin:24px auto 70px;padding:28px;border:1px solid rgba(255,255,255,.1);border-radius:28px;background:linear-gradient(145deg,#0b1421,#050b14);color:#eef2f7;box-shadow:0 25px 80px rgba(0,0,0,.24);position:relative;overflow:hidden}
+.experience-studio:before{content:"";position:absolute;width:420px;height:420px;right:-180px;top:-220px;background:radial-gradient(circle,rgba(216,181,106,.13),transparent 68%);pointer-events:none}
+.es-head,.es-body{position:relative;z-index:1}.es-kicker{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#d8b56a;font-weight:800}.es-head h2{margin:7px 0 7px;font-size:30px}.es-head p{margin:0;color:#96a4b6;font-size:13px;max-width:760px;line-height:1.6}
+.es-layout{display:grid;grid-template-columns:.82fr 1.18fr;gap:18px;margin-top:22px}.es-panel{border:1px solid rgba(255,255,255,.08);border-radius:20px;background:rgba(255,255,255,.035);padding:18px}.es-panel h3{font-size:16px;margin:0 0 14px}.es-options{display:grid;gap:9px}.es-option{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 13px;border:1px solid rgba(255,255,255,.08);border-radius:12px;background:rgba(0,0,0,.12);cursor:pointer;color:#cbd5e1}.es-option:hover,.es-option.active{border-color:rgba(216,181,106,.55);background:rgba(216,181,106,.07);color:#fff}.es-option span{font-size:11px;color:#7f8ea2}.es-result{display:grid;gap:12px}.es-result-hero{padding:18px;border-radius:16px;background:linear-gradient(135deg,rgba(216,181,106,.12),rgba(127,224,210,.07));border:1px solid rgba(216,181,106,.16)}.es-result-hero b{display:block;font-size:20px}.es-result-hero span{display:block;color:#96a4b6;font-size:11px;margin-top:5px;line-height:1.5}.es-route{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.es-route div{padding:13px;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:rgba(255,255,255,.025)}.es-route b{display:block;font-size:11px}.es-route span{display:block;font-size:10px;color:#8290a3;margin-top:5px;line-height:1.45}.es-cta-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.es-cta{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#dbe4ef;border-radius:10px;padding:9px 12px;font-size:11px;cursor:pointer}.es-cta.primary{background:#d8b56a;color:#07111f;border-color:#d8b56a;font-weight:800}.es-note{font-size:9px;color:#68778b;line-height:1.5;margin-top:12px}
+.es-command{max-width:1180px;margin:0 auto 70px;padding:0 20px}.es-command-bar{display:flex;gap:9px;align-items:center;padding:8px;border:1px solid rgba(255,255,255,.09);border-radius:15px;background:#091522;box-shadow:0 15px 40px rgba(0,0,0,.15)}.es-command-bar input{flex:1;min-width:0;border:0;outline:0;background:transparent;color:#fff;padding:10px;font:inherit;font-size:12px}.es-command-bar input::placeholder{color:#65758a}.es-command-bar button{border:0;border-radius:9px;padding:9px 13px;background:rgba(216,181,106,.12);color:#d8b56a;cursor:pointer;font-size:11px}.es-results{display:none;margin-top:8px;border:1px solid rgba(255,255,255,.08);border-radius:15px;background:#091522;overflow:hidden}.es-results.show{display:block}.es-result-link{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid rgba(255,255,255,.06);background:transparent;color:#cdd7e3;padding:11px 13px;cursor:pointer}.es-result-link:last-child{border-bottom:0}.es-result-link:hover{background:rgba(216,181,106,.06);color:#fff}.es-result-link small{display:block;color:#718096;margin-top:3px}
+@media(max-width:820px){.es-layout{grid-template-columns:1fr}.es-route{grid-template-columns:1fr}.experience-studio{margin:20px 14px 55px;padding:20px;border-radius:22px}.es-head h2{font-size:25px}.es-command{padding:0 14px}}
+</style>
+<section class="experience-studio" id="experience-studio" aria-labelledby="es-title">
+  <div class="es-head"><div class="es-kicker">09 · Interactive Investor Journey</div><h2 id="es-title">Make the website feel personal from the first click.</h2><p>Choose a visitor profile and the experience instantly reshapes the suggested journey. This is a product demonstration, not a recommendation or financial suitability assessment.</p></div>
+  <div class="es-body es-layout">
+    <div class="es-panel"><h3>Who are you exploring as?</h3><div class="es-options" id="es-profile"><button class="es-option active" type="button" data-profile="global"><b>Global investor</b><span>Multi-market</span></button><button class="es-option" type="button" data-profile="india"><b>India-based investor</b><span>India → Global</span></button><button class="es-option" type="button" data-profile="nri"><b>NRI / global Indian</b><span>Global → India</span></button><button class="es-option" type="button" data-profile="wealth"><b>Wealth / family office</b><span>Portfolio intelligence</span></button></div></div>
+    <div class="es-panel"><div class="es-result" id="es-result"></div></div>
+  </div>
+</section>
+<div class="es-command" aria-label="DhanaSeed quick navigation">
+  <div class="es-command-bar"><span aria-hidden="true">⌕</span><input id="es-search" autocomplete="off" placeholder="Quick search: markets, portfolio, FX, tax, Copilot…" aria-label="Search DhanaSeed sections"><button id="es-search-clear" type="button">Clear</button></div>
+  <div class="es-results" id="es-results"></div>
+</div>
+<script id="ds-experience-studio-script">
+(()=>{
+ const profileData={
+  global:{title:'Your global capital map',desc:'Start with a single view of markets, currencies and portfolio intelligence across regions.',route:[['01','Global Explorer','Compare regions and corridors.'],['02','Portfolio X-Ray','Understand concentration and currency exposure.'],['03','AI Copilot','Ask product and market-concept questions.']],targets:['#global-explorer','#portfolio-xray','#ai-copilot']},
+  india:{title:'India → Global journey',desc:'Explore the intended overseas-investing experience with market visibility, FX context and portfolio tools.',route:[['01','Live Markets','See the market-intelligence layer.'],['02','FX Simulator','Understand currency impact.'],['03','Portfolio Builder','Explore an illustrative allocation.']],targets:['#market-data','#fx-simulator','#portfolio-builder']},
+  nri:{title:'Global → India journey',desc:'Explore the India-focused experience for eligible global Indians, with portfolio and tax-information concepts in one place.',route:[['01','Global Explorer','Move from region to region.'],['02','Tax Simulator','Explore an educational tax model.'],['03','One Global Portfolio','See the unified dashboard concept.']],targets:['#global-explorer','#tax-simulator','#investor-dashboard']},
+  wealth:{title:'Portfolio intelligence journey',desc:'Start with the layers designed to make a complex multi-market portfolio easier to understand.',route:[['01','One Global Portfolio','View an illustrative portfolio cockpit.'],['02','Portfolio X-Ray','Inspect diversification signals.'],['03','Alerts Center','Explore important signal monitoring.']],targets:['#investor-dashboard','#portfolio-xray','#alerts-center']}
+ };
+ const result=document.getElementById('es-result');
+ function render(key){const d=profileData[key];result.innerHTML='<div class="es-result-hero"><b>'+d.title+'</b><span>'+d.desc+'</span></div><div class="es-route">'+d.route.map(x=>'<div><b>'+x[0]+' · '+x[1]+'</b><span>'+x[2]+'</span></div>').join('')+'</div><div class="es-cta-row">'+d.targets.map((t,i)=>'<button class="es-cta '+(i===0?'primary':'')+'" type="button" data-target="'+t+'">Open '+d.route[i][1]+'</button>').join('')+'</div><div class="es-note">Illustrative product experience only. Eligibility, regulations, taxes, execution, custody and data availability depend on jurisdiction and partners.</div>';result.querySelectorAll('[data-target]').forEach(b=>b.addEventListener('click',()=>{document.querySelector(b.dataset.target)?.scrollIntoView({behavior:'smooth',block:'center'});}));}
+ document.querySelectorAll('#es-profile .es-option').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('#es-profile .es-option').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.profile);}));render('global');
+ const sections=[['Live Markets','Real-time market intelligence and source status','#market-data'],['One Global Portfolio','Illustrative investor dashboard','#investor-dashboard'],['Portfolio X-Ray','Concentration, geography and currency signals','#portfolio-xray'],['FX Simulator','Explore currency impact','#fx-simulator'],['Tax Simulator','Educational tax model','#tax-simulator'],['AI Copilot','Ask about DhanaSeed and its tools','#ai-copilot'],['Global Explorer','Explore market corridors and regions','#global-explorer'],['Portfolio Builder','Adjust illustrative allocations','#portfolio-builder'],['Alerts Center','Explore monitoring controls','#alerts-center'],['Trust Center','Understand live vs roadmap functionality','#trust-center']];
+ const input=document.getElementById('es-search'),box=document.getElementById('es-results'),clear=document.getElementById('es-search-clear');
+ function search(){const q=(input.value||'').trim().toLowerCase();if(!q){box.classList.remove('show');box.innerHTML='';return;}const matches=sections.filter(x=>(x[0]+' '+x[1]).toLowerCase().includes(q)).slice(0,6);box.innerHTML=matches.length?matches.map(x=>'<button class="es-result-link" type="button" data-target="'+x[2]+'"><b>'+x[0]+'</b><small>'+x[1]+'</small></button>').join(''):'<div class="es-result-link">No exact section found. Try “market”, “portfolio”, “FX”, “tax” or “AI”.</div>';box.classList.add('show');box.querySelectorAll('[data-target]').forEach(b=>b.addEventListener('click',()=>{document.querySelector(b.dataset.target)?.scrollIntoView({behavior:'smooth',block:'center'});box.classList.remove('show');input.blur();}));}
+ input?.addEventListener('input',search);input?.addEventListener('keydown',e=>{if(e.key==='Escape'){input.value='';search();}});clear?.addEventListener('click',()=>{input.value='';search();input.focus();});
+})();
+</script>
+
+
+<style id="ds-v3-product-layer-style">
+.ds-v3{background:#050b14;color:#fff;padding:88px 0;border-top:1px solid rgba(255,255,255,.06)}
+.ds-v3 .v3-head{max-width:850px;margin-bottom:28px}.ds-v3 .v3-kicker{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#d8b56a;font-weight:800}.ds-v3 h2{font-size:clamp(28px,4vw,44px);margin:7px 0 9px}.ds-v3 .v3-head p{color:#96a4b6;line-height:1.65;margin:0}
+.v3-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.v3-card{border:1px solid rgba(255,255,255,.09);border-radius:24px;background:linear-gradient(145deg,#0c1726,#060d17);padding:22px;box-shadow:0 18px 60px rgba(0,0,0,.2)}.v3-card h3{font-size:18px;margin:0 0 6px}.v3-muted{color:#7f8da0;font-size:11px;line-height:1.5}
+.v3-watch-head,.v3-row{display:grid;grid-template-columns:1.1fr .8fr .65fr .55fr;gap:10px;align-items:center}.v3-watch-head{padding:0 10px 9px;color:#64748b;font-size:9px;text-transform:uppercase;letter-spacing:.1em}.v3-row{padding:12px 10px;border-top:1px solid rgba(255,255,255,.06);font-size:11px}.v3-row:hover{background:rgba(216,181,106,.045)}.v3-symbol b{display:block;font-size:12px}.v3-symbol span{display:block;color:#69788d;font-size:9px;margin-top:2px}.v3-price{font-weight:800}.v3-change{font-weight:800}.v3-change.up{color:#62d6a3}.v3-change.down{color:#ff7d8d}.v3-watch-btn{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);color:#dce5ef;border-radius:8px;padding:7px 8px;font-size:9px;cursor:pointer}.v3-watch-btn.active{background:rgba(216,181,106,.1);border-color:rgba(216,181,106,.45);color:#d8b56a}
+.v3-fav{display:flex;gap:8px;flex-wrap:wrap;margin-top:13px}.v3-fav span{font-size:9px;padding:6px 9px;border:1px solid rgba(255,255,255,.07);border-radius:999px;color:#8795a8}
+.v3-scenario{display:grid;gap:14px}.v3-slider{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center}.v3-slider label{font-size:11px;color:#aab5c4}.v3-slider output{font-size:12px;font-weight:800;color:#d8b56a}.v3-slider input{grid-column:1/-1;width:100%;accent-color:#d8b56a}.v3-scenario-output{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.v3-metric{padding:13px;border:1px solid rgba(255,255,255,.07);border-radius:14px;background:rgba(255,255,255,.025)}.v3-metric span{display:block;color:#718096;font-size:9px}.v3-metric b{display:block;font-size:17px;margin-top:5px}.v3-scenario-note{font-size:9px;color:#68778b;line-height:1.5}
+.v3-flows{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:18px}.v3-flow{padding:16px;border-radius:16px;border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.025);position:relative;overflow:hidden}.v3-flow:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:var(--flow);background:#d8b56a}.v3-flow b{font-size:12px}.v3-flow span{display:block;color:#78879b;font-size:9px;margin-top:5px}.v3-flow strong{display:block;font-size:21px;margin-top:12px}.v3-flow em{font-style:normal;color:#62d6a3;font-size:9px}
+.v3-onboard{display:grid;grid-template-columns:.7fr 1.3fr;gap:18px}.v3-steps{display:grid;gap:8px}.v3-step{display:flex;gap:11px;align-items:center;padding:11px;border:1px solid rgba(255,255,255,.07);border-radius:13px;background:rgba(255,255,255,.025);cursor:pointer}.v3-step.active{border-color:rgba(216,181,106,.5);background:rgba(216,181,106,.07)}.v3-step i{width:25px;height:25px;border-radius:50%;display:grid;place-items:center;background:#172437;color:#d8b56a;font-style:normal;font-size:10px;font-weight:800}.v3-step b{font-size:11px}.v3-step span{display:block;color:#718096;font-size:9px;margin-top:2px}.v3-onboard-main{padding:20px;border-radius:18px;background:linear-gradient(135deg,rgba(216,181,106,.09),rgba(121,225,210,.045));border:1px solid rgba(216,181,106,.12)}.v3-onboard-main h3{font-size:23px;margin:0 0 8px}.v3-onboard-main p{color:#9aa7b8;font-size:12px;line-height:1.65}.v3-progress{height:5px;background:#172437;border-radius:999px;overflow:hidden;margin:16px 0}.v3-progress i{display:block;height:100%;width:25%;background:#d8b56a;transition:width .3s ease}.v3-onboard-actions{display:flex;gap:8px;flex-wrap:wrap}.v3-action{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);color:#dce5ef;border-radius:9px;padding:9px 12px;font-size:10px;cursor:pointer}.v3-action.primary{background:#d8b56a;color:#07111f;border-color:#d8b56a;font-weight:800}
+@media(max-width:900px){.v3-grid,.v3-onboard{grid-template-columns:1fr}.v3-flows{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.v3-watch-head,.v3-row{grid-template-columns:1fr .75fr .65fr}.v3-watch-head div:nth-child(4),.v3-row .v3-watch-btn{display:none}.v3-scenario-output{grid-template-columns:1fr}.v3-flows{grid-template-columns:1fr}.ds-v3{padding:65px 0}}
+</style>
+
+
+<section class="ds-v3" id="product-experience" aria-labelledby="v3-title">
+  <div class="wrap">
+    <div class="v3-head">
+      <div class="v3-kicker">10 · Product Experience Layer</div>
+      <h2 id="v3-title">A website that behaves like a product.</h2>
+      <p>Explore a watchlist, test portfolio scenarios, see an illustrative capital-flow map and move through a guided onboarding journey. These interactions are designed to demonstrate the DhanaSeed experience without pretending that illustrative values are live account data.</p>
+    </div>
+    <div class="v3-grid">
+      <article class="v3-card" id="watchlist">
+        <h3>Market Watchlist</h3><p class="v3-muted">Live-feed cards above provide source-backed prices when available. This watchlist adds a persistent interaction layer for the visitor journey.</p>
+        <div class="v3-watch-head"><div>Instrument</div><div>Indicative</div><div>Move</div><div></div></div>
+        <div id="v3-watch-rows"></div>
+        <div class="v3-fav" id="v3-favorites" aria-live="polite"><span>No watchlist selections yet</span></div>
+      </article>
+      <article class="v3-card" id="scenario-lab">
+        <h3>Portfolio Scenario Lab</h3><p class="v3-muted">Adjust the illustrative portfolio, expected return and currency impact to see how assumptions change the modeled outcome.</p>
+        <div class="v3-scenario">
+          <div class="v3-slider"><label>Starting portfolio</label><output id="v3-capital-out">₹10.0L</output><input id="v3-capital" type="range" min="2" max="100" step="1" value="10" aria-label="Starting portfolio in lakh rupees"></div>
+          <div class="v3-slider"><label>Illustrative annual return</label><output id="v3-return-out">10%</output><input id="v3-return" type="range" min="-10" max="25" step="1" value="10" aria-label="Illustrative annual return percentage"></div>
+          <div class="v3-slider"><label>Currency impact</label><output id="v3-fx-out">2%</output><input id="v3-fx" type="range" min="-10" max="10" step="1" value="2" aria-label="Currency impact percentage"></div>
+          <div class="v3-scenario-output"><div class="v3-metric"><span>Modeled value</span><b id="v3-value">₹11.2L</b></div><div class="v3-metric"><span>Combined effect</span><b id="v3-effect">12%</b></div><div class="v3-metric"><span>Illustrative P/L</span><b id="v3-profit">₹1.2L</b></div></div>
+          <div class="v3-scenario-note">Illustrative mathematics only. It does not forecast returns, account for taxes/fees, or represent a recommendation.</div>
+        </div>
+      </article>
+    </div>
+    <div class="v3-card" style="margin-top:18px" id="capital-flows">
+      <h3>Global Capital Flow View</h3><p class="v3-muted">An illustrative visual map of the three DhanaSeed corridors. Values below represent product-concept emphasis, not actual transaction volumes.</p>
+      <div class="v3-flows">
+        <div class="v3-flow" style="--flow:78%"><b>India → Global</b><span>Overseas access concept</span><strong>78</strong><em>High exploration</em></div>
+        <div class="v3-flow" style="--flow:62%"><b>Global → India</b><span>NRI / global Indian concept</span><strong>62</strong><em>Portfolio visibility</em></div>
+        <div class="v3-flow" style="--flow:46%"><b>Global → Global</b><span>International corridor concept</span><strong>46</strong><em>Roadmap</em></div>
+        <div class="v3-flow" style="--flow:88%"><b>One Global Portfolio</b><span>Unified intelligence layer</span><strong>88</strong><em>Core experience</em></div>
+      </div>
+    </div>
+    <div class="v3-card" style="margin-top:18px" id="guided-onboarding">
+      <div class="v3-onboard">
+        <div><h3>Guided Onboarding</h3><p class="v3-muted">Give first-time visitors a clear path instead of making them read the whole website.</p>
+          <div class="v3-steps" id="v3-steps"><button class="v3-step active" type="button" data-step="0"><i>1</i><div><b>Discover</b><span>Choose your journey</span></div></button><button class="v3-step" type="button" data-step="1"><i>2</i><div><b>Understand</b><span>Explore intelligence</span></div></button><button class="v3-step" type="button" data-step="2"><i>3</i><div><b>Evaluate</b><span>Model scenarios</span></div></button><button class="v3-step" type="button" data-step="3"><i>4</i><div><b>Connect</b><span>Request early access</span></div></button></div>
+        </div>
+        <div class="v3-onboard-main" id="v3-onboard-main"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script id="ds-v3-product-layer-script">
+(()=>{
+  const watch=[
+    {s:'NIFTY 50',n:'India',p:'Live card above',c:'+0.00%',up:true},
+    {s:'S&P 500',n:'United States',p:'Live card above',c:'+0.00%',up:true},
+    {s:'NASDAQ',n:'United States',p:'Live card above',c:'+0.00%',up:true},
+    {s:'EUR / USD',n:'FX',p:'Live card above',c:'+0.00%',up:true},
+    {s:'GOLD',n:'Global commodity',p:'Live card above',c:'+0.00%',up:true}
+  ];
+  const rows=document.getElementById('v3-watch-rows'),fav=document.getElementById('v3-favorites');
+  const saved=new Set();
+  function renderWatch(){if(!rows)return;rows.innerHTML=watch.map((x,i)=>`<div class="v3-row"><div class="v3-symbol"><b>${x.s}</b><span>${x.n}</span></div><div class="v3-price">${x.p}</div><div class="v3-change ${x.up?'up':'down'}">${x.c}</div><button class="v3-watch-btn ${saved.has(x.s)?'active':''}" type="button" data-watch="${i}">${saved.has(x.s)?'Saved':'Watch'}</button></div>`).join('');rows.querySelectorAll('[data-watch]').forEach(b=>b.addEventListener('click',()=>{const x=watch[Number(b.dataset.watch)];saved.has(x.s)?saved.delete(x.s):saved.add(x.s);renderWatch();renderFav();}));}
+  function renderFav(){if(!fav)return;fav.innerHTML=saved.size?[...saved].map(x=>`<span>★ ${x}</span>`).join(''):'<span>No watchlist selections yet</span>';}
+  renderWatch();
+  const capital=document.getElementById('v3-capital'),ret=document.getElementById('v3-return'),fx=document.getElementById('v3-fx');
+  function calc(){const c=Number(capital?.value||10),r=Number(ret?.value||10),f=Number(fx?.value||2),combined=(1+r/100)*(1+f/100)-1,value=c*(1+combined),profit=value-c;if(document.getElementById('v3-capital-out'))document.getElementById('v3-capital-out').textContent=`₹${c.toFixed(1)}L`;if(document.getElementById('v3-return-out'))document.getElementById('v3-return-out').textContent=`${r}%`;if(document.getElementById('v3-fx-out'))document.getElementById('v3-fx-out').textContent=`${f}%`;if(document.getElementById('v3-value'))document.getElementById('v3-value').textContent=`₹${value.toFixed(1)}L`;if(document.getElementById('v3-effect'))document.getElementById('v3-effect').textContent=`${(combined*100).toFixed(1)}%`;if(document.getElementById('v3-profit'))document.getElementById('v3-profit').textContent=`${profit>=0?'+':''}₹${profit.toFixed(1)}L`;}
+  [capital,ret,fx].forEach(x=>x?.addEventListener('input',calc));calc();
+  const steps=[
+   {title:'Start with your investor journey',desc:'Choose a path based on what you want to explore. The site can then take you directly to the most relevant product experiences.',progress:25,cta:'Choose a journey',target:'#experience-studio'},
+   {title:'Understand the intelligence layer',desc:'Explore global markets, portfolio concentration, currency exposure, tax concepts and the DhanaSeed Copilot before making assumptions about the product.',progress:50,cta:'Explore intelligence',target:'#intelligence'},
+   {title:'Test before you act',desc:'Use the Portfolio Scenario Lab and existing simulators to understand how assumptions can change an illustrative outcome.',progress:75,cta:'Open Scenario Lab',target:'#scenario-lab'},
+   {title:'Connect with DhanaSeed',desc:'When you are ready, use the site’s early-access and contact controls. Actual services depend on launch, partners, eligibility and regulation.',progress:100,cta:'Request early access',target:'#contact'}
+  ];
+  const main=document.getElementById('v3-onboard-main');
+  function renderStep(i){const x=steps[i];document.querySelectorAll('.v3-step').forEach(b=>b.classList.toggle('active',Number(b.dataset.step)===i));if(main)main.innerHTML=`<div class="v3-kicker">STEP ${i+1} OF 4</div><h3>${x.title}</h3><p>${x.desc}</p><div class="v3-progress"><i style="width:${x.progress}%"></i></div><div class="v3-onboard-actions"><button class="v3-action primary" type="button" data-onboard-target="${x.target}">${x.cta}</button>${i<3?'<button class="v3-action" type="button" data-next="'+(i+1)+'">Next step →</button>':''}</div>`;main.querySelector('[data-onboard-target]')?.addEventListener('click',()=>document.querySelector(x.target)?.scrollIntoView({behavior:'smooth',block:'center'}));main.querySelector('[data-next]')?.addEventListener('click',()=>renderStep(i+1));}
+  document.querySelectorAll('.v3-step').forEach(b=>b.addEventListener('click',()=>renderStep(Number(b.dataset.step))));renderStep(0);
+})();
+</script>
+
+
+<!-- DHANASEED INTELLIGENCE TERMINAL -->
+<section id="ds-intelligence-terminal" class="ds-terminal-section reveal dark" aria-labelledby="ds-terminal-title">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">DhanaSeed Intelligence Terminal</div>
+      <h2 id="ds-terminal-title">See the global portfolio story in one place.</h2>
+      <p>Explore an illustrative product dashboard that connects market context, portfolio allocation, currency exposure and scenario thinking. Values shown in this demo are illustrative unless explicitly identified as live.</p>
+    </div>
+
+    <div class="ds-terminal" role="application" aria-label="DhanaSeed interactive intelligence terminal">
+      <div class="ds-terminal-topbar">
+        <div><span class="ds-terminal-dot"></span><strong>DhanaSeed Intelligence</strong><small>Product preview</small></div>
+        <div class="ds-terminal-actions"><button type="button" class="ds-terminal-tab active" data-terminal-tab="overview">Overview</button><button type="button" class="ds-terminal-tab" data-terminal-tab="markets">Markets</button><button type="button" class="ds-terminal-tab" data-terminal-tab="portfolio">Portfolio</button></div>
+      </div>
+
+      <div class="ds-terminal-grid">
+        <aside class="ds-terminal-sidebar">
+          <div class="ds-user-mini"><div class="ds-user-avatar">D</div><div><strong>Investor workspace</strong><span>Global portfolio demo</span></div></div>
+          <button type="button" class="ds-side-item active" data-view="overview"><span>⌂</span> Dashboard</button>
+          <button type="button" class="ds-side-item" data-view="markets"><span>◌</span> Market Heatmap</button>
+          <button type="button" class="ds-side-item" data-view="portfolio"><span>◈</span> Portfolio View</button>
+          <button type="button" class="ds-side-item" data-view="scenarios"><span>⌁</span> Scenarios</button>
+          <button type="button" class="ds-side-item" data-view="corridors"><span>◎</span> Capital Corridors</button>
+        </aside>
+
+        <main class="ds-terminal-main">
+          <div class="ds-terminal-view active" data-terminal-view="overview">
+            <div class="ds-dashboard-head"><div><span class="ds-mini-label">GLOBAL PORTFOLIO</span><h3>Good afternoon, Investor.</h3><p>One view across markets, currencies and portfolio signals.</p></div><button class="ds-gold-button" type="button" data-terminal-jump="scenarios">Run a scenario →</button></div>
+            <div class="ds-kpi-grid">
+              <div class="ds-kpi"><span>Illustrative value</span><strong>₹42.80L</strong><em>+6.8% modeled</em></div>
+              <div class="ds-kpi"><span>Global exposure</span><strong>58%</strong><em>Across 4 regions</em></div>
+              <div class="ds-kpi"><span>FX sensitivity</span><strong>Moderate</strong><em>USD is the largest FX driver</em></div>
+              <div class="ds-kpi"><span>Diversification</span><strong>78/100</strong><em>Illustrative signal</em></div>
+            </div>
+            <div class="ds-dashboard-two">
+              <div class="ds-panel"><div class="ds-panel-head"><div><span class="ds-mini-label">ALLOCATION</span><h4>Portfolio architecture</h4></div><span class="ds-status-pill">Illustrative</span></div><div class="ds-allocation"><div class="ds-donut"><div><strong>100%</strong><span>portfolio</span></div></div><div class="ds-legend"><div><i class="ds-dot equity"></i><span>Global Equity</span><b>52%</b></div><div><i class="ds-dot etf"></i><span>ETFs</span><b>18%</b></div><div><i class="ds-dot debt"></i><span>Debt + Cash</span><b>20%</b></div><div><i class="ds-dot alt"></i><span>Alternatives</span><b>10%</b></div></div></div></div>
+              <div class="ds-panel"><div class="ds-panel-head"><div><span class="ds-mini-label">SIGNALS</span><h4>What deserves attention?</h4></div></div><div class="ds-signal"><span class="signal-icon">FX</span><div><strong>Currency exposure</strong><p>Foreign-currency movements can change INR portfolio value.</p></div><b>Review</b></div><div class="ds-signal"><span class="signal-icon">R</span><div><strong>Regional concentration</strong><p>Compare exposure across India, US, Europe and Asia-Pacific.</p></div><b>View</b></div><div class="ds-signal"><span class="signal-icon">T</span><div><strong>Tax information</strong><p>Keep transaction and withholding information organized.</p></div><b>Open</b></div></div>
+            </div>
+          </div>
+
+          <div class="ds-terminal-view" data-terminal-view="markets">
+            <div class="ds-dashboard-head"><div><span class="ds-mini-label">GLOBAL MARKET MAP</span><h3>Market Heatmap</h3><p>A visual product concept for comparing market regions at a glance.</p></div><span class="ds-status-pill">Illustrative feed</span></div>
+            <div class="ds-heatmap" id="ds-heatmap"></div>
+            <div class="ds-market-story" id="ds-market-story"><strong>Select a region</strong><span>See the corresponding market context here.</span></div>
+          </div>
+
+          <div class="ds-terminal-view" data-terminal-view="portfolio">
+            <div class="ds-dashboard-head"><div><span class="ds-mini-label">PORTFOLIO INTELLIGENCE</span><h3>One investor. Multiple markets.</h3><p>Move between geography, currency and asset views without leaving the portfolio.</p></div></div>
+            <div class="ds-exposure-grid"><div class="ds-exposure-card"><span>🇮🇳 India</span><strong>32%</strong><div><i style="width:32%"></i></div><small>Home-market exposure</small></div><div class="ds-exposure-card"><span>🇺🇸 United States</span><strong>38%</strong><div><i style="width:38%"></i></div><small>USD-linked exposure</small></div><div class="ds-exposure-card"><span>🇪🇺 Europe</span><strong>16%</strong><div><i style="width:16%"></i></div><small>EUR-linked exposure</small></div><div class="ds-exposure-card"><span>🌏 Asia-Pacific</span><strong>14%</strong><div><i style="width:14%"></i></div><small>Regional diversification</small></div></div>
+            <div class="ds-insight-strip"><strong>Portfolio question</strong><span>“What changes if the INR strengthens or weakens?”</span><button type="button" class="ds-gold-button" data-terminal-jump="scenarios">Model it →</button></div>
+          </div>
+
+          <div class="ds-terminal-view" data-terminal-view="scenarios">
+            <div class="ds-dashboard-head"><div><span class="ds-mini-label">SCENARIO LAB</span><h3>Stress-test the story before the decision.</h3><p>Change the assumptions and watch the illustrative portfolio outcome update.</p></div></div>
+            <div class="ds-scenario-grid">
+              <div class="ds-panel ds-controls"><label>Starting portfolio <output id="ds-start-output">₹25.0L</output><input id="ds-start" type="range" min="5" max="100" value="25" step="1"></label><label>Annual return assumption <output id="ds-return-output">8%</output><input id="ds-return" type="range" min="-10" max="20" value="8" step="1"></label><label>FX impact <output id="ds-fx-output">0%</output><input id="ds-fx" type="range" min="-15" max="15" value="0" step="1"></label><label>Time horizon <output id="ds-years-output">5 years</output><input id="ds-years" type="range" min="1" max="15" value="5" step="1"></label></div>
+              <div class="ds-panel ds-scenario-result"><span class="ds-mini-label">MODELED OUTCOME</span><strong id="ds-scenario-value">₹36.7L</strong><div class="ds-scenario-bar"><i id="ds-scenario-bar-fill"></i></div><div class="ds-scenario-stats"><span><small>Growth</small><b id="ds-scenario-growth">₹11.7L</b></span><span><small>Return + FX</small><b id="ds-scenario-rate">8%</b></span></div><p id="ds-scenario-note">Illustrative only. Actual returns and currency movements can differ materially.</p></div>
+            </div>
+          </div>
+
+          <div class="ds-terminal-view" data-terminal-view="corridors">
+            <div class="ds-dashboard-head"><div><span class="ds-mini-label">CAPITAL CORRIDORS</span><h3>Follow the money across borders.</h3><p>Switch corridors to see how the product story changes by investor journey.</p></div></div>
+            <div class="ds-corridor-map"><div class="ds-corridor-line line-a"></div><div class="ds-corridor-line line-b"></div><div class="ds-corridor-line line-c"></div><button class="ds-map-node india active" data-corridor-node="india">INDIA</button><button class="ds-map-node usa" data-corridor-node="usa">USA</button><button class="ds-map-node eu" data-corridor-node="eu">EUROPE</button><button class="ds-map-node asia" data-corridor-node="asia">ASIA</button></div>
+            <div class="ds-corridor-copy" id="ds-corridor-copy"><strong>India → Global</strong><span>Explore the intended experience around permitted overseas opportunities, currency visibility and a unified portfolio view.</span></div>
+          </div>
+        </main>
+      </div>
+    </div>
+    <div class="ds-terminal-disclaimer">Product experience prototype. Market values, allocations, scores and scenario outputs in this terminal are illustrative unless a live source is explicitly identified.</div>
+  </div>
+</section>
+
+<style id="ds-intelligence-terminal-style">
+.ds-terminal-section{padding:100px 0}.ds-terminal{border:1px solid rgba(255,255,255,.1);background:#07111f;border-radius:24px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.28)}
+.ds-terminal-topbar{height:68px;padding:0 20px;border-bottom:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:space-between;gap:20px}.ds-terminal-topbar>div:first-child{display:flex;align-items:center;gap:10px}.ds-terminal-topbar strong{color:#fff}.ds-terminal-topbar small{color:#7f8da1;margin-left:4px}.ds-terminal-dot{width:9px;height:9px;border-radius:50%;background:#c9a45c;box-shadow:0 0 14px #c9a45c}.ds-terminal-actions{display:flex;gap:5px}.ds-terminal-tab,.ds-side-item{background:transparent;border:0;color:#8f9bad;cursor:pointer}.ds-terminal-tab{padding:9px 13px;border-radius:10px}.ds-terminal-tab.active{background:rgba(201,164,92,.12);color:#f1d18a}.ds-terminal-grid{display:grid;grid-template-columns:210px 1fr;min-height:650px}.ds-terminal-sidebar{border-right:1px solid rgba(255,255,255,.07);padding:20px 12px}.ds-user-mini{display:flex;align-items:center;gap:10px;padding:8px 8px 20px;margin-bottom:8px;border-bottom:1px solid rgba(255,255,255,.06)}.ds-user-avatar{width:36px;height:36px;border-radius:11px;background:#c9a45c;color:#07111f;display:grid;place-items:center;font-weight:800}.ds-user-mini strong,.ds-user-mini span{display:block}.ds-user-mini strong{font-size:12px;color:#fff}.ds-user-mini span{font-size:10px;color:#758195;margin-top:2px}.ds-side-item{width:100%;padding:12px 11px;text-align:left;border-radius:10px;margin:2px 0;font-size:12px}.ds-side-item span{width:22px;display:inline-block}.ds-side-item.active,.ds-side-item:hover{background:rgba(255,255,255,.06);color:#fff}.ds-terminal-main{padding:28px}.ds-terminal-view{display:none}.ds-terminal-view.active{display:block;animation:dsFade .25s ease}@keyframes dsFade{from{opacity:.2;transform:translateY(4px)}to{opacity:1;transform:none}}.ds-dashboard-head{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:24px}.ds-dashboard-head h3{color:#fff;margin:6px 0;font-size:25px}.ds-dashboard-head p{color:#8793a5;margin:0;max-width:650px}.ds-mini-label{font-size:10px;letter-spacing:.15em;color:#c9a45c;font-weight:700}.ds-gold-button{border:1px solid #c9a45c;background:#c9a45c;color:#07111f;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer}.ds-status-pill{font-size:10px;padding:7px 10px;border-radius:99px;border:1px solid rgba(201,164,92,.25);color:#d8b96e}.ds-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.ds-kpi,.ds-panel,.ds-exposure-card{background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07);border-radius:15px;padding:17px}.ds-kpi span,.ds-kpi em{display:block;color:#778397;font-size:11px}.ds-kpi strong{display:block;color:#fff;font-size:22px;margin:8px 0 4px}.ds-kpi em{font-style:normal;color:#8bc5a8}.ds-dashboard-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}.ds-panel-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:17px}.ds-panel-head h4{color:#fff;margin:5px 0 0}.ds-allocation{display:flex;align-items:center;gap:28px}.ds-donut{width:150px;height:150px;border-radius:50%;background:conic-gradient(#c9a45c 0 52%,#7186a4 52% 70%,#40536d 70% 90%,#9b7b48 90% 100%);display:grid;place-items:center}.ds-donut:before{content:"";position:absolute}.ds-donut>div{width:98px;height:98px;border-radius:50%;background:#0b1727;display:grid;place-content:center;text-align:center}.ds-donut strong{color:#fff}.ds-donut span{font-size:9px;color:#758195}.ds-legend{flex:1}.ds-legend div{display:grid;grid-template-columns:12px 1fr auto;gap:7px;align-items:center;margin:10px 0;color:#a7b1c0;font-size:11px}.ds-legend b{color:#fff}.ds-dot{width:8px;height:8px;border-radius:50%}.ds-dot.equity{background:#c9a45c}.ds-dot.etf{background:#7186a4}.ds-dot.debt{background:#40536d}.ds-dot.alt{background:#9b7b48}.ds-signal{display:grid;grid-template-columns:35px 1fr auto;gap:10px;align-items:center;padding:12px 0;border-top:1px solid rgba(255,255,255,.06)}.signal-icon{width:30px;height:30px;border-radius:9px;background:rgba(201,164,92,.1);color:#d8b96e;display:grid;place-items:center;font-size:10px;font-weight:700}.ds-signal strong{font-size:12px;color:#fff}.ds-signal p{font-size:10px;color:#778397;margin:3px 0}.ds-signal>b{font-size:10px;color:#c9a45c}.ds-heatmap{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.ds-heat-cell{min-height:145px;border-radius:16px;padding:17px;border:1px solid rgba(255,255,255,.08);cursor:pointer;transition:.2s}.ds-heat-cell:hover,.ds-heat-cell.active{transform:translateY(-3px);border-color:#c9a45c}.ds-heat-cell span,.ds-heat-cell small{display:block}.ds-heat-cell span{color:#fff;font-weight:700}.ds-heat-cell strong{font-size:28px;color:#fff;display:block;margin:18px 0 5px}.ds-heat-cell small{color:#a0aabb}.ds-heat-cell.up{background:linear-gradient(145deg,rgba(46,125,82,.38),rgba(255,255,255,.03))}.ds-heat-cell.flat{background:linear-gradient(145deg,rgba(201,164,92,.22),rgba(255,255,255,.03))}.ds-heat-cell.down{background:linear-gradient(145deg,rgba(130,62,62,.38),rgba(255,255,255,.03))}.ds-market-story,.ds-corridor-copy{margin-top:12px;padding:17px;border-radius:14px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.07)}.ds-market-story strong,.ds-corridor-copy strong{display:block;color:#fff}.ds-market-story span,.ds-corridor-copy span{display:block;color:#8c98a9;font-size:12px;margin-top:4px}.ds-exposure-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.ds-exposure-card span{color:#fff;font-size:12px}.ds-exposure-card strong{float:right;color:#c9a45c}.ds-exposure-card div{height:6px;background:#18283d;border-radius:99px;margin:16px 0 8px;overflow:hidden}.ds-exposure-card i{display:block;height:100%;background:#c9a45c;border-radius:99px}.ds-exposure-card small{color:#758195}.ds-insight-strip{margin-top:12px;padding:15px 17px;border:1px solid rgba(201,164,92,.2);background:rgba(201,164,92,.06);border-radius:13px;display:flex;align-items:center;gap:12px}.ds-insight-strip strong{color:#d8b96e;font-size:11px}.ds-insight-strip span{color:#aab3c0;font-size:12px;flex:1}.ds-scenario-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.ds-controls label{display:block;color:#aeb7c4;font-size:12px;margin:3px 0 20px}.ds-controls output{float:right;color:#fff;font-weight:700}.ds-controls input{display:block;width:100%;margin-top:10px;accent-color:#c9a45c}.ds-scenario-result{display:flex;flex-direction:column;justify-content:center}.ds-scenario-result>strong{font-size:48px;color:#fff;margin:10px 0}.ds-scenario-bar{height:10px;background:#17263a;border-radius:99px;overflow:hidden}.ds-scenario-bar i{display:block;height:100%;width:45%;background:#c9a45c;border-radius:99px;transition:width .2s}.ds-scenario-stats{display:flex;gap:50px;margin-top:18px}.ds-scenario-stats small,.ds-scenario-stats b{display:block}.ds-scenario-stats small{color:#778397}.ds-scenario-stats b{color:#fff;margin-top:3px}.ds-scenario-note{font-size:10px;color:#6f7c8e;margin-top:20px}.ds-corridor-map{height:300px;border-radius:18px;border:1px solid rgba(255,255,255,.07);position:relative;overflow:hidden;background:radial-gradient(circle at 50% 50%,rgba(201,164,92,.09),transparent 40%),#0a1728}.ds-map-node{position:absolute;transform:translate(-50%,-50%);border:1px solid rgba(201,164,92,.4);background:#0b1a2d;color:#d7dee8;border-radius:99px;padding:9px 12px;font-size:10px;font-weight:700;cursor:pointer}.ds-map-node.active{background:#c9a45c;color:#07111f}.ds-map-node.india{left:60%;top:60%}.ds-map-node.usa{left:20%;top:35%}.ds-map-node.eu{left:45%;top:30%}.ds-map-node.asia{left:78%;top:35%}.ds-corridor-line{position:absolute;height:1px;background:linear-gradient(90deg,transparent,#c9a45c,transparent);transform-origin:left center;opacity:.65}.line-a{width:45%;left:22%;top:40%;transform:rotate(12deg)}.line-b{width:38%;left:46%;top:34%;transform:rotate(35deg)}.line-c{width:30%;left:25%;top:38%;transform:rotate(42deg)}.ds-terminal-disclaimer{font-size:10px;color:#6d7a8d;text-align:center;margin-top:12px}
+@media(max-width:900px){.ds-terminal-grid{grid-template-columns:1fr}.ds-terminal-sidebar{display:none}.ds-kpi-grid{grid-template-columns:repeat(2,1fr)}.ds-dashboard-two,.ds-scenario-grid{grid-template-columns:1fr}.ds-heatmap{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.ds-terminal-topbar{height:auto;padding:14px;align-items:flex-start;flex-direction:column}.ds-terminal-actions{width:100%;overflow:auto}.ds-terminal-main{padding:16px}.ds-kpi-grid,.ds-exposure-grid{grid-template-columns:1fr}.ds-dashboard-head{flex-direction:column}.ds-allocation{flex-direction:column}.ds-insight-strip{align-items:flex-start;flex-direction:column}.ds-heatmap{grid-template-columns:1fr}.ds-scenario-result>strong{font-size:38px}}
+</style>
+
+<script>
+(() => {
+  const terminal=document.getElementById('ds-intelligence-terminal'); if(!terminal) return;
+  const views=[...terminal.querySelectorAll('[data-terminal-view]')];
+  const side=[...terminal.querySelectorAll('[data-view]')];
+  const tabs=[...terminal.querySelectorAll('[data-terminal-tab]')];
+  const show=(name)=>{views.forEach(v=>v.classList.toggle('active',v.dataset.terminalView===name));side.forEach(b=>b.classList.toggle('active',b.dataset.view===name));tabs.forEach(b=>b.classList.toggle('active',b.dataset.terminalTab===name));};
+  side.forEach(b=>b.addEventListener('click',()=>show(b.dataset.view))); tabs.forEach(b=>b.addEventListener('click',()=>show(b.dataset.terminalTab)));
+  terminal.querySelectorAll('[data-terminal-jump]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.terminalJump)));
+
+  const heat=[['India','+0.84%','up','Equities · INR'],['United States','+0.31%','up','Equities · USD'],['Europe','−0.12%','down','Equities · EUR'],['Asia-Pacific','+0.18%','flat','Regional basket · FX']];
+  const heatmap=document.getElementById('ds-heatmap'), story=document.getElementById('ds-market-story');
+  heat.forEach((h,i)=>{const el=document.createElement('button');el.type='button';el.className='ds-heat-cell '+h[2]+(i===0?' active':'');el.innerHTML='<span>'+h[0]+'</span><strong>'+h[1]+'</strong><small>'+h[3]+'</small>';el.addEventListener('click',()=>{heatmap.querySelectorAll('.ds-heat-cell').forEach(x=>x.classList.remove('active'));el.classList.add('active');story.innerHTML='<strong>'+h[0]+' · illustrative session signal</strong><span>Use this region to explore market context, currency exposure and portfolio implications. The displayed move is a product-demo value, not a live trading quote.</span>';});heatmap.appendChild(el);});
+
+  const start=document.getElementById('ds-start'), ret=document.getElementById('ds-return'), fx=document.getElementById('ds-fx'), years=document.getElementById('ds-years');
+  const fmt=n=>'₹'+n.toFixed(1)+'L';
+  function calc(){if(!start)return;const s=+start.value,r=+ret.value,f=+fx.value,y=+years.value;const total=s*Math.pow(1+(r+f)/100,y);const growth=total-s;document.getElementById('ds-start-output').textContent=fmt(s);document.getElementById('ds-return-output').textContent=r+'%';document.getElementById('ds-fx-output').textContent=(f>0?'+':'')+f+'%';document.getElementById('ds-years-output').textContent=y+(y===1?' year':' years');document.getElementById('ds-scenario-value').textContent=fmt(total);document.getElementById('ds-scenario-growth').textContent=(growth>=0?'+':'')+fmt(growth);document.getElementById('ds-scenario-rate').textContent=(r+f>0?'+':'')+(r+f)+'%';document.getElementById('ds-scenario-bar-fill').style.width=Math.min(100,Math.max(8,total/(s*2)*100))+'%';document.getElementById('ds-scenario-note').textContent='Illustrative '+y+'-year model using '+r+'% annual return and '+(f>0?'+':'')+f+'% FX impact. Actual outcomes can differ materially.';}
+  [start,ret,fx,years].forEach(x=>x&&x.addEventListener('input',calc)); calc();
+  terminal.querySelectorAll('[data-corridor-node]').forEach(n=>n.addEventListener('click',()=>{terminal.querySelectorAll('[data-corridor-node]').forEach(x=>x.classList.remove('active'));n.classList.add('active');const map={india:['India → Global','Explore permitted overseas opportunities, currency visibility and a unified portfolio view.'],usa:['Global → India','Explore the intended India-access journey for eligible global investors.'],eu:['Global → Global','Explore the long-term multi-market architecture across international corridors.'],asia:['Asia-Pacific → Global','Explore regional diversification and multi-currency portfolio context.']};const x=map[n.dataset.corridorNode];document.getElementById('ds-corridor-copy').innerHTML='<strong>'+x[0]+'</strong><span>'+x[1]+'</span>';}));
+})();
+</script>
+
+
+<section class="ds-command-center" id="command-center" aria-labelledby="command-center-title">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">DhanaSeed Command Center</div>
+      <h2 id="command-center-title">Turn a visitor into an active explorer.</h2>
+      <p>Choose an investor profile, set priorities and instantly generate an illustrative DhanaSeed journey.</p>
+    </div>
+    <div class="ds-cc-grid">
+      <div class="ds-cc-card ds-cc-profile">
+        <div class="ds-cc-label">01 · PROFILE</div>
+        <h3>Who are you exploring as?</h3>
+        <div class="ds-cc-buttons" role="group" aria-label="Investor profiles">
+          <button class="ds-cc-choice active" data-profile="global">Global Investor</button>
+          <button class="ds-cc-choice" data-profile="india">India Investor</button>
+          <button class="ds-cc-choice" data-profile="nri">NRI / OCI</button>
+          <button class="ds-cc-choice" data-profile="wealth">Wealth / Family Office</button>
+        </div>
+      </div>
+      <div class="ds-cc-card">
+        <div class="ds-cc-label">02 · PRIORITIES</div>
+        <h3>What matters most?</h3>
+        <div class="ds-cc-priorities">
+          <label><input type="checkbox" value="markets" checked> Global markets</label>
+          <label><input type="checkbox" value="portfolio" checked> Portfolio intelligence</label>
+          <label><input type="checkbox" value="fx"> Currency visibility</label>
+          <label><input type="checkbox" value="tax"> Tax intelligence</label>
+          <label><input type="checkbox" value="risk"> Risk & diversification</label>
+        </div>
+      </div>
+      <div class="ds-cc-card ds-cc-output">
+        <div class="ds-cc-label">03 · YOUR PATH</div>
+        <div class="ds-cc-path" id="ds-cc-path"><span>01</span><b>Explore global markets</b><small>Start with the market intelligence layer.</small></div>
+        <div class="ds-cc-path" id="ds-cc-path-2"><span>02</span><b>Understand your portfolio</b><small>Review allocation, exposure and risk.</small></div>
+        <div class="ds-cc-path" id="ds-cc-path-3"><span>03</span><b>Model the cross-border impact</b><small>Use FX, tax and scenario tools where relevant.</small></div>
+        <button class="ds-cc-cta" id="ds-cc-cta">Launch My DhanaSeed Journey →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ds-compare-section" id="compare-lab" aria-labelledby="compare-title">
+  <div class="wrap">
+    <div class="intro">
+      <div class="eyebrow">Decision Lab</div>
+      <h2 id="compare-title">Compare two illustrative portfolio scenarios.</h2>
+      <p>Change the assumptions and see how the model responds. This is an educational visualization, not a recommendation.</p>
+    </div>
+    <div class="ds-compare-grid">
+      <div class="ds-compare-card">
+        <div class="ds-compare-head"><span>SCENARIO A</span><strong>Growth-focused</strong></div>
+        <label>Starting amount <output id="ds-a-amt">₹10.0L</output><input id="ds-a-range" type="range" min="5" max="100" value="10" step="1"></label>
+        <label>Illustrative return <output id="ds-a-ret">10%</output><input id="ds-a-return" type="range" min="0" max="20" value="10" step="1"></label>
+        <div class="ds-compare-value" id="ds-a-result">₹15.9L</div>
+      </div>
+      <div class="ds-compare-card">
+        <div class="ds-compare-head"><span>SCENARIO B</span><strong>Balanced</strong></div>
+        <label>Starting amount <output id="ds-b-amt">₹10.0L</output><input id="ds-b-range" type="range" min="5" max="100" value="10" step="1"></label>
+        <label>Illustrative return <output id="ds-b-ret">6%</output><input id="ds-b-return" type="range" min="0" max="20" value="6" step="1"></label>
+        <div class="ds-compare-value" id="ds-b-result">₹13.4L</div>
+      </div>
+    </div>
+    <div class="ds-compare-summary" id="ds-compare-summary">Both scenarios start from the same illustrative capital base. Adjust the assumptions to explore the effect of different modeled returns.</div>
+  </div>
+</section>
+
+<section class="ds-data-trust" id="data-trust" aria-labelledby="data-trust-title">
+  <div class="wrap">
+    <div class="ds-trust-panel">
+      <div>
+        <div class="eyebrow">Data Transparency</div>
+        <h2 id="data-trust-title">Know what is live, modeled and illustrative.</h2>
+        <p>DhanaSeed should never make a visitor guess whether a number is real. This status layer makes the distinction visible.</p>
+      </div>
+      <div class="ds-trust-grid">
+        <div><i class="live"></i><b>Live feed</b><span>Only where an external data source is successfully connected.</span></div>
+        <div><i class="demo"></i><b>Interactive model</b><span>Calculated locally from visitor-selected assumptions.</span></div>
+        <div><i class="vision"></i><b>Product vision</b><span>Future capability shown to communicate the platform concept.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style id="ds-final-experience-style">
+.ds-command-center,.ds-compare-section,.ds-data-trust{padding:100px 0}.ds-command-center{background:#07111f;color:#fff}.ds-cc-grid{display:grid;grid-template-columns:1fr 1fr 1.25fr;gap:14px}.ds-cc-card{padding:24px;border:1px solid rgba(255,255,255,.09);border-radius:20px;background:linear-gradient(145deg,rgba(18,31,50,.82),rgba(8,16,28,.8));box-shadow:0 20px 60px rgba(0,0,0,.18)}.ds-cc-label{font-size:10px;letter-spacing:.16em;color:#c9a45c;font-weight:800}.ds-cc-card h3{margin:10px 0 18px;color:#fff}.ds-cc-buttons{display:grid;gap:8px}.ds-cc-choice{padding:12px;border:1px solid rgba(255,255,255,.08);border-radius:11px;background:rgba(255,255,255,.035);color:#9ba7b7;text-align:left;cursor:pointer}.ds-cc-choice.active,.ds-cc-choice:hover{color:#fff;border-color:rgba(201,164,92,.5);background:rgba(201,164,92,.1)}.ds-cc-priorities{display:grid;gap:13px}.ds-cc-priorities label{font-size:12px;color:#aeb8c7}.ds-cc-priorities input{accent-color:#c9a45c;margin-right:8px}.ds-cc-output{display:flex;flex-direction:column;gap:10px}.ds-cc-path{display:grid;grid-template-columns:36px 1fr;gap:3px 10px;padding:12px;border-radius:12px;background:rgba(255,255,255,.035);border:1px solid rgba(255,255,255,.06)}.ds-cc-path span{grid-row:span 2;width:28px;height:28px;border-radius:9px;background:#c9a45c;color:#07111f;display:grid;place-items:center;font-size:10px;font-weight:800}.ds-cc-path b{font-size:12px;color:#fff}.ds-cc-path small{color:#7f8c9f;font-size:10px}.ds-cc-cta{margin-top:auto;padding:13px;border:0;border-radius:11px;background:#c9a45c;color:#07111f;font-weight:800;cursor:pointer}.ds-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.ds-compare-card{padding:26px;border-radius:20px;border:1px solid #e4e7ec;background:#fff;box-shadow:0 20px 50px rgba(15,25,40,.07)}.ds-compare-head{display:flex;justify-content:space-between;gap:12px;margin-bottom:22px}.ds-compare-head span{font-size:10px;letter-spacing:.16em;color:#9b7c45;font-weight:800}.ds-compare-head strong{font-size:12px}.ds-compare-card label{display:block;font-size:12px;color:#657084;margin:18px 0}.ds-compare-card output{float:right;color:#172033;font-weight:800}.ds-compare-card input{width:100%;display:block;margin-top:11px;accent-color:#c9a45c}.ds-compare-value{font-size:42px;font-weight:800;letter-spacing:-.04em;margin-top:24px}.ds-compare-summary{margin-top:14px;padding:17px;border-radius:14px;background:#f4f6f8;color:#657084;font-size:12px}.ds-data-trust{background:#07111f}.ds-trust-panel{padding:32px;border:1px solid rgba(255,255,255,.09);border-radius:22px;background:linear-gradient(145deg,#0d1b2d,#07111f);display:grid;grid-template-columns:1fr 1.25fr;gap:30px}.ds-trust-panel h2{color:#fff}.ds-trust-panel p{color:#8793a5}.ds-trust-grid{display:grid;gap:10px}.ds-trust-grid>div{display:grid;grid-template-columns:14px 1fr;gap:3px 10px;padding:14px;border:1px solid rgba(255,255,255,.06);border-radius:13px;background:rgba(255,255,255,.03)}.ds-trust-grid i{width:9px;height:9px;border-radius:50%;margin-top:4px}.ds-trust-grid i.live{background:#35c98a;box-shadow:0 0 12px #35c98a}.ds-trust-grid i.demo{background:#c9a45c}.ds-trust-grid i.vision{background:#7890b5}.ds-trust-grid b{font-size:12px;color:#fff}.ds-trust-grid span{grid-column:2;color:#7e8b9d;font-size:10px}
+@media(max-width:900px){.ds-cc-grid,.ds-trust-panel{grid-template-columns:1fr}.ds-compare-grid{grid-template-columns:1fr}}@media(max-width:600px){.ds-command-center,.ds-compare-section,.ds-data-trust{padding:70px 0}.ds-compare-value{font-size:34px}}
+</style>
+<script>
+(()=>{
+ const root=document;
+ const profiles={global:['Explore global markets','Build a multi-market portfolio view','Model FX, risk and scenario impacts'],india:['Explore permitted overseas opportunities','Understand currency and portfolio exposure','Review tax and cross-border considerations'],nri:['Explore India access','Consolidate India and global holdings','Review currency, tax and reporting context'],wealth:['Map the One Global Portfolio','Review family-level exposure and concentration','Model multi-market scenarios']};
+ let profile='global';
+ function updatePath(){const vals=profiles[profile]||profiles.global;['ds-cc-path','ds-cc-path-2','ds-cc-path-3'].forEach((id,i)=>{const el=root.getElementById(id);if(!el)return;const b=el.querySelector('b');if(b)b.textContent=vals[i];});}
+ root.querySelectorAll('.ds-cc-choice').forEach(btn=>btn.addEventListener('click',()=>{root.querySelectorAll('.ds-cc-choice').forEach(x=>x.classList.remove('active'));btn.classList.add('active');profile=btn.dataset.profile;updatePath();}));
+ const cta=root.getElementById('ds-cc-cta'); if(cta)cta.addEventListener('click',()=>{const checks=[...root.querySelectorAll('.ds-cc-priorities input:checked')].map(x=>x.value);const target=checks.includes('markets')?'#market-data':checks.includes('portfolio')?'#ds-intelligence-terminal':checks.includes('fx')?'#fx-simulator':checks.includes('tax')?'#tax-simulator':'#ai-copilot';const el=root.querySelector(target);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});});
+ const calc=(amt,ret)=>amt*Math.pow(1+ret/100,5);
+ function money(v){return '₹'+v.toFixed(1)+'L';}
+ function updateCompare(){const a=+root.getElementById('ds-a-range').value,ar=+root.getElementById('ds-a-return').value,b=+root.getElementById('ds-b-range').value,br=+root.getElementById('ds-b-return').value;root.getElementById('ds-a-amt').textContent=money(a);root.getElementById('ds-a-ret').textContent=ar+'%';root.getElementById('ds-b-amt').textContent=money(b);root.getElementById('ds-b-ret').textContent=br+'%';const av=calc(a,ar),bv=calc(b,br);root.getElementById('ds-a-result').textContent=money(av);root.getElementById('ds-b-result').textContent=money(bv);root.getElementById('ds-compare-summary').textContent=`After 5 illustrative years, Scenario A models ${money(av)} and Scenario B models ${money(bv)}. The difference is ${money(Math.abs(av-bv))}; this is a mathematical scenario, not a forecast.`;}
+ ['ds-a-range','ds-a-return','ds-b-range','ds-b-return'].forEach(id=>{const e=root.getElementById(id);if(e)e.addEventListener('input',updateCompare)});updateCompare();updatePath();
+})();
+</script>
+
+
+
+<!-- DhanaSeed Personal Workspace: browser-local demo state only; no private data is transmitted. -->
+<style id="ds-workspace-style">
+  .ds-workspace{padding:82px 0;background:#f7f8fa}
+  .ds-workspace-wrap{width:min(1180px,92%);margin:auto}
+  .ds-workspace-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:24px}
+  .ds-workspace-head h2{font-size:clamp(28px,4vw,44px);color:#172033}
+  .ds-workspace-head p{max-width:620px;color:#687386;margin:10px 0 0}
+  .ds-workspace-status{display:inline-flex;align-items:center;gap:8px;padding:8px 11px;border:1px solid #e0e5eb;border-radius:999px;background:#fff;color:#617084;font-size:10px;white-space:nowrap}
+  .ds-workspace-status i{width:7px;height:7px;border-radius:50%;background:#10b981;box-shadow:0 0 10px rgba(16,185,129,.35)}
+  .ds-workspace-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+  .ds-w-card{background:#fff;border:1px solid #e3e7ed;border-radius:20px;padding:22px;box-shadow:0 16px 45px rgba(18,29,45,.06)}
+  .ds-w-card h3{font-size:17px;color:#172033;margin-bottom:5px}
+  .ds-w-card>p{font-size:11px;color:#7a8798;margin:0 0 16px}
+  .ds-watch-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
+  .ds-watch{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px;border:1px solid #e8ebef;border-radius:13px;background:#fbfcfd}
+  .ds-watch b{display:block;font-size:12px;color:#172033}.ds-watch span{display:block;font-size:9px;color:#8994a3;margin-top:3px}
+  .ds-watch button{border:1px solid #e0e5eb;background:#fff;color:#788596;border-radius:8px;width:28px;height:28px;cursor:pointer}
+  .ds-watch button.active{background:#07111f;color:#f1ca72;border-color:#07111f}
+  .ds-w-form{display:grid;grid-template-columns:1fr auto;gap:9px;margin-top:13px}
+  .ds-w-form input,.ds-w-form textarea{width:100%;border:1px solid #dfe4ea;border-radius:10px;padding:10px 11px;font:inherit;font-size:11px;outline:0}
+  .ds-w-form input:focus,.ds-w-form textarea:focus{border-color:#c9a45c;box-shadow:0 0 0 3px rgba(201,164,92,.12)}
+  .ds-w-form button{border:0;border-radius:10px;background:#c9a45c;color:#07111f;padding:10px 14px;font-weight:800;cursor:pointer}
+  .ds-notes{grid-column:1/-1}
+  .ds-notes textarea{min-height:90px;resize:vertical}
+  .ds-w-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}.ds-w-actions button{border:1px solid #dfe4ea;background:#fff;color:#536174;border-radius:9px;padding:8px 11px;font-size:10px;cursor:pointer}.ds-w-actions button.primary{background:#07111f;color:#fff;border-color:#07111f}
+  .ds-install{display:none;margin-top:15px;padding:11px 13px;border-radius:12px;background:#07111f;color:#fff;border:0;font-weight:700;cursor:pointer}
+  .ds-install.show{display:inline-flex}
+  .ds-local-note{font-size:9px!important;color:#8a95a4!important;margin-top:12px!important;line-height:1.5}
+  @media(max-width:820px){.ds-workspace-head{display:block}.ds-workspace-status{margin-top:14px}.ds-workspace-grid{grid-template-columns:1fr}.ds-watch-grid{grid-template-columns:1fr}.ds-notes{grid-column:auto}}
+</style>
+
+<section class="ds-workspace" id="personal-workspace" aria-labelledby="ds-workspace-title">
+  <div class="ds-workspace-wrap">
+    <div class="ds-workspace-head">
+      <div><span class="ds-mini-label">PERSONAL WORKSPACE</span><h2 id="ds-workspace-title">Turn exploration into a saved journey.</h2><p>Save a lightweight watchlist, preferences and notes directly in this browser. It is designed to demonstrate how DhanaSeed can evolve from a website into a persistent investor workspace.</p></div>
+      <div class="ds-workspace-status"><i></i><span id="ds-storage-status">Local workspace ready</span></div>
+    </div>
+    <div class="ds-workspace-grid">
+      <div class="ds-w-card">
+        <h3>My Market Watchlist</h3>
+        <p>Illustrative instruments for the product demo. No prices are stored as live investment data.</p>
+        <div class="ds-watch-grid" id="ds-watch-grid">
+          <div class="ds-watch" data-symbol="NIFTY 50"><div><b>NIFTY 50</b><span>India · INR</span></div><button type="button" aria-label="Save NIFTY 50" title="Save">☆</button></div>
+          <div class="ds-watch" data-symbol="S&P 500"><div><b>S&amp;P 500</b><span>US · USD</span></div><button type="button" aria-label="Save S&P 500" title="Save">☆</button></div>
+          <div class="ds-watch" data-symbol="NASDAQ 100"><div><b>NASDAQ 100</b><span>US · USD</span></div><button type="button" aria-label="Save NASDAQ 100" title="Save">☆</button></div>
+          <div class="ds-watch" data-symbol="EUR/INR"><div><b>EUR/INR</b><span>FX corridor</span></div><button type="button" aria-label="Save EUR/INR" title="Save">☆</button></div>
+        </div>
+        <p class="ds-local-note">Saved items remain in your browser using localStorage. This demo does not send them to a server.</p>
+      </div>
+      <div class="ds-w-card">
+        <h3>Investor Preference</h3>
+        <p>Remember the journey you want to see first when you return.</p>
+        <div class="ds-w-form"><input id="ds-focus-input" type="text" maxlength="80" placeholder="e.g. Global markets + FX visibility"><button type="button" id="ds-focus-save">Save</button></div>
+        <div class="ds-w-actions"><button type="button" class="primary" id="ds-install-btn">Install DhanaSeed</button><button type="button" id="ds-clear-workspace">Reset workspace</button></div>
+        <p id="ds-focus-status" class="ds-local-note">No preference saved yet.</p>
+      </div>
+      <div class="ds-w-card ds-notes">
+        <h3>My Research Notes</h3>
+        <p>Capture a thought while exploring the platform. Notes are browser-local in this demonstration.</p>
+        <div class="ds-w-form" style="grid-template-columns:1fr"><textarea id="ds-notes-input" maxlength="2000" placeholder="What would you like to investigate next?"></textarea></div>
+        <div class="ds-w-actions"><button type="button" class="primary" id="ds-notes-save">Save notes</button><button type="button" id="ds-notes-clear">Clear notes</button></div>
+        <p id="ds-notes-status" class="ds-local-note">No notes saved yet.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script id="ds-workspace-engine">
+(()=>{
+  const KEY='dhanaseed_workspace_v1';
+  const $=id=>document.getElementById(id);
+  const fallback={watch:[],focus:'',notes:''};
+  function load(){try{return {...fallback,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){return {...fallback}}}
+  function save(state){try{localStorage.setItem(KEY,JSON.stringify(state));$('ds-storage-status').textContent='Saved locally in this browser';return true}catch(e){$('ds-storage-status').textContent='Local storage unavailable';return false}}
+  let state=load();
+  const cards=[...document.querySelectorAll('#ds-watch-grid .ds-watch')];
+  function render(){cards.forEach(card=>{const symbol=card.dataset.symbol;const active=state.watch.includes(symbol);const btn=card.querySelector('button');btn.classList.toggle('active',active);btn.textContent=active?'★':'☆';btn.setAttribute('aria-label',(active?'Remove ':'Save ')+symbol);});if($('ds-focus-input'))$('ds-focus-input').value=state.focus||'';if($('ds-notes-input'))$('ds-notes-input').value=state.notes||'';if($('ds-focus-status'))$('ds-focus-status').textContent=state.focus?'Saved focus: '+state.focus:'No preference saved yet.';if($('ds-notes-status'))$('ds-notes-status').textContent=state.notes?'Notes saved locally · '+state.notes.length+' characters':'No notes saved yet.';}
+  cards.forEach(card=>card.querySelector('button')?.addEventListener('click',()=>{const s=card.dataset.symbol;state.watch=state.watch.includes(s)?state.watch.filter(x=>x!==s):[...state.watch,s];save(state);render();}));
+  $('ds-focus-save')?.addEventListener('click',()=>{state.focus=$('ds-focus-input').value.trim();save(state);render();});
+  $('ds-notes-save')?.addEventListener('click',()=>{state.notes=$('ds-notes-input').value.trim();save(state);render();});
+  $('ds-notes-clear')?.addEventListener('click',()=>{state.notes='';save(state);render();});
+  $('ds-clear-workspace')?.addEventListener('click',()=>{state={...fallback};try{localStorage.removeItem(KEY)}catch(e){}render();$('ds-storage-status').textContent='Workspace reset';});
+  render();
+
+  let deferredPrompt=null;
+  const install=$('ds-install-btn');
+  window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();deferredPrompt=e;install?.classList.add('show');});
+  install?.addEventListener('click',async()=>{if(!deferredPrompt){alert('Install is available from your browser menu when this site meets the browser installation requirements.');return;}deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;install.classList.remove('show');});
+  window.addEventListener('appinstalled',()=>{if(install)install.classList.remove('show');$('ds-storage-status').textContent='DhanaSeed installed · workspace ready';});
+  if('serviceWorker' in navigator && location.protocol==='https:'){navigator.serviceWorker.register('sw.js').catch(()=>{});}
+})();
 </script>
 
 </body>
